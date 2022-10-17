@@ -1,0 +1,4 @@
+include personal_manager/schema.sql
+graft personal_manager/static
+graft personal_manager/templates
+global-exclude *.pyc
