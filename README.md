@@ -6,5 +6,6 @@ Simple web application to manage your tasks, shoppings lists and more
  - Registration Notifications
  - Allow only strong passwords
  - Create Shopping list
+ - Basic FrontEnd 
 
 # Done Tasks
