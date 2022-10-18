@@ -32,9 +32,10 @@ def register():
 			except db.IntegrityError:
 				error = f"User {username} is already registered."
 			else:
+				flash('User successfully registered', 'success')
 				return redirect(url_for("auth.login"))
 
-		flash(error)
+		flash(error, 'danger')
 
 	return render_template('auth/register.html')
 
@@ -57,9 +58,10 @@ def login():
 		if error is None:
 			session.clear()
 			session['user_id'] = user['id']
+			flash('Login successfully', 'success')
 			return redirect(url_for('index'))
 
-		flash(error)
+		flash(error, 'danger')
 
 	return render_template('auth/login.html')
 
@@ -83,7 +85,7 @@ def login_required(view):
 	@functools.wraps(view)
 	def wrapped_view(**kwargs):
 		if g.user is None:
-			flash('Access denied')
+			flash('Access denied', 'danger')
 			return redirect(url_for('auth.login'))
 		return view(**kwargs)
 

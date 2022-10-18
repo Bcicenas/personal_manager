@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Shopping Lists{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="container shopping-list">
+    <div class="button-menu">
+      <a href="{{ url_for('shopping_list.create') }}" class="btn btn-success" role="button">Add New</a>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for shopping_list in shopping_lists %}
+          <tr scope="row">
+            <td>{{ shopping_list['id'] }}</td>
+            <td>{{ shopping_list['name'] }}</td>
+            <td><a href="{{ url_for('shopping_list.update', id=shopping_list['id']) }}">Edit</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+{% endblock %}
