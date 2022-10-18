@@ -9,5 +9,6 @@ Simple web application to manage your tasks, shoppings lists and more
  - Basic FrontEnd 
 
 # Work in Progress
- - Basic FrontEnd 
+ - Basic FrontEnd
+ - Create Shopping list
 # Done Tasks
