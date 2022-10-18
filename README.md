@@ -5,10 +5,10 @@ Simple web application to manage your tasks, shoppings lists and more
  - Registration using email
  - Registration Notifications
  - Allow only strong passwords
- - Add items to shoppings list
+ - Add items to Shopping List
 
 # Work in Progress
- - Add items to shoppings list
+ - Add items to Shopping List
 
 # Done Tasks
  - Basic FrontEnd
