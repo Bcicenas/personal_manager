@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Shopping Items{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+  <div class="container shopping-list">
+    <div class="button-menu">
+      <form action="{{ url_for('shopping_list.create_shopping_list_item', id=shopping_list['id']) }}" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <div class="input-group">
+            <input name="name" class="form-control" id="name" required>
+            <div class="input-group-append">
+              <input class="btn btn-success" type="submit" value="Add">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for shopping_item in shopping_items %}
+          <tr scope="row">
+            <td>{{ shopping_item['id'] }}</td>
+            <td>{{ shopping_item['name'] }}</td>
+            <td></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+{% endblock %}
+

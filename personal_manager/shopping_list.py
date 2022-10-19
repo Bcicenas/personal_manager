@@ -15,7 +15,9 @@ def list():
 	shopping_lists = db.execute(
 		'SELECT p.id, name, created_at, last_updated_at'
 		' FROM shopping_list p JOIN user u ON p.owner_id = u.id'
-		' ORDER BY created_at DESC'
+		' WHERE u.id = ?'
+		' ORDER BY created_at DESC',
+		(g.user['id'],)
 	).fetchall()
 	return render_template('shopping_list/list.html', shopping_lists=shopping_lists)
 
@@ -96,3 +98,42 @@ def delete(id):
 	db.commit()
 	flash('Shopping List was successfully deleted', 'success')
 	return redirect(url_for('shopping_list.list'))
+
+@bp.route('/shopping_items/<int:id>')
+@login_required
+def shopping_items(id):
+	shopping_list = get_shopping_id(id)
+	db = get_db()
+	shopping_items = db.execute(
+		'SELECT si.id, si.name'
+		' FROM shopping_item si JOIN shopping_list sl ON si.shopping_list_id = sl.id'
+		' WHERE sl.id = ?'
+		' ORDER BY si.created_at DESC',
+		(id, )
+	).fetchall()
+	return render_template('shopping_list/shopping_items.html', shopping_items=shopping_items, shopping_list=shopping_list)
+
+@bp.route('/create_shopping_list_item/<int:id>', methods=('POST',))
+@login_required
+def create_shopping_list_item(id):
+	get_shopping_id(id)
+	if request.method == 'POST':
+		name = request.form['name']
+		error = None
+
+		if not name:
+			error = 'Name is required.'
+
+		if error is not None:
+			flash(error, 'danger')
+		else:
+			db = get_db()
+			db.execute(
+				'INSERT INTO shopping_item (name, shopping_list_id)'
+				' VALUES ( ?, ?)',
+				(name, id)
+			)
+			db.commit()
+			flash('Shopping Item was successfully created', 'success')
+
+	return redirect(url_for('shopping_list.shopping_items', id=id))

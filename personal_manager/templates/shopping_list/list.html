@@ -15,6 +15,7 @@
           <th scope="col">ID</th>
           <th scope="col">Name</th>
           <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
 
@@ -24,6 +25,7 @@
             <td>{{ shopping_list['id'] }}</td>
             <td>{{ shopping_list['name'] }}</td>
             <td><a href="{{ url_for('shopping_list.update', id=shopping_list['id']) }}">Edit</a></td>
+            <td><a href="{{ url_for('shopping_list.shopping_items', id=shopping_list['id']) }}">Edit Items</a></td>
           </tr>
         {% endfor %}
       </tbody>
