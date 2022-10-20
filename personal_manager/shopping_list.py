@@ -52,7 +52,7 @@ def get_shopping_id(id, check_owner=True):
 	db = current_app.mysql.connection.cursor()
 	db.execute(
 		'''SELECT p.id, name, created_at, last_updated_at, owner_id
-		 FROM shopping_list AS p JOIN user u ON p.owner_id = u.id
+		 FROM shopping_list p JOIN user u ON p.owner_id = u.id
 		 WHERE p.id = %s''',
 		(id,)
 	)
@@ -147,3 +147,34 @@ def create_shopping_list_item(id):
 			flash('Shopping Item was successfully created', 'success')
 
 	return redirect(url_for('shopping_list.shopping_items', id=id))
+
+@bp.route('/delete_shopping_list_item/<int:id>', methods=('POST',))
+@login_required
+def delete_shopping_list_item(id):
+	get_shopping_item_id(id)
+	db_conn = current_app.mysql.connection
+	db = db_conn.cursor()
+	db.execute('''DELETE FROM shopping_item WHERE id = %s''', (id,))
+	db_conn.commit()
+	db.close()
+	flash('Shopping Item was successfully deleted', 'success')
+	return redirect(url_for('shopping_list.shopping_items', id=request.form['shopping_list_id']))
+
+def get_shopping_item_id(id, check_owner=True):
+	db = current_app.mysql.connection.cursor()
+	db.execute(
+		'''SELECT si.id, sl.owner_id
+		 FROM shopping_item si 
+		 JOIN shopping_list sl ON sl.id = si.shopping_list_id
+		 JOIN user u ON u.id = sl.owner_id
+		 WHERE si.id = %s''',
+		(id,)
+	)
+	shopping_list = db.fetchone()
+	if shopping_list is None:
+		abort(404, f"Shopping_item id {id} doesn't exist.")
+
+	if check_owner and shopping_list['owner_id'] != g.user['id']:
+		abort(403)
+
+	return shopping_list

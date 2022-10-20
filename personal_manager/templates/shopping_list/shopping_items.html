@@ -34,7 +34,12 @@
           <tr scope="row">
             <td>{{ shopping_item['id'] }}</td>
             <td>{{ shopping_item['name'] }}</td>
-            <td></td>
+            <td>
+              <form action="{{ url_for('shopping_list.delete_shopping_list_item', id=shopping_item['id']) }}" method="post">
+                <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                 <input type="hidden" id="shopping_list_id" name="shopping_list_id" value="{{ shopping_list['id'] }}">
+              </form>              
+            </td>
           </tr>
         {% endfor %}
       </tbody>
