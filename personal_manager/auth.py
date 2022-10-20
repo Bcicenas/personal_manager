@@ -4,6 +4,7 @@ from flask import (
 	Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app
 )
 from werkzeug.security import check_password_hash, generate_password_hash
+from password_strength import PasswordPolicy
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -20,6 +21,21 @@ def register():
 			error = 'Username is required.'
 		elif not password:
 			error = 'Password is required.'
+
+		policy = PasswordPolicy.from_names(
+			length=8,
+			uppercase=1,
+			numbers=1,
+			special=1,
+		)
+
+		if error is None and password and policy.test(password):
+			error = '''Please choose a stronger password.
+				<br>Must contain at least 8 characters
+				<br>Must contain at least 1 uppercase letter
+				<br>Must contain at least 1 uppercase letter
+				<br>Must contain at least 1 number
+				<br>Must contain at least 1 special character'''
 
 		if error is None:
 			try:
