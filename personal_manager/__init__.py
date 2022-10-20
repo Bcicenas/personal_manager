@@ -1,15 +1,21 @@
 import os
 
 from flask import Flask
-
+from flask_mysqldb import MySQL
 
 def create_app(test_config=None):
 	# create and configure the app
 	app = Flask(__name__, instance_relative_config=True)
 	app.config.from_mapping(
 		SECRET_KEY='dev',
-		DATABASE=os.path.join(app.instance_path, 'personal_manager.sqlite'),
 	)
+	app.config['MYSQL_HOST'] = 'localhost'
+	app.config['MYSQL_USER'] = 'dev_user'
+	app.config['MYSQL_PASSWORD'] = 'D3v_user'
+	app.config['MYSQL_DB'] = 'personal_manager'
+	app.config["MYSQL_CURSORCLASS"] = 'DictCursor'
+	
+	app.mysql = MySQL(app)
 
 	if test_config is None:
 		# load the instance config, if it exists, when not testing
@@ -23,9 +29,6 @@ def create_app(test_config=None):
 		os.makedirs(app.instance_path)
 	except OSError:
 		pass
-
-	from . import db
-	db.init_app(app)
 
 	from . import auth
 	app.register_blueprint(auth.bp)

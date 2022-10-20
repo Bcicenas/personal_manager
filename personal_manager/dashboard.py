@@ -4,7 +4,6 @@ from flask import (
 from werkzeug.exceptions import abort
 
 from personal_manager.auth import login_required
-from personal_manager.db import get_db
 
 bp = Blueprint('dashboard', __name__)
 
