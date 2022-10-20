@@ -8,7 +8,6 @@ Simple web application to manage your tasks, shoppings lists and more
  - Shopping lists in Dashboard
 
 # Work in Progress
- - Allow only strong passwords
  - Shopping lists in Dashboard
 
 # Done Tasks
@@ -17,3 +16,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - Add items to Shopping List
  - Migrate to MySQL database
  - Remove items from Shopping List
+ - Allow only strong passwords
