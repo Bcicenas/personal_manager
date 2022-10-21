@@ -1,7 +1,9 @@
 import os
-
+from datetime import datetime
+from dateutil import tz
 from flask import Flask
-from flask_mysqldb import MySQL
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
 
 def create_app(test_config=None):
 	# create and configure the app
@@ -9,13 +11,11 @@ def create_app(test_config=None):
 	app.config.from_mapping(
 		SECRET_KEY='dev',
 	)
-	app.config['MYSQL_HOST'] = 'localhost'
-	app.config['MYSQL_USER'] = 'dev_user'
-	app.config['MYSQL_PASSWORD'] = 'D3v_user'
-	app.config['MYSQL_DB'] = 'personal_manager'
-	app.config["MYSQL_CURSORCLASS"] = 'DictCursor'
-	
-	app.mysql = MySQL(app)
+	app.config['UTC-TZ']  = tz.tzutc()
+	app.config['LOCAL-TZ'] = tz.tzlocal()
+	app.config['DATE-FORMAT'] = "%Y-%m-%d %H:%M:%S"
+	app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://dev_user:D3v_user@localhost:3306/personal_manager"
+	db.init_app(app)
 
 	if test_config is None:
 		# load the instance config, if it exists, when not testing
@@ -39,7 +39,9 @@ def create_app(test_config=None):
 	from . import shopping_list
 	app.register_blueprint(shopping_list.bp)
 
-
+	from . import models
+	with app.app_context():
+		db.create_all()
 
 	app.add_url_rule('/', endpoint='index')
 	

@@ -7,7 +7,8 @@ setup(
 	include_package_data=True,
 	install_requires=[
 		'flask',
-		'flask-mysqldb',
-		'password_strength'
+		'Flask-SQLAlchemy',
+		'password_strength',
+		'dateutils'
 	],
 )

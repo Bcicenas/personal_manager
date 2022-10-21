@@ -22,10 +22,10 @@
       <tbody>
         {% for shopping_list in shopping_lists %}
           <tr scope="row">
-            <td>{{ shopping_list['id'] }}</td>
-            <td>{{ shopping_list['name'] }}</td>
-            <td><a href="{{ url_for('shopping_list.update', id=shopping_list['id']) }}">Edit</a></td>
-            <td><a href="{{ url_for('shopping_list.shopping_items', id=shopping_list['id']) }}">Edit Items</a></td>
+            <td>{{ shopping_list[0].id }}</td>
+            <td>{{ shopping_list[0].name }}</td>
+            <td><a href="{{ url_for('shopping_list.update', id=shopping_list[0].id) }}">Edit</a></td>
+            <td><a href="{{ url_for('shopping_list.shopping_items', id=shopping_list[0].id) }}">Edit Items</a></td>
           </tr>
         {% endfor %}
       </tbody>

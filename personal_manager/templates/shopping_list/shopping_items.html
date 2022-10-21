@@ -8,7 +8,7 @@
 {% block content %}
   <div class="container shopping-list">
     <div class="button-menu">
-      <form action="{{ url_for('shopping_list.create_shopping_list_item', id=shopping_list['id']) }}" method="post">
+      <form action="{{ url_for('shopping_list.create_shopping_list_item', id=shopping_list.id) }}" method="post">
         <div class="form-group">
           <label for="name">Name</label>
           <div class="input-group">
@@ -32,12 +32,12 @@
       <tbody>
         {% for shopping_item in shopping_items %}
           <tr scope="row">
-            <td>{{ shopping_item['id'] }}</td>
-            <td>{{ shopping_item['name'] }}</td>
+            <td>{{ shopping_item.id }}</td>
+            <td>{{ shopping_item.name }}</td>
             <td>
-              <form action="{{ url_for('shopping_list.delete_shopping_list_item', id=shopping_item['id']) }}" method="post">
+              <form action="{{ url_for('shopping_list.delete_shopping_list_item', id=shopping_item.id) }}" method="post">
                 <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
-                 <input type="hidden" id="shopping_list_id" name="shopping_list_id" value="{{ shopping_list['id'] }}">
+                 <input type="hidden" id="shopping_list_id" name="shopping_list_id" value="{{ shopping_item.shopping_list.id }}">
               </form>              
             </td>
           </tr>

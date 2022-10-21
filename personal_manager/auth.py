@@ -3,6 +3,9 @@ import functools
 from flask import (
 	Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app
 )
+from . import db
+from .models import User
+
 from werkzeug.security import check_password_hash, generate_password_hash
 from password_strength import PasswordPolicy
 
@@ -12,9 +15,8 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 def register():
 	if request.method == 'POST':
 		username = request.form['username']
+		email = request.form['email']
 		password = request.form['password']
-		db_conn = current_app.mysql.connection
-		db = db_conn.cursor()
 		error = None
 
 		if not username:
@@ -39,12 +41,9 @@ def register():
 
 		if error is None:
 			try:
-				db.execute(
-					'''INSERT INTO user (username, password) VALUES (%s, %s)''',
-					(username, generate_password_hash(password)),
-				)
-				db_conn.commit()
-				db.close()
+				user = User(username=username,email=email, password=generate_password_hash(password))
+				db.session.add(user)
+				db.session.commit()				
 			except db.IntegrityError:
 				error = f"User {username} is already registered."
 			else:
@@ -60,22 +59,17 @@ def login():
 	if request.method == 'POST':
 		username = request.form['username']
 		password = request.form['password']
-		db = current_app.mysql.connection.cursor()
 		error = None
-		db.execute(
-			'''SELECT * FROM user WHERE username = %s''', (username,)
-		)
-		user = db.fetchone()
-		db.close()
+		user = db.session.execute(db.select(User).filter_by(username=username)).first()[0]
 
 		if user is None:
 			error = 'Incorrect username.'
-		elif not check_password_hash(user['password'], password):
+		elif not check_password_hash(user.password, password):
 			error = 'Incorrect password.'
 
 		if error is None:
 			session.clear()
-			session['user_id'] = user['id']
+			session['user_id'] = user.id
 			flash('Login successfully', 'success')
 			return redirect(url_for('index'))
 
@@ -90,12 +84,7 @@ def load_logged_in_user():
 	if user_id is None:
 		g.user = None
 	else:
-		db = current_app.mysql.connection.cursor()
-		db.execute(
-			'''SELECT * FROM user WHERE id = %s''', (user_id,)
-		)
-		g.user = db.fetchone()
-		db.close
+		g.user = db.session.execute(db.select(User).filter_by(id=user_id)).first()[0]
 
 @bp.route('/logout')
 def logout():

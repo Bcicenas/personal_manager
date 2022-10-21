@@ -8,7 +8,7 @@
   <div class="container shopping-list-form">
     {% include 'shopping_list/form.html' %}
     <hr>
-    <form action="{{ url_for('shopping_list.delete', id=shopping_list['id']) }}" method="post">
+    <form action="{{ url_for('shopping_list.delete', id=shopping_list.id) }}" method="post">
       <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
     </form>
   </div>

@@ -2,13 +2,11 @@
 Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
- - Registration using email
- - Registration Notifications
- - Allow only strong passwords
- - Shopping lists in Dashboard
+
 
 # Work in Progress
- - Shopping lists in Dashboard
+ - Registration using email
+ - Registration Notifications
 
 # Done Tasks
  - Basic FrontEnd
@@ -17,3 +15,5 @@ Simple web application to manage your tasks, shoppings lists and more
  - Migrate to MySQL database
  - Remove items from Shopping List
  - Allow only strong passwords
+ - Rework with SQLalchemy
+ - Shopping lists in Dashboard
