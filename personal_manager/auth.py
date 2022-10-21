@@ -6,49 +6,26 @@ from flask import (
 from . import db
 from .models import User
 
-from werkzeug.security import check_password_hash, generate_password_hash
-from password_strength import PasswordPolicy
+from werkzeug.security import check_password_hash
+from sqlalchemy.exc import IntegrityError
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
 	if request.method == 'POST':
-		username = request.form['username']
-		email = request.form['email']
-		password = request.form['password']
 		error = None
-
-		if not username:
-			error = 'Username is required.'
-		elif not password:
-			error = 'Password is required.'
-
-		policy = PasswordPolicy.from_names(
-			length=8,
-			uppercase=1,
-			numbers=1,
-			special=1,
-		)
-
-		if error is None and password and policy.test(password):
-			error = '''Please choose a stronger password.
-				<br>Must contain at least 8 characters
-				<br>Must contain at least 1 uppercase letter
-				<br>Must contain at least 1 uppercase letter
-				<br>Must contain at least 1 number
-				<br>Must contain at least 1 special character'''
-
-		if error is None:
-			try:
-				user = User(username=username,email=email, password=generate_password_hash(password))
-				db.session.add(user)
-				db.session.commit()				
-			except db.IntegrityError:
-				error = f"User {username} is already registered."
-			else:
-				flash('User successfully registered', 'success')
-				return redirect(url_for("auth.login"))
+		try:
+			user = User(username=request.form['username'], email=request.form['email'], password=request.form['password'])
+			db.session.add(user)
+			db.session.commit()				
+		except ValueError as e:
+			error = f"{e}"
+		except IntegrityError as e:
+			error = f"Username or Email already exists"
+		else:
+			flash('User successfully registered', 'success')
+			return redirect(url_for("auth.login"))
 
 		flash(error, 'danger')
 

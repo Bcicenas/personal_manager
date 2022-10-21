@@ -7,6 +7,9 @@ from werkzeug.exceptions import abort
 from personal_manager.auth import login_required
 from .models import User, ShoppingList, ShoppingItem
 from . import db
+from sqlalchemy.exc import IntegrityError
+import logging
+
 bp = Blueprint('shopping_list', __name__, url_prefix='/shopping_lists')
 
 @bp.route('/list')
@@ -21,20 +24,22 @@ def list():
 @login_required
 def create():
 	if request.method == 'POST':
-		name = request.form['name']
 		error = None
 
-		if not name:
-			error = 'Name is required.'
-
-		if error is not None:
-			flash(error, 'danger')
-		else:
+		try:
 			shopping_list = ShoppingList(name=request.form['name'], user_id=g.user.id)
 			db.session.add(shopping_list)
 			db.session.commit()	
+		except ValueError as e:
+			error = f"{e}"
+		except IntegrityError as e:
+			error = f"Shopping List was not created. Database Error"
+		else:
 			flash('Shopping List was successfully created', 'success')
 			return redirect(url_for('shopping_list.list'))
+
+		if error is not None:
+			flash(error, 'danger')
 
 	return render_template('shopping_list/create.html')
 
@@ -54,20 +59,20 @@ def update(id):
 	shopping_list = get_shopping_id(id)
 
 	if request.method == 'POST':
-		name = request.form['name']
-		error = None
-
-		if not name:
-			error = 'Name is required.'
-
-		if error is not None:
-			flash(error, 'danger')
-		else:
+		try:
 			shopping_list.name = request.form['name']
 			shopping_list.last_updated_at = datetime.utcnow()
 			db.session.commit()	
+		except ValueError as e:
+			error = f"{e}"
+		except IntegrityError as e:
+			error = f"Shopping List was not updated. Database Error"
+		else:
 			flash('Shopping List was successfully updated', 'success')
 			return redirect(url_for('shopping_list.list'))
+
+		if error is not None:
+			flash(error, 'danger')
 
 	return render_template('shopping_list/update.html', shopping_list=shopping_list)
 
@@ -75,9 +80,23 @@ def update(id):
 @login_required
 def delete(id):
 	shopping_list = get_shopping_id(id)
-	db.session.delete(shopping_list)
-	db.session.commit()
-	flash('Shopping List was successfully deleted', 'success')
+	if request.method == 'POST':
+		error = None
+		try:
+			db.session.delete(shopping_list)
+			db.session.commit()
+		except ValueError as e:
+			error = f"{e}"
+		except IntegrityError as e:
+			error = f"Shopping List was not deleted. Database Error"
+			current_app.logger.warning(e)
+		else:
+			flash('Shopping List was successfully deleted', 'success')
+
+		if error is not None:
+			flash(error, 'danger')
+
+	
 	return redirect(url_for('shopping_list.list'))
 
 @bp.route('/shopping_items/<int:id>')
@@ -91,19 +110,20 @@ def shopping_items(id):
 def create_shopping_list_item(id):
 	get_shopping_id(id)
 	if request.method == 'POST':
-		name = request.form['name']
 		error = None
-
-		if not name:
-			error = 'Name is required.'
+		try:
+			shopping_item = ShoppingItem(name=request.form['name'], shopping_list_id=id)
+			db.session.add(shopping_item)
+			db.session.commit()		
+		except ValueError as e:
+			error = f"{e}"
+		except IntegrityError as e:
+			error = f"Shopping Item was not created. Database Error"
+		else:
+			flash('Shopping Item was successfully created', 'success')
 
 		if error is not None:
 			flash(error, 'danger')
-		else:
-			shopping_item = ShoppingItem(name=request.form['name'], shopping_list_id=id)
-			db.session.add(shopping_item)
-			db.session.commit()				
-			flash('Shopping Item was successfully created', 'success')
 
 	return redirect(url_for('shopping_list.shopping_items', id=id))
 
@@ -111,9 +131,20 @@ def create_shopping_list_item(id):
 @login_required
 def delete_shopping_list_item(id):
 	shopping_item = get_shopping_item_id(id)
-	db.session.delete(shopping_item)
-	db.session.commit()	
-	flash('Shopping Item was successfully deleted', 'success')
+	if request.method == 'POST':
+		try:
+			db.session.delete(shopping_item)
+			db.session.commit()	
+		except ValueError as e:
+			error = f"{e}"
+		except IntegrityError as e:
+			error = f"Shopping Item was not deleted. Database Error"
+		else:
+			flash('Shopping Item was successfully deleted', 'success')
+
+		if error is not None:
+			flash(error, 'danger')
+	
 	return redirect(url_for('shopping_list.shopping_items', id=request.form['shopping_list_id']))
 
 def get_shopping_item_id(id, check_owner=True):
