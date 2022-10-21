@@ -17,3 +17,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - Allow only strong passwords
  - Rework with SQLalchemy
  - Shopping lists in Dashboard
+ - Validations moved to models.py
