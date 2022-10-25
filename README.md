@@ -6,6 +6,7 @@ Simple web application to manage your tasks, shoppings lists and more
  - See tasks in calendar
 
 # Work in Progress
+ - Create task model
  - Create new task
  - Update task
  - Delete task

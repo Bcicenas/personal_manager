@@ -9,6 +9,7 @@ from password_strength import PasswordPolicy
 from werkzeug.security import generate_password_hash
 from flask_mail import Message
 
+# User model
 class User(db.Model):
 	__tablename__ = "users"
 	id = db.Column(db.Integer, primary_key=True)
@@ -104,6 +105,28 @@ class ShoppingItem(db.Model):
 	last_updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
 	
 	shopping_list = db.relationship("ShoppingList", back_populates="shopping_items")
+
+	@validates("name")
+	def validate_name(self, key, name):
+		if not name:
+			raise ValueError('Name is required.')
+
+		return name
+
+
+class Task(db.Model):
+	__tablename__ = "tasks"
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(255), nullable=False)
+	description = db.Column(db.Text, nullable=True)
+	# priority - 0 low, 1 - medium, 2 - high 
+	priority = db.Column(db.SmallInteger, default=0)
+	user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+	finished = db.Column(db.Boolean(255), default=False)
+	created_at = db.Column(db.DateTime(), default=datetime.utcnow)
+	last_updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
+	till_date = db.Column(db.DateTime(), default=datetime.utcnow)
+	
 
 	@validates("name")
 	def validate_name(self, key, name):
