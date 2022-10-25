@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Task{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% include 'task/form.html' %}
+{% endblock %}

@@ -11,6 +11,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             {% if g.user %}
+              <a class="nav-item nav-link" href="{{ url_for('task.list') }}">Tasks</a>
               <a class="nav-item nav-link" href="{{ url_for('shopping_list.list') }}">Shopping Lists</a>
               <span class="navbar-text">{{ g.user['username'] }}</span>
               <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Log Out</a>

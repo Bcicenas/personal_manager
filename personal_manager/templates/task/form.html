@@ -1,0 +1,39 @@
+<form method="post">
+  <div class="form-group">
+    <label for="name">Name</label>
+    {% if task %}
+      <input name="name" class="form-control" id="name" value="{{ request.form['name'] or task.name }}" required>
+  </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="4" cols="50">{{ request.form['description'] or task.description }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="priority">Priority</label>
+        <select class="form-control" id="priority" name="priority">
+          {% for item in [{'value': 0, 'name': 'Low'}, {'value': 1, 'name': 'Medium'}, {'value': 2, 'name': 'High'}] %}
+            <option value="{{ item['value'] }}" {% if item['value'] ==  request.form['priority'] or item['value'] == task.priority %} selected="selected" {% endif %} > {{ item['name'] }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <a class="btn btn-dark" href="{{ url_for('task.list') }}" onclick="return confirm('Are you sure?');">Cancel</a>
+      <input class="btn btn-primary" type="submit" value="Save">
+    {% else %}
+      <input name="name" class="form-control" id="name" value="{{ request.form['name'] }}" required>
+  </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="4" cols="50">{{ request.form['description'] }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="priority">Priority</label>
+        <select class="form-control" id="priority" name="priority">
+          {% for item in [{'value': 0, 'name': 'Low'}, {'value': 1, 'name': 'Medium'}, {'value': 2, 'name': 'High'}] %}
+            <option value="{{ item['value'] }}" {% if item['value'] ==  request.form['priority'] %} selected="selected" {% endif %}> {{ item['name'] }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <a class="btn btn-dark" href="{{ url_for('task.list') }}" onclick="return confirm('Are you sure?');">Cancel</a>
+      <input class="btn btn-success" type="submit" value="Create">
+    {% endif %}
+</form>
