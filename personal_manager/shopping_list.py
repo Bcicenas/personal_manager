@@ -16,7 +16,7 @@ bp = Blueprint('shopping_list', __name__, url_prefix='/shopping_lists')
 @login_required
 def list():
 	shopping_lists = db.session.execute(
-		db.select(ShoppingList).filter_by(user_id=g.user.id).order_by(ShoppingList.created_at)
+		db.select(ShoppingList).filter_by(user_id=g.user.id).order_by(ShoppingList.created_at.desc())
 	).fetchall()
 	return render_template('shopping_list/list.html', shopping_lists=shopping_lists)
 

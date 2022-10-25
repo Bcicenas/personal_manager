@@ -16,6 +16,7 @@
           <th scope="col">Name</th>
           <th scope="col"></th>
           <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
 
@@ -26,6 +27,11 @@
             <td>{{ shopping_list[0].name }}</td>
             <td><a href="{{ url_for('shopping_list.update', id=shopping_list[0].id) }}">Edit</a></td>
             <td><a href="{{ url_for('shopping_list.shopping_items', id=shopping_list[0].id) }}">Edit Items</a></td>
+            <td>
+              <form action="{{ url_for('shopping_list.delete', id=shopping_list[0].id) }}" method="post">
+                <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+              </form>
+            </td>
           </tr>
         {% endfor %}
       </tbody>

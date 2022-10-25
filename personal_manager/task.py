@@ -15,7 +15,7 @@ bp = Blueprint('task', __name__, url_prefix='/tasks')
 @login_required
 def list():
 	tasks = db.session.execute(
-		db.select(Task).filter_by(user_id=g.user.id).order_by(Task.created_at)
+		db.select(Task).filter_by(user_id=g.user.id).order_by(Task.created_at.desc())
 	).fetchall()
 	return render_template('task/list.html', tasks=tasks)
 

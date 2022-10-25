@@ -8,6 +8,7 @@ Simple web application to manage your tasks, shoppings lists and more
  - Add tasks in dashboard
 
 # Work in Progress
+ - Write tests
  - Change task deadline
 
 # Done Tasks
@@ -27,3 +28,7 @@ Simple web application to manage your tasks, shoppings lists and more
  - Create new task
  - Update task
  - Delete task
+ - Show recent 10 items
+ - Dashboard items limit to 10
+ - Add delete button to task list
+ - Add delete button to shopping_list list
