@@ -4,12 +4,11 @@ Simple web application to manage your tasks, shoppings lists and more
 # To do list
  - Tasks
  - See tasks in calendar
+ - Change task deadline
+ - Add tasks in dashboard
 
 # Work in Progress
- - Create task model
- - Create new task
- - Update task
- - Delete task
+ - Change task deadline
 
 # Done Tasks
  - Basic FrontEnd
@@ -24,3 +23,7 @@ Simple web application to manage your tasks, shoppings lists and more
  - Registration using email
  - Registration Notifications
  - Rewrite dashboard in accordion
+ - Create task model
+ - Create new task
+ - Update task
+ - Delete task
