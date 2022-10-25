@@ -2,12 +2,12 @@
 Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
-
+ - Tasks
+ - Load more
 
 # Work in Progress
- - Registration using email
- - Registration Notifications
-
+ - Load more
+ 
 # Done Tasks
  - Basic FrontEnd
  - Create Shopping list
@@ -18,3 +18,5 @@ Simple web application to manage your tasks, shoppings lists and more
  - Rework with SQLalchemy
  - Shopping lists in Dashboard
  - Validations moved to models.py
+ - Registration using email
+ - Registration Notifications
