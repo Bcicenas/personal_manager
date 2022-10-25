@@ -6,29 +6,45 @@
 
 {% block content %}
   <div class="container dashboard">
-    <h2>Shopping Lists</h2>
-    <hr>
-      {% for shopping_list in shopping_lists %}
-        {% if loop.first or (loop.index - 1) % 3 == 0 %}
-          <div class="row mt-1">
-        {% endif %}
-          <div class="col-md-4">
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <h2>Shopping Lists</h2>
+        <hr>
+        <div class="accordion">
+          {% for shopping_list in shopping_lists %}
             <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">{{ shopping_list[0].name }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Created {{ shopping_list[0].created_at_in_local_tz }}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">Last Updated {{ shopping_list[0].last_updated_at_in_local_tz }}</h6>
-                <p class="card-text">
-                  {% for shopping_item in shopping_list[0].shopping_items %}
-                    {{ shopping_item.name }}<br/>
-                  {% endfor %}
-                </p>
+              <div class="card-header" id="shopping_list_heading{{ shopping_list[0].id }}">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#shopping_list{{ shopping_list[0].id }}" aria-expanded="true" aria-controls="shopping_list{{ shopping_list[0].id }}">
+                    {{ shopping_list[0].name }}
+                  </button>
+                </h5>
+              </div>
+              <div id="shopping_list{{ shopping_list[0].id }}" class="collapse {{ 'show' if loop.first else '' }}" aria-labelledby="shopping_list_heading{{ shopping_list[0].id }}" data-parent="#accordion">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Created {{ shopping_list[0].created_at_in_local_tz }}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Last Updated {{ shopping_list[0].last_updated_at_in_local_tz }}</h6>
+                  <ul>
+                    {% for shopping_item in shopping_list[0].shopping_items %}
+                      <li>{{ shopping_item.name }}</li>
+                    {% endfor %}
+                  </ul>
+                  <hr>
+                  <a class="btn btn-primary" href="{{ url_for('shopping_list.update', id=shopping_list[0].id) }}">Edit</a>
+                  <a class="btn btn-primary" href="{{ url_for('shopping_list.shopping_items', id=shopping_list[0].id) }}">Edit Items</a>
+                  <form class="d-inline-block" action="{{ url_for('shopping_list.delete', id=shopping_list[0].id) }}" method="post">
+                    <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-        {% if loop.last or loop.index % 3 == 0 %}
-          </div>
-        {% endif %}
-      {% endfor %}
+          {% endfor %}          
+        </div>
+      </div>
+    </div>
+
   </div>
 {% endblock %}
+
+
+

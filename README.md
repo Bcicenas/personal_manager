@@ -3,11 +3,11 @@ Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
  - Tasks
- - Load more
+ - Rewrite dashboard in accordion
 
 # Work in Progress
- - Load more
- 
+ - Rewrite dashboard in accordion
+
 # Done Tasks
  - Basic FrontEnd
  - Create Shopping list
