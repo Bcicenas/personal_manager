@@ -28,8 +28,6 @@ def create_app(test_config=None):
 	app.config['MAIL_USE_TLS'] = True
 	app.config['EMAIL_CONFIRM_SALT'] = 'dev_salt'
 
-	db.init_app(app)
-	mail.init_app(app)
 
 	if test_config is None:
 		# load the instance config, if it exists, when not testing
@@ -37,6 +35,9 @@ def create_app(test_config=None):
 	else:
 		# load the test config if passed in
 		app.config.from_mapping(test_config)
+
+	db.init_app(app)
+	mail.init_app(app)
 
 	# ensure the instance folder exists
 	try:

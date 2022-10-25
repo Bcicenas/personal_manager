@@ -1,30 +1,41 @@
 import pytest
 from flask import g, session
-from personal_manager.db import get_db
+from itsdangerous import URLSafeTimedSerializer
+import logging
 
+def test_load_db(load_db):
+	assert load_db == 'db_loaded'
 
 def test_register(client, app):
 	assert client.get('/auth/register').status_code == 200
 	response = client.post(
-		'/auth/register', data={'username': 'a', 'password': 'a'}
+		'/auth/register', data={'username': 'admin2', 'email': 'test@example.com', 'password': '@dMin21_'}
 	)
-	assert response.headers["Location"] == "/auth/login"
+	assert response.headers["Location"] == '/auth/login'
+	response = client.get('/auth/login', follow_redirects=True)
+	assert b'User successfully registered' in response.data
 
+
+def test_confirm_email(client, app):
 	with app.app_context():
-		assert get_db().execute(
-			"SELECT * FROM user WHERE username = 'a'",
-		).fetchone() is not None
+		ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
+		token = ts.dumps('test@example.com', salt=app.config['EMAIL_CONFIRM_SALT'])
+		response = client.get('/auth/confirm/' + token, follow_redirects=True)
+		assert b'Email was confirmed successfully' in response.data
 
 
-@pytest.mark.parametrize(('username', 'password', 'message'), (
-	('', '', b'Username is required.'),
-	('a', '', b'Password is required.'),
-	('test', 'test', b'already registered'),
+@pytest.mark.parametrize(('username', 'email', 'password', 'message'), (
+	('', '', '', b'Username is required.'),
+	('a', 'test', '', b'Email is invalid'),
+	('a', 'test@email.com', '', b'Password is required.'),
+	('a', 'test@email.com', 'a', b'Please choose a stronger password.'),
+	('admin', 'test@a.com', 'A@sdas123_', b'Username or Email already exists'),
+	('test_user', 'user@email.com', 'A@sdas124_', b'Username or Email already exists'),
 ))
-def test_register_validate_input(client, username, password, message):
+def test_register_validate_input(client, username, email, password, message):
 	response = client.post(
 		'/auth/register',
-		data={'username': username, 'password': password}
+		data={'username': username, 'email': email, 'password': password}
 	)
 	assert message in response.data
 
@@ -36,12 +47,19 @@ def test_login(client, auth):
 	with client:
 		client.get('/')
 		assert session['user_id'] == 1
-		assert g.user['username'] == 'test'
+		assert g.user.username == 'admin'
 
 
 @pytest.mark.parametrize(('username', 'password', 'message'), (
-	('a', 'test', b'Incorrect username.'),
-	('test', 'a', b'Incorrect password.'),
+	('test_user', 'A@sdas124_', b'Email is not confirmed'),
+))
+def test_login_email_not_confirmed(auth, username, password, message):
+	response = auth.login(username, password)
+	assert message in response.data
+
+@pytest.mark.parametrize(('username', 'password', 'message'), (
+	('admin4', '', b'Incorrect username.'),
+	('admin', 'admin4', b'Incorrect password.'),
 ))
 def test_login_validate_input(auth, username, password, message):
 	response = auth.login(username, password)
@@ -53,3 +71,4 @@ def test_logout(client, auth):
 	with client:
 		auth.logout()
 		assert 'user_id' not in session
+

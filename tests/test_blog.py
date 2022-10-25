@@ -1,5 +1,5 @@
-import pytest
-from personal_manager.db import get_db
+# import pytest
+# from personal_manager.db import get_db
 
 
 # def test_index(client, auth):

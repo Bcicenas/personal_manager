@@ -21,7 +21,7 @@ def register():
 			db.session.add(user)
 			db.session.commit()
 			ts = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
-			user.send_email_confirmation(ts)				
+			user.send_email_confirmation(ts)			
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
@@ -40,18 +40,18 @@ def login():
 		username = request.form['username']
 		password = request.form['password']
 		error = None
-		user = db.session.execute(db.select(User).filter_by(username=username)).first()[0]
+		user = db.session.execute(db.select(User).filter_by(username=username)).first()
 
 		if user is None:
 			error = 'Incorrect username.'
-		elif not user.email_confirmed:
+		elif not user[0].email_confirmed:
 			error = 'Email is not confirmed'
-		elif not check_password_hash(user.password, password):
+		elif not check_password_hash(user[0].password, password):
 			error = 'Incorrect password.'
 
 		if error is None:
 			session.clear()
-			session['user_id'] = user.id
+			session['user_id'] = user[0].id
 			flash('Login successfully', 'success')
 			return redirect(url_for('index'))
 
@@ -61,6 +61,7 @@ def login():
 
 @bp.route('/confirm/<token>')
 def confirm_email(token):
+	print(token)
 	ts = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
 	try:
 		email = ts.loads(token, salt=current_app.config['EMAIL_CONFIRM_SALT'], max_age=86400)
