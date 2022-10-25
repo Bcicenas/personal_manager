@@ -3,7 +3,10 @@ from datetime import datetime
 from dateutil import tz
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail
+
 db = SQLAlchemy()
+mail = Mail()
 
 def create_app(test_config=None):
 	# create and configure the app
@@ -15,7 +18,18 @@ def create_app(test_config=None):
 	app.config['LOCAL-TZ'] = tz.tzlocal()
 	app.config['DATE-FORMAT'] = "%Y-%m-%d %H:%M:%S"
 	app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://dev_user:D3v_user@localhost:3306/personal_manager"
+	
+	# mail settings
+	app.config['MAIL_SERVER'] = os.getenv('EMAIL_HOST')
+	app.config['MAIL_PORT'] = os.getenv('EMAIL_PORT')
+	app.config['MAIL_USERNAME'] = os.getenv('EMAIL_USERNAME')
+	app.config['MAIL_PASSWORD'] = os.getenv('EMAIL_PASSWORD')
+	app.config['MAIL_DEFAULT_SENDER'] = 'confirmation@personal_manager.com'
+	app.config['MAIL_USE_TLS'] = True
+	app.config['EMAIL_CONFIRM_SALT'] = 'dev_salt'
+
 	db.init_app(app)
+	mail.init_app(app)
 
 	if test_config is None:
 		# load the instance config, if it exists, when not testing

@@ -1,17 +1,21 @@
 from . import db
+from . import mail
 from datetime import datetime
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import validates
-from flask import current_app
+from flask import current_app, render_template, url_for
 import re
 from password_strength import PasswordPolicy
 from werkzeug.security import generate_password_hash
+from flask_mail import Message
+
 class User(db.Model):
 	__tablename__ = "users"
 	id = db.Column(db.Integer, primary_key=True)
 	username = db.Column(db.String(255), unique=True, nullable=False)
 	email = db.Column(db.String(255), unique=True, nullable=False)
 	password = db.Column(db.String(255), nullable=False)
+	email_confirmed = db.Column(db.Boolean(255), default=False)
 	shopping_lists = db.relationship("ShoppingList", back_populates="user", cascade="all, delete")
 
 	@validates("username")
@@ -49,6 +53,20 @@ class User(db.Model):
 				<br>Must contain at least 1 special character''')
 			
 		return generate_password_hash(password)
+
+
+	def send_email_confirmation(self, ts):
+		email_msg = Message()
+		email_msg.subject = "Confirm your email"
+		email_msg.add_recipient(self.email)
+
+		token = ts.dumps(self.email, salt=current_app.config['EMAIL_CONFIRM_SALT'])
+		confirm_url = url_for('auth.confirm_email', token=token,_external=True)
+
+		email_msg.html = render_template('auth/activate.html', confirm_url=confirm_url)
+
+		mail.send(email_msg)
+		
 
 class ShoppingList(db.Model):
 	__tablename__ = "shopping_lists"

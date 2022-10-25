@@ -9,6 +9,7 @@ setup(
 		'flask',
 		'Flask-SQLAlchemy',
 		'password_strength',
-		'dateutils'
+		'dateutils',
+		'Flask-Mail'
 	],
 )

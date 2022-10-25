@@ -8,6 +8,7 @@ from .models import User
 
 from werkzeug.security import check_password_hash
 from sqlalchemy.exc import IntegrityError
+from itsdangerous import URLSafeTimedSerializer
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -18,7 +19,9 @@ def register():
 		try:
 			user = User(username=request.form['username'], email=request.form['email'], password=request.form['password'])
 			db.session.add(user)
-			db.session.commit()				
+			db.session.commit()
+			ts = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
+			user.send_email_confirmation(ts)				
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
@@ -41,6 +44,8 @@ def login():
 
 		if user is None:
 			error = 'Incorrect username.'
+		elif not user.email_confirmed:
+			error = 'Email is not confirmed'
 		elif not check_password_hash(user.password, password):
 			error = 'Incorrect password.'
 
@@ -54,6 +59,22 @@ def login():
 
 	return render_template('auth/login.html')
 
+@bp.route('/confirm/<token>')
+def confirm_email(token):
+	ts = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
+	try:
+		email = ts.loads(token, salt=current_app.config['EMAIL_CONFIRM_SALT'], max_age=86400)
+	except:
+		abort(404)
+
+	user = User.query.filter_by(email=email).first_or_404()
+
+	user.email_confirmed = True
+
+	db.session.commit()
+	flash('Email was confirmed successfully', 'success')
+	return redirect(url_for("auth.login"))
+	
 @bp.before_app_request
 def load_logged_in_user():
 	user_id = session.get('user_id')
@@ -61,7 +82,9 @@ def load_logged_in_user():
 	if user_id is None:
 		g.user = None
 	else:
-		g.user = db.session.execute(db.select(User).filter_by(id=user_id)).first()[0]
+		g.user = db.session.execute(db.select(User).filter_by(id=user_id)).first()
+		if g.user is not None:
+			g.user = g.user[0]
 
 @bp.route('/logout')
 def logout():
@@ -77,3 +100,4 @@ def login_required(view):
 		return view(**kwargs)
 
 	return wrapped_view
+
