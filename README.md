@@ -3,10 +3,12 @@ Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
  - Tasks
- - Rewrite dashboard in accordion
+ - See tasks in calendar
 
 # Work in Progress
- - Rewrite dashboard in accordion
+ - Create new task
+ - Update task
+ - Delete task
 
 # Done Tasks
  - Basic FrontEnd
@@ -20,3 +22,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - Validations moved to models.py
  - Registration using email
  - Registration Notifications
+ - Rewrite dashboard in accordion
