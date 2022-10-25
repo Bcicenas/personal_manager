@@ -134,3 +134,29 @@ class Task(db.Model):
 			raise ValueError('Name is required.')
 
 		return name
+
+	@hybrid_property
+	def priority_name(self):
+		if self.priority == 0:
+			return 'Low'
+		elif self.priority == 1:
+			return 'Medium'
+		else:
+			return 'High'	
+
+	@hybrid_property
+	def priority_in_css_class(self):
+		if self.priority == 0:
+			return 'primary'
+		elif self.priority == 1:
+			return 'secondary'
+		else:
+			return 'danger'
+
+	@hybrid_property
+	def created_at_in_local_tz(self):
+		return self.created_at.replace(tzinfo=current_app.config['UTC-TZ']).astimezone(current_app.config['LOCAL-TZ']).strftime(current_app.config['DATE-FORMAT'])
+
+	@hybrid_property
+	def last_updated_at_in_local_tz(self):
+		return self.last_updated_at.replace(tzinfo=current_app.config['UTC-TZ']).astimezone(current_app.config['LOCAL-TZ']).strftime(current_app.config['DATE-FORMAT'])

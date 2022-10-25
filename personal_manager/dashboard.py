@@ -4,7 +4,7 @@ from flask import (
 from werkzeug.exceptions import abort
 
 from personal_manager.auth import login_required
-from . models import User, ShoppingList
+from . models import User, ShoppingList, Task
 from . import db
 
 bp = Blueprint('dashboard', __name__)
@@ -19,4 +19,9 @@ def index():
 		db.select(ShoppingList).filter_by(user_id=g.user.id).order_by(ShoppingList.created_at)
 	).fetchall()
 
-	return render_template('dashboard/index.html', shopping_lists=shopping_lists)
+	# tasks
+	tasks = db.session.execute(
+		db.select(Task).filter_by(user_id=g.user.id).order_by(Task.created_at)
+	).fetchall()
+
+	return render_template('dashboard/index.html', shopping_lists=shopping_lists, tasks=tasks)

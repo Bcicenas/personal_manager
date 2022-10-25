@@ -7,7 +7,7 @@
 {% block content %}
   <div class="container dashboard">
     <div class="row mt-1">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <h2>Shopping Lists</h2>
         <hr>
         <div class="accordion">
@@ -33,6 +33,38 @@
                   <a class="btn btn-primary" href="{{ url_for('shopping_list.update', id=shopping_list[0].id) }}">Edit</a>
                   <a class="btn btn-primary" href="{{ url_for('shopping_list.shopping_items', id=shopping_list[0].id) }}">Edit Items</a>
                   <form class="d-inline-block" action="{{ url_for('shopping_list.delete', id=shopping_list[0].id) }}" method="post">
+                    <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                  </form>
+                </div>
+              </div>
+            </div>
+          {% endfor %}          
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2>Tasks</h2>
+        <hr>
+        <div class="accordion">
+          {% for task in tasks %}
+            <div class="card">
+              <div class="card-header" id="task_heading{{ task[0].id }}">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#task{{ task[0].id }}" aria-expanded="true" aria-controls="task{{ task[0].id }}">
+                    {{ task[0].name }}
+                  </button>
+                  <span class="priority alert alert-{{ task[0].priority_in_css_class }}" >{{ task[0].priority_name }}</span>
+                </h5>
+              </div>
+              <div id="task{{ task[0].id }}" class="collapse {{ 'show' if loop.first else '' }}" aria-labelledby="task_heading{{ task[0].id }}" data-parent="#accordion">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Created {{ task[0].created_at_in_local_tz }}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Last Updated {{ task[0].last_updated_at_in_local_tz }}</h6>
+                  <p>
+                    {{ task[0].description }}
+                  </p>
+                  <hr>
+                  <a class="btn btn-primary" href="{{ url_for('task.update', id=task[0].id) }}">Edit</a>
+                  <form class="d-inline-block" action="{{ url_for('task.delete', id=task[0].id) }}" method="post">
                     <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
                   </form>
                 </div>
