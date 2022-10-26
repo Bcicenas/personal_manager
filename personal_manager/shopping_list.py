@@ -84,7 +84,7 @@ def update(id):
 	if error is not None:
 		flash(error, 'danger')
 
-	return render_template('shopping_list/update.html', shopping_list=shopping_list)
+	return render_template('shopping_list/update.html', shopping_list=shopping_list, form=form)
 
 @bp.route('/delete/<int:id>', methods=('POST',))
 @login_required
