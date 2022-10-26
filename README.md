@@ -2,11 +2,10 @@
 Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
- - See tasks in calendar
- - Write tests
+ - security settings
 
 # Work in Progress
- - Write tests
+ - See tasks in calendar
 
 # Done Tasks
  - Basic FrontEnd
@@ -34,3 +33,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - Use Email or username as login
  - Change task deadline
  - Mark task as Finished
+ - Write tests
