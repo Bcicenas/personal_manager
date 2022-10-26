@@ -64,6 +64,7 @@ def get_shopping_id(id, check_owner=True):
 def update(id):
 	shopping_list = get_shopping_id(id)
 	form = ShoppingListForm(request.form, obj=shopping_list)
+	error = None
 	if request.method == 'POST' and form.validate():
 		try:
 			form.populate_obj(shopping_list)
@@ -148,6 +149,7 @@ def create_shopping_list_item(id):
 @login_required
 def delete_shopping_list_item(id):
 	shopping_item = get_shopping_item_id(id)
+	error = None
 	if request.method == 'POST':
 		try:
 			db.session.delete(shopping_item)
