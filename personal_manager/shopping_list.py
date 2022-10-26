@@ -126,6 +126,7 @@ def create_shopping_list_item(id):
 		error = None
 		try:
 			form.populate_obj(shopping_item)
+			shopping_item.shopping_list_id=id
 			db.session.add(shopping_item)
 			db.session.commit()		
 		except ValueError as e:
