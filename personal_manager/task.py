@@ -38,9 +38,9 @@ def create():
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Shopping List was not created. Database Error"
+			error = f"Task was not created. Database Error"
 		else:
-			flash('Shopping List was successfully created', 'success')
+			flash('Task was successfully created', 'success')
 			return redirect(url_for('task.list'))
 
 	if form.errors:	
@@ -66,6 +66,7 @@ def get_task_id(id, check_owner=True):
 def update(id):
 	task = get_task_id(id)
 	form = TaskForm(request.form, obj=task)
+	error = None
 	if request.method == 'POST' and form.validate():
 		try:
 			form.populate_obj(task)

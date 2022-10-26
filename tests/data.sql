@@ -1,6 +1,6 @@
 DELETE FROM shopping_items;
 DELETE FROM shopping_lists;
-DELETE FROM  tasks;
+DELETE FROM tasks;
 DELETE FROM users;
 
 INSERT INTO users (id, username, email, email_confirmed, password)
@@ -13,4 +13,7 @@ VALUES (1, 'test_primary', 1, NOW(), NOW());
 
 INSERT INTO shopping_items (id, name, shopping_list_id, created_at, last_updated_at)
 VALUES (1, 'item1', 1, NOW(), NOW());
+
+INSERT INTO tasks (id, name, description, user_id, priority, finished, till_date, created_at, last_updated_at)
+VALUES (1, 'task1', 'test_description', 1, 2, 0,'2022-10-27 00:00:00',NOW(), NOW());
 
