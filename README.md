@@ -5,9 +5,11 @@ Simple web application to manage your tasks, shoppings lists and more
  - security settings
  - settings: change password
  - localization
+ - pagination
+ - menu rework
 
 # Work in Progress
- - See tasks in calendar
+ - menu rework
 
 # Done Tasks
  - Basic FrontEnd
