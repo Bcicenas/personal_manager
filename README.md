@@ -2,15 +2,11 @@
 Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
- - Tasks
  - See tasks in calendar
- - Change task deadline
- - Add tasks in dashboard
- - Rewrite forms with WTForms
+ - Write tests
 
 # Work in Progress
  - Write tests
- - Change task deadline
 
 # Done Tasks
  - Basic FrontEnd
@@ -36,3 +32,5 @@ Simple web application to manage your tasks, shoppings lists and more
  - CSRF token protection
  - Rewrite forms with WTForms
  - Use Email or username as login
+ - Change task deadline
+ - Mark task as Finished
