@@ -3,6 +3,8 @@ Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
  - security settings
+ - settings: change password
+ - localization
 
 # Work in Progress
  - See tasks in calendar
