@@ -6,10 +6,12 @@ Simple web application to manage your tasks, shoppings lists and more
  - See tasks in calendar
  - Change task deadline
  - Add tasks in dashboard
+ - Rewrite forms with WTForms
 
 # Work in Progress
  - Write tests
  - Change task deadline
+ - Rewrite forms with WTForms
 
 # Done Tasks
  - Basic FrontEnd
