@@ -9,10 +9,11 @@
   <div class="container shopping-list">
     <div class="button-menu">
       <form action="{{ url_for('shopping_list.create_shopping_list_item', id=shopping_list.id) }}" method="post">
+        {{ form.csrf_token }}
         <div class="form-group">
-          <label for="name">Name</label>
+          {{ form.name.label }}
           <div class="input-group">
-            <input name="name" class="form-control" id="name" required>
+            {{ form.name(class_="form-control") }}
             <div class="input-group-append">
               <input class="btn btn-success" type="submit" value="Add">
             </div>
@@ -36,6 +37,7 @@
             <td>{{ shopping_item.name }}</td>
             <td>
               <form action="{{ url_for('shopping_list.delete_shopping_list_item', id=shopping_item.id) }}" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
                  <input type="hidden" id="shopping_list_id" name="shopping_list_id" value="{{ shopping_item.shopping_list.id }}">
               </form>              

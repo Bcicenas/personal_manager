@@ -7,6 +7,7 @@ from werkzeug.exceptions import abort
 from personal_manager.auth import login_required
 from .models import User, ShoppingList, ShoppingItem
 from . import db
+from .forms import ShoppingListForm, ShoppingItemForm, process_form_errors
 from sqlalchemy.exc import IntegrityError
 import logging
 
@@ -23,11 +24,13 @@ def list():
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
-	if request.method == 'POST':
-		error = None
-
+	shopping_list = ShoppingList()
+	form = ShoppingListForm(request.form, obj=shopping_list)
+	error = None
+	if request.method == 'POST' and form.validate():
 		try:
-			shopping_list = ShoppingList(name=request.form['name'], user_id=g.user.id)
+			form.populate_obj(shopping_list)
+			shopping_list.user_id = g.user.id
 			db.session.add(shopping_list)
 			db.session.commit()	
 		except ValueError as e:
@@ -38,10 +41,13 @@ def create():
 			flash('Shopping List was successfully created', 'success')
 			return redirect(url_for('shopping_list.list'))
 
-		if error is not None:
-			flash(error, 'danger')
+	if form.errors:	
+		error = process_form_errors(form.errors)
 
-	return render_template('shopping_list/create.html')
+	if error is not None:
+		flash(error, 'danger')
+
+	return render_template('shopping_list/create.html', form=form)
 
 def get_shopping_id(id, check_owner=True):
 	shopping_list = db.session.execute(db.select(ShoppingList).filter_by(id=id)).first()
@@ -57,10 +63,10 @@ def get_shopping_id(id, check_owner=True):
 @login_required
 def update(id):
 	shopping_list = get_shopping_id(id)
-
-	if request.method == 'POST':
+	form = ShoppingListForm(request.form, obj=shopping_list)
+	if request.method == 'POST' and form.validate():
 		try:
-			shopping_list.name = request.form['name']
+			form.populate_obj(shopping_list)
 			shopping_list.last_updated_at = datetime.utcnow()
 			db.session.commit()	
 		except ValueError as e:
@@ -71,8 +77,11 @@ def update(id):
 			flash('Shopping List was successfully updated', 'success')
 			return redirect(url_for('shopping_list.list'))
 
-		if error is not None:
-			flash(error, 'danger')
+	if form.errors:	
+		error = process_form_errors(form.errors)
+
+	if error is not None:
+		flash(error, 'danger')
 
 	return render_template('shopping_list/update.html', shopping_list=shopping_list)
 
@@ -102,17 +111,21 @@ def delete(id):
 @bp.route('/shopping_items/<int:id>')
 @login_required
 def shopping_items(id):
+	shopping_item = ShoppingItem()
+	form = ShoppingItemForm(request.form, obj=shopping_item)	
 	shopping_list = get_shopping_id(id)
-	return render_template('shopping_list/shopping_items.html', shopping_list=shopping_list, shopping_items=shopping_list.shopping_items)
+	return render_template('shopping_list/shopping_items.html', form=form, shopping_list=shopping_list, shopping_items=shopping_list.shopping_items)
 
 @bp.route('/create_shopping_list_item/<int:id>', methods=('POST',))
 @login_required
 def create_shopping_list_item(id):
 	get_shopping_id(id)
-	if request.method == 'POST':
+	shopping_item = ShoppingItem()
+	form = ShoppingItemForm(request.form, obj=shopping_item)
+	if request.method == 'POST' and form.validate():
 		error = None
 		try:
-			shopping_item = ShoppingItem(name=request.form['name'], shopping_list_id=id)
+			form.populate_obj(shopping_item)
 			db.session.add(shopping_item)
 			db.session.commit()		
 		except ValueError as e:
@@ -122,8 +135,11 @@ def create_shopping_list_item(id):
 		else:
 			flash('Shopping Item was successfully created', 'success')
 
-		if error is not None:
-			flash(error, 'danger')
+	if form.errors:	
+		error = process_form_errors(form.errors)
+
+	if error is not None:
+		flash(error, 'danger')
 
 	return redirect(url_for('shopping_list.shopping_items', id=id))
 

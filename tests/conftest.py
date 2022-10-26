@@ -18,6 +18,7 @@ def app():
 	app = create_app({
 		'TESTING': True,
 		'SQLALCHEMY_DATABASE_URI': "mysql://dev_user:D3v_user@localhost:3306/personal_manager_test",
+		'WTF_CSRF_ENABLED': False
 	})
 	
 	yield app

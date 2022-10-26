@@ -4,9 +4,11 @@ from dateutil import tz
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
+from flask_wtf.csrf import CSRFProtect
 
 db = SQLAlchemy()
 mail = Mail()
+csrf = CSRFProtect()
 
 def create_app(test_config=None):
 	# create and configure the app
@@ -38,6 +40,7 @@ def create_app(test_config=None):
 
 	db.init_app(app)
 	mail.init_app(app)
+	csrf.init_app(app)
 
 	# ensure the instance folder exists
 	try:

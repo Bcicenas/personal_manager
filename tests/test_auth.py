@@ -49,6 +49,15 @@ def test_login(client, auth):
 		assert session['user_id'] == 1
 		assert g.user.username == 'admin'
 
+def test_login_with_email(client, auth):
+	assert client.get('/auth/login').status_code == 200
+	response = auth.login(username="admin@email.com")
+	assert response.headers["Location"] == "/"
+
+	with client:
+		client.get('/')
+		assert session['user_id'] == 1
+		assert g.user.username == 'admin'
 
 @pytest.mark.parametrize(('username', 'password', 'message'), (
 	('test_user', 'A@sdas124_', b'Email is not confirmed'),

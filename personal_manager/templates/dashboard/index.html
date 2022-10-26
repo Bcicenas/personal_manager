@@ -33,6 +33,7 @@
                   <a class="btn btn-primary" href="{{ url_for('shopping_list.update', id=shopping_list[0].id) }}">Edit</a>
                   <a class="btn btn-primary" href="{{ url_for('shopping_list.shopping_items', id=shopping_list[0].id) }}">Edit Items</a>
                   <form class="d-inline-block" action="{{ url_for('shopping_list.delete', id=shopping_list[0].id) }}" method="post">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                     <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
                   </form>
                 </div>
@@ -65,6 +66,7 @@
                   <hr>
                   <a class="btn btn-primary" href="{{ url_for('task.update', id=task[0].id) }}">Edit</a>
                   <form class="d-inline-block" action="{{ url_for('task.delete', id=task[0].id) }}" method="post">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                     <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
                   </form>
                 </div>

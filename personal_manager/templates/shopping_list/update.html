@@ -6,9 +6,14 @@
 
 {% block content %}
   <div class="container shopping-list-form">
-    {% include 'shopping_list/form.html' %}
+    <form method="post">
+      {% include 'shopping_list/form.html' %}
+      <a class="btn btn-dark" href="{{ url_for('shopping_list.list') }}" onclick="return confirm('Are you sure?');">Cancel</a>
+      <input class="btn btn-primary" type="submit" value="Save">
+    </form>
     <hr>
     <form action="{{ url_for('shopping_list.delete', id=shopping_list.id) }}" method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
       <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
     </form>
   </div>

@@ -127,14 +127,6 @@ class Task(db.Model):
 	last_updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
 	till_date = db.Column(db.DateTime(), default=datetime.utcnow)
 	
-
-	@validates("name")
-	def validate_name(self, key, name):
-		if not name:
-			raise ValueError('Name is required.')
-
-		return name
-
 	@hybrid_property
 	def priority_name(self):
 		if self.priority == 0:

@@ -5,7 +5,8 @@ from datetime import datetime
 from werkzeug.exceptions import abort
 
 from personal_manager.auth import login_required
-from .models import User, ShoppingList, Task
+from .models import Task
+from .forms import TaskForm, process_form_errors
 from . import db
 from sqlalchemy.exc import IntegrityError
 
@@ -22,14 +23,16 @@ def list():
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
-	if request.method == 'POST':
-		error = None
+	task = Task()
+	task.finished = False
+	form = TaskForm(request.form, obj=task)
+	error = None
 
+	if request.method == 'POST' and form.validate():
 		try:
-			task = Task(name=request.form['name'], 
-				description=request.form['description'],
-				priority=request.form['priority'],
-				user_id=g.user.id)
+			form.populate_obj(task)
+			task.user_id = g.user.id
+
 			db.session.add(task)
 			db.session.commit()	
 		except ValueError as e:
@@ -40,10 +43,13 @@ def create():
 			flash('Shopping List was successfully created', 'success')
 			return redirect(url_for('task.list'))
 
-		if error is not None:
-			flash(error, 'danger')
+	if form.errors:	
+		error = process_form_errors(form.errors)
 
-	return render_template('task/create.html')
+	if error is not None:
+		flash(error, 'danger')
+
+	return render_template('task/create.html', form=form, task=task)
 
 def get_task_id(id, check_owner=True):
 	task = db.session.execute(db.select(Task).filter_by(id=id)).first()
@@ -59,12 +65,10 @@ def get_task_id(id, check_owner=True):
 @login_required
 def update(id):
 	task = get_task_id(id)
-
-	if request.method == 'POST':
+	form = TaskForm(request.form, obj=task)
+	if request.method == 'POST' and form.validate():
 		try:
-			task.name = request.form['name']
-			task.description = request.form['description']
-			task.priority = request.form['priority']
+			form.populate_obj(task)
 			task.last_updated_at = datetime.utcnow()
 			db.session.commit()	
 		except ValueError as e:
@@ -75,10 +79,13 @@ def update(id):
 			flash('Task was successfully updated', 'success')
 			return redirect(url_for('task.list'))
 
-		if error is not None:
-			flash(error, 'danger')
+	if form.errors:	
+		error = process_form_errors(form.errors)
 
-	return render_template('task/update.html', task=task)
+	if error is not None:
+		flash(error, 'danger')
+
+	return render_template('task/update.html', form=form, task=task)
 
 @bp.route('/delete/<int:id>', methods=('POST',))
 @login_required

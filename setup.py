@@ -10,6 +10,7 @@ setup(
 		'Flask-SQLAlchemy',
 		'password_strength',
 		'dateutils',
-		'Flask-Mail'
+		'Flask-Mail',
+		'Flask-WTF'
 	],
 )

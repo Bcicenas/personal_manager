@@ -9,6 +9,7 @@ from .models import User
 from werkzeug.security import check_password_hash
 from sqlalchemy.exc import IntegrityError
 from itsdangerous import URLSafeTimedSerializer
+from sqlalchemy import or_
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -40,7 +41,7 @@ def login():
 		username = request.form['username']
 		password = request.form['password']
 		error = None
-		user = db.session.execute(db.select(User).filter_by(username=username)).first()
+		user = db.session.execute(db.select(User).filter(or_(User.username == username, User.email == username))).first()
 
 		if user is None:
 			error = 'Incorrect username.'

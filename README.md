@@ -11,7 +11,6 @@ Simple web application to manage your tasks, shoppings lists and more
 # Work in Progress
  - Write tests
  - Change task deadline
- - Rewrite forms with WTForms
 
 # Done Tasks
  - Basic FrontEnd
@@ -34,3 +33,6 @@ Simple web application to manage your tasks, shoppings lists and more
  - Dashboard items limit to 10
  - Add delete button to task list
  - Add delete button to shopping_list list
+ - CSRF token protection
+ - Rewrite forms with WTForms
+ - Use Email or username as login

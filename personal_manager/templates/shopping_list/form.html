@@ -1,15 +1,9 @@
-<form method="post">
+{% for field in form %}
   <div class="form-group">
-    <label for="name">Name</label>
-    {% if shopping_list %}
-      <input name="name" class="form-control" id="name" value="{{ request.form['name'] or shopping_list.name }}" required>
-  </div>
-      <a class="btn btn-dark" href="{{ url_for('shopping_list.list') }}" onclick="return confirm('Are you sure?');">Cancel</a>
-      <input class="btn btn-primary" type="submit" value="Save">
-    {% else %}
-      <input name="name" class="form-control" id="name" value="{{ request.form['name'] }}" required>
-  </div>
-      <a class="btn btn-dark" href="{{ url_for('shopping_list.list') }}" onclick="return confirm('Are you sure?');">Cancel</a>
-      <input class="btn btn-success" type="submit" value="Create">
+    {% if field.widget.input_type != 'hidden' %}
+      {{ field.label }}
     {% endif %}
-</form>
+    {{ field(class_="form-control") }}
+  </div>
+{% endfor %}
+

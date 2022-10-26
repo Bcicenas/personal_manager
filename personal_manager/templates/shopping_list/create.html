@@ -5,5 +5,9 @@
 {% endblock %}
 
 {% block content %}
-  {% include 'shopping_list/form.html' %}
+  <form method="post">
+    {% include 'shopping_list/form.html' %}
+    <a class="btn btn-dark" href="{{ url_for('shopping_list.list') }}" onclick="return confirm('Are you sure?');">Cancel</a>
+    <input class="btn btn-success" type="submit" value="Create">
+  </form>
 {% endblock %}
