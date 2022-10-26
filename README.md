@@ -5,12 +5,12 @@ Simple web application to manage your tasks, shoppings lists and more
  - security settings
  - settings: change password
  - localization
- - pagination
- - menu rework
+ - responsive fixes
 
 # Work in Progress
- - menu rework
-
+ - responsive fixes
+ - pagination
+ 
 # Done Tasks
  - Basic FrontEnd
  - Create Shopping list
@@ -38,3 +38,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - Change task deadline
  - Mark task as Finished
  - Write tests
+ - menu rework
