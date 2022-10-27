@@ -7,11 +7,13 @@ Simple web application to manage your tasks, shoppings lists and more
  - localization
  - landing page
  - forgot password
+ - footer template
 
 # Work in Progress
  - pagination
  - landing page 
-
+ - footer template
+ 
 # Done Tasks
  - Basic FrontEnd
  - Create Shopping list
