@@ -9,34 +9,31 @@
     <div class="button-menu">
       <a href="{{ url_for('shopping_list.create') }}" class="btn btn-success" role="button">Add New</a>
     </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {% for shopping_list in shopping_lists %}
-          <tr scope="row">
-            <td>{{ shopping_list[0].id }}</td>
-            <td>{{ shopping_list[0].name }}</td>
-            <td><a href="{{ url_for('shopping_list.update', id=shopping_list[0].id) }}">Edit</a></td>
-            <td><a href="{{ url_for('shopping_list.shopping_items', id=shopping_list[0].id) }}">Edit Items</a></td>
-            <td>
-              <form action="{{ url_for('shopping_list.delete', id=shopping_list[0].id) }}" method="post">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
-              </form>
-            </td>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+        </thead>
 
+        <tbody>
+          {% for shopping_list in shopping_lists %}
+            <tr scope="row">
+              <td><a href="{{ url_for('shopping_list.update', id=shopping_list[0].id) }}">{{ shopping_list[0].name }}</a></td>
+              <td><a href="{{ url_for('shopping_list.shopping_items', id=shopping_list[0].id) }}">Edit Items</a></td>
+              <td class="text-right">
+                <form action="{{ url_for('shopping_list.delete', id=shopping_list[0].id) }}" method="post">
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                  <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 {% endblock %}

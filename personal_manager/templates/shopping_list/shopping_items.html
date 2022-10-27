@@ -21,32 +21,31 @@
         </div>
       </form>
     </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {% for shopping_item in shopping_items %}
-          <tr scope="row">
-            <td>{{ shopping_item.id }}</td>
-            <td>{{ shopping_item.name }}</td>
-            <td>
-              <form action="{{ url_for('shopping_list.delete_shopping_list_item', id=shopping_item.id) }}" method="post">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
-                 <input type="hidden" id="shopping_list_id" name="shopping_list_id" value="{{ shopping_item.shopping_list.id }}">
-              </form>              
-            </td>
+    <div class="table-responsive">
+      <table class="table table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
           </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+        </thead>
 
+        <tbody>
+          {% for shopping_item in shopping_items %}
+            <tr scope="row">
+              <td>{{ shopping_item.name }}</td>
+              <td class="text-right">
+                <form action="{{ url_for('shopping_list.delete_shopping_list_item', id=shopping_item.id) }}" method="post">
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                  <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                   <input type="hidden" id="shopping_list_id" name="shopping_list_id" value="{{ shopping_item.shopping_list.id }}">
+                </form>              
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 {% endblock %}
 
