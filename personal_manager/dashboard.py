@@ -12,7 +12,7 @@ bp = Blueprint('dashboard', __name__)
 @bp.route('/')
 def index():
 	if g.user is None:
-		return redirect(url_for('auth.login'))
+		return render_template('landing_page.html')
 		
 	# shopping lists
 	shopping_lists = db.session.execute(

@@ -4,6 +4,7 @@ def test_index(client, auth):
 	response = client.get('/', follow_redirects=True)
 	assert b"Log In" in response.data
 	assert b"Register" in response.data
+	assert b"Simple web application to manage your tasks, shoppings lists and more" in response.data
 
 	auth.login()
 	response = client.get('/', follow_redirects=True)
