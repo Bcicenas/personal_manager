@@ -21,9 +21,9 @@
         <tbody>
           {% for task in tasks %}
             <tr scope="row">
-              <td><a href="{{ url_for('task.update', id=task[0].id) }}">{{ task[0].name }}</a></td>
+              <td><a href="{{ url_for('task.update', id=task.id) }}">{{ task.name }}</a></td>
               <td class="text-right">
-                <form action="{{ url_for('task.delete', id=task[0].id) }}" method="post">
+                <form action="{{ url_for('task.delete', id=task.id) }}" method="post">
                   <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
                 </form>              
               </td>
@@ -32,5 +32,7 @@
         </tbody>
       </table>
     </div>
+    {{ pagination.info }}
+    {{ pagination.links }}
   </div>
 {% endblock %}

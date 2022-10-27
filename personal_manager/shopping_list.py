@@ -10,16 +10,17 @@ from . import db
 from .forms import ShoppingListForm, ShoppingItemForm, process_form_errors
 from sqlalchemy.exc import IntegrityError
 import logging
+from flask_paginate import Pagination, get_page_parameter
 
 bp = Blueprint('shopping_list', __name__, url_prefix='/shopping_lists')
 
 @bp.route('/list')
 @login_required
 def list():
-	shopping_lists = db.session.execute(
-		db.select(ShoppingList).filter_by(user_id=g.user.id).order_by(ShoppingList.created_at.desc())
-	).fetchall()
-	return render_template('shopping_list/list.html', shopping_lists=shopping_lists)
+	page = request.args.get(get_page_parameter(), type=int, default=1)
+	shopping_lists = db.paginate(db.select(ShoppingList).filter_by(user_id=g.user.id).order_by(ShoppingList.created_at.desc()), page=page, per_page=current_app.config['PER_PAGE_PARAMETER'])
+	pagination = Pagination(page=page, total=shopping_lists.total, per_page=current_app.config['PER_PAGE_PARAMETER'], record_name='shopping lists')
+	return render_template('shopping_list/list.html', shopping_lists=shopping_lists, pagination=pagination)
 
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
@@ -112,10 +113,14 @@ def delete(id):
 @bp.route('/shopping_items/<int:id>')
 @login_required
 def shopping_items(id):
+	
 	shopping_item = ShoppingItem()
 	form = ShoppingItemForm(request.form, obj=shopping_item)	
 	shopping_list = get_shopping_id(id)
-	return render_template('shopping_list/shopping_items.html', form=form, shopping_list=shopping_list, shopping_items=shopping_list.shopping_items)
+	page = request.args.get(get_page_parameter(), type=int, default=1)
+	shopping_items = db.paginate(db.select(ShoppingItem).filter_by(shopping_list_id=id).order_by(ShoppingItem.created_at.desc()), page=page, per_page=current_app.config['PER_PAGE_PARAMETER'])
+	pagination = Pagination(page=page, total=shopping_items.total, per_page=current_app.config['PER_PAGE_PARAMETER'], record_name='shopping items')
+	return render_template('shopping_list/shopping_items.html', form=form, shopping_list=shopping_list, shopping_items=shopping_items, pagination=pagination)
 
 @bp.route('/create_shopping_list_item/<int:id>', methods=('POST',))
 @login_required

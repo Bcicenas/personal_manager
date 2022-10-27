@@ -9,16 +9,18 @@ from .models import Task
 from .forms import TaskForm, process_form_errors
 from . import db
 from sqlalchemy.exc import IntegrityError
+from flask_paginate import Pagination, get_page_parameter
 
 bp = Blueprint('task', __name__, url_prefix='/tasks')
 
-@bp.route('/list')
+@bp.route('/list', methods=('GET',))
 @login_required
 def list():
-	tasks = db.session.execute(
-		db.select(Task).filter_by(user_id=g.user.id).order_by(Task.created_at.desc())
-	).fetchall()
-	return render_template('task/list.html', tasks=tasks)
+	page = request.args.get(get_page_parameter(), type=int, default=1)
+	tasks = db.paginate(db.select(Task).filter_by(user_id=g.user.id).order_by(Task.created_at.desc()), page=page, per_page=current_app.config['PER_PAGE_PARAMETER'])
+	pagination = Pagination(page=page, total=tasks.total, per_page=current_app.config['PER_PAGE_PARAMETER'], record_name='tasks')
+
+	return render_template('task/list.html', tasks=tasks, pagination=pagination)
 
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required

@@ -11,6 +11,7 @@ setup(
 		'password_strength',
 		'dateutils',
 		'Flask-Mail',
-		'Flask-WTF'
+		'Flask-WTF',
+		'flask-paginate'
 	],
 )

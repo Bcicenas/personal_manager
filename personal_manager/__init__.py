@@ -29,6 +29,7 @@ def create_app(test_config=None):
 	app.config['MAIL_DEFAULT_SENDER'] = 'confirmation@personal_manager.com'
 	app.config['MAIL_USE_TLS'] = True
 	app.config['EMAIL_CONFIRM_SALT'] = 'dev_salt'
+	app.config['PER_PAGE_PARAMETER'] = 10
 
 
 	if test_config is None:

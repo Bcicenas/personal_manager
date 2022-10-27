@@ -5,10 +5,9 @@ Simple web application to manage your tasks, shoppings lists and more
  - security settings
  - settings: change password
  - localization
- - forgot password
-
+ 
 # Work in Progress
- - pagination
+ - forgot password
 
 # Done Tasks
  - Basic FrontEnd
@@ -41,3 +40,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - responsive fixes 
  - footer template
  - landing page
+ - pagination
