@@ -180,3 +180,4 @@ def get_shopping_item_id(id, check_owner=True):
 		abort(403)
 
 	return shopping_item[0]
+	

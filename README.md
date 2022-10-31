@@ -2,14 +2,11 @@
 Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
- - change password
  - localization
- - delete account
 
 # Work in Progress
- - delete account
- - change password
-
+ - localization
+ 
 # Done Tasks
  - Basic FrontEnd
  - Create Shopping list
@@ -44,3 +41,5 @@ Simple web application to manage your tasks, shoppings lists and more
  - pagination
  - forgot password
  - personal details
+ - delete account
+ - change password

@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, TextAreaField, SelectField, DateField, PasswordField
-from wtforms.validators import DataRequired, Email
+from wtforms.validators import DataRequired, Email, EqualTo
+from wtforms import ValidationError
+from werkzeug.security import check_password_hash
 
 class TaskForm(FlaskForm):
 	name = StringField('Name', validators=[DataRequired('Name is required.')])
@@ -20,6 +22,19 @@ class EmailForm(FlaskForm):
 
 class PasswordForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired('Password is required.')])
+
+class PasswordChangeForm(FlaskForm):
+    current_password = PasswordField('Current Password', validators=[DataRequired('Current Password is required.')])
+    new_password = PasswordField('New Password', validators=[DataRequired('New Password is required.')])
+    confirm_new_passord = PasswordField('Confirm New Password', validators=[DataRequired('Confirm New Password is required.'), EqualTo('new_password', 'Password mismatch')])
+
+    def __init__(self, user, *args, **kwargs):
+        super(PasswordChangeForm, self).__init__(*args, **kwargs)
+        self.user = user
+
+    def validate_current_password(self, field):
+        if not check_password_hash(self.user.password, field.data):
+            raise ValidationError('Current Password is invalid')
 
 def process_form_errors(errors):
 	end_errors = ''
