@@ -11,7 +11,7 @@ from werkzeug.exceptions import abort
 from sqlalchemy.exc import IntegrityError
 from itsdangerous import URLSafeTimedSerializer
 from sqlalchemy import or_
-
+from flask_babel import gettext
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -30,7 +30,7 @@ def register():
 		except IntegrityError as e:
 			error = f"Username or Email already exists"
 		else:
-			flash('User successfully registered', 'success')
+			flash(gettext(u'User successfully registered'), 'success')
 			return redirect(url_for("auth.login"))
 
 		flash(error, 'danger')

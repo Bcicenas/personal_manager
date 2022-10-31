@@ -9,7 +9,7 @@ from .models import User
 from .forms import PasswordChangeForm, process_form_errors
 from . import db
 from sqlalchemy.exc import IntegrityError
-
+import logging
 bp = Blueprint('user', __name__, url_prefix='/users')
 
 @bp.route('/personal_details')
@@ -69,3 +69,8 @@ def delete_account():
 		flash(error, 'danger')
 
 	return redirect(url_for('user.personal_details'))
+
+@bp.route('/set_locale')
+def set_locale():
+	session['locale'] = request.args.get('locale')
+	return redirect(url_for('dashboard.index'))

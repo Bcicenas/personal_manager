@@ -1,14 +1,16 @@
 import os
 from datetime import datetime
 from dateutil import tz
-from flask import Flask
+from flask import Flask, request, current_app, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from flask_wtf.csrf import CSRFProtect
+from flask_babel import Babel
 
 db = SQLAlchemy()
 mail = Mail()
 csrf = CSRFProtect()
+babel = Babel()
 
 def create_app(test_config=None):
 	# create and configure the app
@@ -30,7 +32,9 @@ def create_app(test_config=None):
 	app.config['MAIL_USE_TLS'] = True
 	app.config['EMAIL_CONFIRM_SALT'] = 'dev_salt'
 	app.config['PER_PAGE_PARAMETER'] = 10
+	app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 
+	app.config['BABEL_TRANSLATION_DIRECTORIES'] = os.getcwd() + '/translations'
 
 	if test_config is None:
 		# load the instance config, if it exists, when not testing
@@ -42,6 +46,7 @@ def create_app(test_config=None):
 	db.init_app(app)
 	mail.init_app(app)
 	csrf.init_app(app)
+	babel.init_app(app)
 
 	# ensure the instance folder exists
 	try:
@@ -71,3 +76,10 @@ def create_app(test_config=None):
 	app.add_url_rule('/', endpoint='index')
 	
 	return app
+
+@babel.localeselector
+def get_locale():
+	if 'locale' in session.keys():
+		return session['locale']
+	else:
+		return current_app.config['BABEL_DEFAULT_LOCALE']

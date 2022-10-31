@@ -12,6 +12,7 @@ setup(
 		'dateutils',
 		'Flask-Mail',
 		'Flask-WTF',
-		'flask-paginate'
+		'flask-paginate',
+		'Flask-Babel'
 	],
 )
