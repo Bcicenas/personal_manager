@@ -24,6 +24,37 @@ def test_confirm_email(client, app):
 		assert b'Email was confirmed successfully' in response.data
 
 
+def test_forgot_password(client, app):
+	assert client.get('/auth/forgot_password').status_code == 200
+	response = client.post(
+		'/auth/forgot_password', data={'email': 'test@example.com'}
+	)
+	assert response.headers["Location"] == '/'
+	response = client.get('/', follow_redirects=True)
+	assert b'Password reset link was sent to' in response.data
+
+
+@pytest.mark.parametrize(('password', 'message'), (
+	('', b'Password is required.'),
+	('test', b'Please choose a stronger password.'),
+))
+def test_reset_password_validate_input(client, app, password, message):
+	with app.app_context():
+		ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
+		token = ts.dumps('test@example.com', salt=app.config['EMAIL_CONFIRM_SALT'])
+		response = client.post('/auth/reset_password/' + token, data={'password': password})
+		assert message in response.data
+
+def test_reset_password(client, app):
+	with app.app_context():
+		ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
+		token = ts.dumps('test@example.com', salt=app.config['EMAIL_CONFIRM_SALT'])
+		response = client.post('/auth/reset_password/' + token, data={'password': '@dMin21_'})
+		print(response.data)
+		assert response.headers["Location"] == '/auth/login'
+		response = client.get('/auth/login', follow_redirects=True)
+		assert b'Password was successfully changed' in response.data
+
 @pytest.mark.parametrize(('username', 'email', 'password', 'message'), (
 	('', '', '', b'Username is required.'),
 	('a', 'test', '', b'Email is invalid'),

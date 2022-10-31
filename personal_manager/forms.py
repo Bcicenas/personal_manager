@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, TextAreaField, SelectField, DateField
-from wtforms.validators import DataRequired
+from wtforms import StringField, BooleanField, TextAreaField, SelectField, DateField, PasswordField
+from wtforms.validators import DataRequired, Email
 
 class TaskForm(FlaskForm):
 	name = StringField('Name', validators=[DataRequired('Name is required.')])
@@ -14,6 +14,12 @@ class ShoppingListForm(FlaskForm):
 
 class ShoppingItemForm(FlaskForm):
 	name = StringField('Name', validators=[DataRequired('Name is required.')])
+
+class EmailForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+
+class PasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired('Password is required.')])
 
 def process_form_errors(errors):
 	end_errors = ''

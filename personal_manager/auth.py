@@ -5,11 +5,13 @@ from flask import (
 )
 from . import db
 from .models import User
-
+from .forms import EmailForm, PasswordForm, process_form_errors
 from werkzeug.security import check_password_hash
+from werkzeug.exceptions import abort
 from sqlalchemy.exc import IntegrityError
 from itsdangerous import URLSafeTimedSerializer
 from sqlalchemy import or_
+
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -62,7 +64,6 @@ def login():
 
 @bp.route('/confirm/<token>')
 def confirm_email(token):
-	print(token)
 	ts = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
 	try:
 		email = ts.loads(token, salt=current_app.config['EMAIL_CONFIRM_SALT'], max_age=86400)
@@ -76,7 +77,60 @@ def confirm_email(token):
 	db.session.commit()
 	flash('Email was confirmed successfully', 'success')
 	return redirect(url_for("auth.login"))
-	
+
+@bp.route('/forgot_password', methods=('GET', 'POST'))
+def forgot_password():
+	form = EmailForm()
+	error = None
+	if request.method == 'POST' and form.validate_on_submit():
+		user = User.query.filter_by(email=form.email.data).first_or_404()
+		if user.email_confirmed:
+			ts = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
+			user.send_password_reset(ts)
+			flash('Password reset link was sent to ' + form.email.data, 'success')
+			return redirect(url_for("index"))
+		else:
+			error = 'Email is not confirmed'
+
+		if error:
+			flash(error, 'danger')
+
+	return render_template('auth/forgot_password.html', form=form)
+
+
+@bp.route('/reset_password/<token>', methods=["GET", "POST"])
+def reset_password(token):
+	ts = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
+	try:
+		email = ts.loads(token, salt=current_app.config['EMAIL_CONFIRM_SALT'], max_age=86400)
+	except:
+		abort(404)
+
+	error = None
+	form = PasswordForm()
+
+	if request.method == 'POST' and form.validate_on_submit():
+		user = User.query.filter_by(email=email).first_or_404()
+
+		try:
+			user.password = form.password.data
+			db.session.commit()
+		except ValueError as e:
+			error = f"{e}"
+		except IntegrityError as e:
+			error = f"Password reset failed. Database Error"
+		else:
+			flash('Password was successfully changed', 'success')
+			return redirect(url_for('auth.login'))
+
+	if form.errors:	
+		error = process_form_errors(form.errors)
+
+	if error is not None:
+		flash(error, 'danger')
+
+	return render_template('auth/reset_password.html', form=form, token=token)
+
 @bp.before_app_request
 def load_logged_in_user():
 	user_id = session.get('user_id')

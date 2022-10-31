@@ -16,5 +16,6 @@
       <input type="password" class="form-control" name="password" id="password" required>
     </div>
     <input type="submit" class="btn btn-primary" value="Log In">
+    <a href="{{ url_for('auth.forgot_password') }}" class="mt-2 d-block">Forgot password?</a>
   </form>
 {% endblock %}

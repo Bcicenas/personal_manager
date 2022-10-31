@@ -67,6 +67,20 @@ class User(db.Model):
 		email_msg.html = render_template('auth/activate.html', confirm_url=confirm_url)
 
 		mail.send(email_msg)
+
+
+	def send_password_reset(self, ts):
+		email_msg = Message()
+		email_msg.subject = "Password Reset"
+		email_msg.add_recipient(self.email)
+
+		token = ts.dumps(self.email, salt=current_app.config['EMAIL_CONFIRM_SALT'])
+		reset_url = url_for('auth.reset_password', token=token,_external=True)
+
+		email_msg.html = render_template('auth/password_reset_link.html', reset_url=reset_url)
+
+		mail.send(email_msg)
+
 		
 
 class ShoppingList(db.Model):
