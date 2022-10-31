@@ -59,7 +59,10 @@ def create_app(test_config=None):
 	app.register_blueprint(shopping_list.bp)
 
 	from . import task
-	app.register_blueprint(task.bp)
+	app.register_blueprint(task.bp)	
+
+	from . import user
+	app.register_blueprint(user.bp)
 
 	from . import models
 	with app.app_context():

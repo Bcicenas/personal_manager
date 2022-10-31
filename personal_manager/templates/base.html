@@ -29,6 +29,7 @@
                   {{ g.user['username'] }}
                 </a>
                 <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{{ url_for('user.personal_details') }}">Personal Details</a>
                   <a class="dropdown-item" href="{{ url_for('auth.logout') }}">Log Out</a>
                 </div>
               </div>

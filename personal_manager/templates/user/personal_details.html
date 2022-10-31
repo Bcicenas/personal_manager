@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Personal details{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="container personal-details">
+    <div class="card">
+      <div class="card-header">
+        User details
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Username: {{ user.username }}</li>
+        <li class="list-group-item">Email: {{ user.email }}</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
