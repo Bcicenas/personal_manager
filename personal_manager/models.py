@@ -23,7 +23,7 @@ class User(db.Model):
 	@validates("username")
 	def validate_username(self, key, username):
 		if not username:
-			raise ValueError('Username is required.')
+			raise ValueError(lazy_gettext('Username is required.'))
 
 		return username
 
@@ -31,13 +31,13 @@ class User(db.Model):
 	def validate_email(self, key, address):
 		pat = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 		if not re.match(pat, address):
-			raise ValueError("Email is invalid")
+			raise ValueError(lazy_gettext("Email is invalid"))
 		return address
 
 	@validates("password")
 	def validate_password(self, key, password):
 		if not password:
-			raise ValueError('Password is required.')
+			raise ValueError(lazy_gettext('Password is required.'))
 
 		policy = PasswordPolicy.from_names(
 			length=8,
@@ -47,19 +47,19 @@ class User(db.Model):
 		)
 
 		if policy.test(password):
-			raise ValueError('''Please choose a stronger password.
-				<br>Must contain at least 8 characters
-				<br>Must contain at least 1 uppercase letter
-				<br>Must contain at least 1 uppercase letter
-				<br>Must contain at least 1 number
-				<br>Must contain at least 1 special character''')
+			raise ValueError(lazy_gettext('Please choose a stronger password.') +
+				'<br>' + lazy_gettext('Must contain at least 8 characters') +
+				'<br>' + lazy_gettext('Must contain at least 1 uppercase letter') +
+				'<br>' + lazy_gettext('Must contain at least 1 uppercase letter') +
+				'<br>' + lazy_gettext('Must contain at least 1 number') +
+				'<br>' + lazy_gettext('Must contain at least 1 special character'))
 			
 		return generate_password_hash(password)
 
 
 	def send_email_confirmation(self, ts):
 		email_msg = Message()
-		email_msg.subject = "Confirm your email"
+		email_msg.subject = lazy_gettext("Confirm your email")
 		email_msg.add_recipient(self.email)
 
 		token = ts.dumps(self.email, salt=current_app.config['EMAIL_CONFIRM_SALT'])
@@ -72,7 +72,7 @@ class User(db.Model):
 
 	def send_password_reset(self, ts):
 		email_msg = Message()
-		email_msg.subject = "Password Reset"
+		email_msg.subject = lazy_gettext("Password Reset")
 		email_msg.add_recipient(self.email)
 
 		token = ts.dumps(self.email, salt=current_app.config['EMAIL_CONFIRM_SALT'])
@@ -107,7 +107,7 @@ class ShoppingList(db.Model):
 	@validates("name")
 	def validate_name(self, key, name):
 		if not name:
-			raise ValueError('Name is required.')
+			raise ValueError(lazy_gettext('Name is required.'))
 
 		return name
 
@@ -124,7 +124,7 @@ class ShoppingItem(db.Model):
 	@validates("name")
 	def validate_name(self, key, name):
 		if not name:
-			raise ValueError('Name is required.')
+			raise ValueError(lazy_gettext('Name is required.'))
 
 		return name
 

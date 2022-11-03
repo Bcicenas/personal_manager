@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-03 20:17+0200\n"
+"POT-Creation-Date: 2022-11-03 20:32+0200\n"
 "PO-Revision-Date: 2022-10-31 16:01+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -31,7 +31,8 @@ msgid "Name"
 msgstr "Name"
 
 #: personal_manager/forms.py:9 personal_manager/forms.py:16
-#: personal_manager/forms.py:19
+#: personal_manager/forms.py:19 personal_manager/models.py:110
+#: personal_manager/models.py:127
 msgid "Name is required."
 msgstr "Name is required."
 
@@ -78,7 +79,7 @@ msgstr "Email is required"
 msgid "Password"
 msgstr "Password"
 
-#: personal_manager/forms.py:25
+#: personal_manager/forms.py:25 personal_manager/models.py:40
 msgid "Password is required."
 msgstr "Password is required."
 
@@ -113,6 +114,42 @@ msgstr "Password mismatch"
 #: personal_manager/forms.py:40
 msgid "Current Password is invalid"
 msgstr "Current Password is invalid"
+
+#: personal_manager/models.py:26
+msgid "Username is required."
+msgstr "Username is required."
+
+#: personal_manager/models.py:34
+msgid "Email is invalid"
+msgstr "Email is invalid"
+
+#: personal_manager/models.py:50
+msgid "Please choose a stronger password."
+msgstr "Please choose a stronger password."
+
+#: personal_manager/models.py:51
+msgid "Must contain at least 8 characters"
+msgstr "Must contain at least 8 characters"
+
+#: personal_manager/models.py:52 personal_manager/models.py:53
+msgid "Must contain at least 1 uppercase letter"
+msgstr "Must contain at least 1 uppercase letter"
+
+#: personal_manager/models.py:54
+msgid "Must contain at least 1 number"
+msgstr "Must contain at least 1 number"
+
+#: personal_manager/models.py:55
+msgid "Must contain at least 1 special character"
+msgstr "Must contain at least 1 special character"
+
+#: personal_manager/models.py:62
+msgid "Confirm your email"
+msgstr "Confirm your email"
+
+#: personal_manager/models.py:75
+msgid "Password Reset"
+msgstr "Password Reset"
 
 #: personal_manager/templates/base.html:24
 msgid "Home"
@@ -167,6 +204,10 @@ msgstr "Simple web application to manage your tasks, shoppings lists and more"
 msgid "Try for free today!"
 msgstr "Try for free today!"
 
+#: personal_manager/templates/auth/forgot_password.html:4
+msgid "Forgot Password"
+msgstr "Forgot password"
+
 #: personal_manager/templates/auth/login.html:4
 msgid "Log In"
 msgstr "Log In"
@@ -180,6 +221,14 @@ msgstr "Username"
 #: personal_manager/templates/auth/login.html:19
 msgid "Forgot password?"
 msgstr "Forgot password?"
+
+#: personal_manager/templates/auth/reset_password.html:4
+msgid "Reset password"
+msgstr "Reset password"
+
+#: personal_manager/templates/auth/reset_password.html:17
+msgid "Reset"
+msgstr "Reset"
 
 #: personal_manager/templates/dashboard/index.html:4
 msgid "Dashboard"

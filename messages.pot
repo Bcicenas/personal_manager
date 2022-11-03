@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-03 20:17+0200\n"
+"POT-Creation-Date: 2022-11-03 20:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,8 @@ msgid "Name"
 msgstr ""
 
 #: personal_manager/forms.py:9 personal_manager/forms.py:16
-#: personal_manager/forms.py:19
+#: personal_manager/forms.py:19 personal_manager/models.py:110
+#: personal_manager/models.py:127
 msgid "Name is required."
 msgstr ""
 
@@ -77,7 +78,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: personal_manager/forms.py:25
+#: personal_manager/forms.py:25 personal_manager/models.py:40
 msgid "Password is required."
 msgstr ""
 
@@ -111,6 +112,42 @@ msgstr ""
 
 #: personal_manager/forms.py:40
 msgid "Current Password is invalid"
+msgstr ""
+
+#: personal_manager/models.py:26
+msgid "Username is required."
+msgstr ""
+
+#: personal_manager/models.py:34
+msgid "Email is invalid"
+msgstr ""
+
+#: personal_manager/models.py:50
+msgid "Please choose a stronger password."
+msgstr ""
+
+#: personal_manager/models.py:51
+msgid "Must contain at least 8 characters"
+msgstr ""
+
+#: personal_manager/models.py:52 personal_manager/models.py:53
+msgid "Must contain at least 1 uppercase letter"
+msgstr ""
+
+#: personal_manager/models.py:54
+msgid "Must contain at least 1 number"
+msgstr ""
+
+#: personal_manager/models.py:55
+msgid "Must contain at least 1 special character"
+msgstr ""
+
+#: personal_manager/models.py:62
+msgid "Confirm your email"
+msgstr ""
+
+#: personal_manager/models.py:75
+msgid "Password Reset"
 msgstr ""
 
 #: personal_manager/templates/base.html:24
@@ -166,6 +203,10 @@ msgstr ""
 msgid "Try for free today!"
 msgstr ""
 
+#: personal_manager/templates/auth/forgot_password.html:4
+msgid "Forgot Password"
+msgstr ""
+
 #: personal_manager/templates/auth/login.html:4
 msgid "Log In"
 msgstr ""
@@ -178,6 +219,14 @@ msgstr ""
 
 #: personal_manager/templates/auth/login.html:19
 msgid "Forgot password?"
+msgstr ""
+
+#: personal_manager/templates/auth/reset_password.html:4
+msgid "Reset password"
+msgstr ""
+
+#: personal_manager/templates/auth/reset_password.html:17
+msgid "Reset"
 msgstr ""
 
 #: personal_manager/templates/dashboard/index.html:4
