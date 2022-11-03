@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 from dateutil import tz
-from flask import Flask, request, current_app, session
+from flask import Flask, request, current_app, session, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from flask_wtf.csrf import CSRFProtect

@@ -50,7 +50,6 @@ class User(db.Model):
 			raise ValueError(lazy_gettext('Please choose a stronger password.') +
 				'<br>' + lazy_gettext('Must contain at least 8 characters') +
 				'<br>' + lazy_gettext('Must contain at least 1 uppercase letter') +
-				'<br>' + lazy_gettext('Must contain at least 1 uppercase letter') +
 				'<br>' + lazy_gettext('Must contain at least 1 number') +
 				'<br>' + lazy_gettext('Must contain at least 1 special character'))
 			

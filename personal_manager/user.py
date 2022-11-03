@@ -10,6 +10,8 @@ from .forms import PasswordChangeForm, process_form_errors
 from . import db
 from sqlalchemy.exc import IntegrityError
 import logging
+from flask_babel import lazy_gettext
+
 bp = Blueprint('user', __name__, url_prefix='/users')
 
 @bp.route('/personal_details')
@@ -33,9 +35,9 @@ def change_password():
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Password change failed. Database Error"
+			error = lazy_gettext('Password change failed. Database Error')
 		else:
-			flash('Password was successfully changed', 'success')
+			flash(lazy_gettext('Password was successfully changed'), 'success')
 			return redirect(url_for('user.personal_details'))
 
 	if form.errors:	
@@ -58,11 +60,11 @@ def delete_account():
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Account was not deleted. Database Error"
+			error = lazy_gettext('Account was not deleted. Database Error')
 		else:
 			g.user = None
 			session.clear()
-			flash('Account was successfully deleted', 'success')
+			flash(lazy_gettext('Account was successfully deleted'), 'success')
 			return redirect(url_for('dashboard.index'))
 
 	if error is not None:

@@ -11,6 +11,7 @@ from .forms import ShoppingListForm, ShoppingItemForm, process_form_errors
 from sqlalchemy.exc import IntegrityError
 import logging
 from flask_paginate import Pagination, get_page_parameter
+from flask_babel import lazy_gettext
 
 bp = Blueprint('shopping_list', __name__, url_prefix='/shopping_lists')
 
@@ -37,9 +38,9 @@ def create():
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Shopping List was not created. Database Error"
+			error = lazy_gettext('Shopping List was not created. Database Error')
 		else:
-			flash('Shopping List was successfully created', 'success')
+			flash(lazy_gettext('Shopping List was successfully created'), 'success')
 			return redirect(url_for('shopping_list.list'))
 
 	if form.errors:	
@@ -74,9 +75,9 @@ def update(id):
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Shopping List was not updated. Database Error"
+			error = lazy_gettext('Shopping List was not updated. Database Error')
 		else:
-			flash('Shopping List was successfully updated', 'success')
+			flash(lazy_gettext('Shopping List was successfully updated'), 'success')
 			return redirect(url_for('shopping_list.list'))
 
 	if form.errors:	
@@ -99,10 +100,10 @@ def delete(id):
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Shopping List was not deleted. Database Error"
+			error = lazy_gettext('Shopping List was not deleted. Database Error')
 			current_app.logger.warning(e)
 		else:
-			flash('Shopping List was successfully deleted', 'success')
+			flash(lazy_gettext('Shopping List was successfully deleted'), 'success')
 
 		if error is not None:
 			flash(error, 'danger')
@@ -138,9 +139,9 @@ def create_shopping_list_item(id):
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Shopping Item was not created. Database Error"
+			error = lazy_gettext('Shopping Item was not created. Database Error')
 		else:
-			flash('Shopping Item was successfully created', 'success')
+			flash(lazy_gettext('Shopping Item was successfully created'), 'success')
 
 	if form.errors:	
 		error = process_form_errors(form.errors)
@@ -162,9 +163,9 @@ def delete_shopping_list_item(id):
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Shopping Item was not deleted. Database Error"
+			error = lazy_gettext('Shopping Item was not deleted. Database Error')
 		else:
-			flash('Shopping Item was successfully deleted', 'success')
+			flash(lazy_gettext('Shopping Item was successfully deleted'), 'success')
 
 		if error is not None:
 			flash(error, 'danger')

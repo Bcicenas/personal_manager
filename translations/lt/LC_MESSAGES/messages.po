@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-03 20:32+0200\n"
+"POT-Creation-Date: 2022-11-03 20:47+0200\n"
 "PO-Revision-Date: 2022-10-31 15:17+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: lt\n"
@@ -19,9 +19,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
 
+#: personal_manager/auth.py:31
+msgid "Username or Email already exists"
+msgstr "Naudotojo vardas arba El. paštas jau egzistuoja"
+
 #: personal_manager/auth.py:33
 msgid "User successfully registered"
 msgstr "Naudotojas užregistruotas sėkmingai"
+
+#: personal_manager/auth.py:49
+msgid "Incorrect username."
+msgstr "Neteisingas Naudotojo vardas"
+
+#: personal_manager/auth.py:51 personal_manager/auth.py:95
+msgid "Email is not confirmed"
+msgstr "El. Paštas nėra patvirtintas"
+
+#: personal_manager/auth.py:53
+msgid "Incorrect password."
+msgstr "Neteisingas slaptažodis"
+
+#: personal_manager/auth.py:60
+msgid "Login successfully"
+msgstr "Prisijungta sėkmingai"
+
+#: personal_manager/auth.py:80
+msgid "Email was confirmed successfully"
+msgstr "El. Paštas patvirtintas sėkmingai"
+
+#: personal_manager/auth.py:92
+msgid "Password reset link was sent to "
+msgstr "Slaptažodžio atkūrimo nuoroda išsiųsta "
+
+#: personal_manager/auth.py:123
+msgid "Password reset failed. Database Error"
+msgstr "Slaptažodio nutatymas išnaujo nepavyko. Duomenų bazės klaida"
+
+#: personal_manager/auth.py:125 personal_manager/user.py:40
+msgid "Password was successfully changed"
+msgstr "Slaptažodis pakeistas sėkmingas"
+
+#: personal_manager/auth.py:156
+msgid "Access denied"
+msgstr "Prieiga uždrausta"
 
 #: personal_manager/forms.py:9 personal_manager/forms.py:16
 #: personal_manager/forms.py:19
@@ -151,6 +191,82 @@ msgstr "El. pašto patvirtinimas"
 #: personal_manager/models.py:75
 msgid "Password Reset"
 msgstr "Šlaptažodžio nustatymas iš naujo"
+
+#: personal_manager/shopping_list.py:41
+msgid "Shopping List was not created. Database Error"
+msgstr "Pirkinių krepšys nesukurtas. Duomenų bazės klaida"
+
+#: personal_manager/shopping_list.py:43
+msgid "Shopping List was successfully created"
+msgstr "Pirkinių krepšys sėkmingai sukurtas"
+
+#: personal_manager/shopping_list.py:78
+msgid "Shopping List was not updated. Database Error"
+msgstr "Pirkinių krepšys neatnaujintas. Duomenų bazės klaida"
+
+#: personal_manager/shopping_list.py:80
+msgid "Shopping List was successfully updated"
+msgstr "Pirkinių krepšys sėkmingai atnaujintas"
+
+#: personal_manager/shopping_list.py:103
+msgid "Shopping List was not deleted. Database Error"
+msgstr "Pirkinių krepšys nebuvo ištrintas. Duomenų bazės klaida"
+
+#: personal_manager/shopping_list.py:106
+msgid "Shopping List was successfully deleted"
+msgstr "Pirkinių krepšys sėkmingai ištrintas"
+
+#: personal_manager/shopping_list.py:142
+msgid "Shopping Item was not created. Database Error"
+msgstr "Pirkinys nebuvo pridėtas. Duomenų bazės klaida"
+
+#: personal_manager/shopping_list.py:144
+msgid "Shopping Item was successfully created"
+msgstr "Pirkinys sėkmingai pridėtas"
+
+#: personal_manager/shopping_list.py:166
+msgid "Shopping Item was not deleted. Database Error"
+msgstr "Pirkinys nebuvo ištrintas. Duomenų bazės klaida"
+
+#: personal_manager/shopping_list.py:168
+msgid "Shopping Item was successfully deleted"
+msgstr "Pirkinys sėkmingai ištrintas"
+
+#: personal_manager/task.py:44
+msgid "Task was not created. Database Error"
+msgstr "Užduotis nesukurta. Duomenų bazės klaida"
+
+#: personal_manager/task.py:46
+msgid "Task was successfully created"
+msgstr "Užduotis sukurtas sėkmingai"
+
+#: personal_manager/task.py:81
+msgid "Task was not updated. Database Error"
+msgstr "Užduotis neatnaujinta. Duomenų bazės klaida"
+
+#: personal_manager/task.py:83
+msgid "Task was successfully updated"
+msgstr "Užduotis sėkmingai atnaujinta"
+
+#: personal_manager/task.py:106
+msgid "Task was not deleted. Database Error"
+msgstr "Užduotis neištrinta. Duomenų bazės klaida"
+
+#: personal_manager/task.py:109
+msgid "Task was successfully deleted"
+msgstr "Naudotojas užregistruotas sėkmingai"
+
+#: personal_manager/user.py:38
+msgid "Password change failed. Database Error"
+msgstr "Slaptažodis nebuvo pakeistas. Duomenų bazės klaida"
+
+#: personal_manager/user.py:63
+msgid "Account was not deleted. Database Error"
+msgstr "Paskyra nebuvo ištrinta. Duomenų bazės klaida"
+
+#: personal_manager/user.py:67
+msgid "Account was successfully deleted"
+msgstr "Paskyra sėkmingai ištrinta"
 
 #: personal_manager/templates/base.html:24
 msgid "Home"

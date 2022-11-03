@@ -10,6 +10,7 @@ from .forms import TaskForm, process_form_errors
 from . import db
 from sqlalchemy.exc import IntegrityError
 from flask_paginate import Pagination, get_page_parameter
+from flask_babel import lazy_gettext
 
 bp = Blueprint('task', __name__, url_prefix='/tasks')
 
@@ -40,9 +41,9 @@ def create():
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Task was not created. Database Error"
+			error = lazy_gettext('Task was not created. Database Error')
 		else:
-			flash('Task was successfully created', 'success')
+			flash(lazy_gettext('Task was successfully created'), 'success')
 			return redirect(url_for('task.list'))
 
 	if form.errors:	
@@ -77,9 +78,9 @@ def update(id):
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Task was not updated. Database Error"
+			error = lazy_gettext('Task was not updated. Database Error')
 		else:
-			flash('Task was successfully updated', 'success')
+			flash(lazy_gettext('Task was successfully updated'), 'success')
 			return redirect(url_for('task.list'))
 
 	if form.errors:	
@@ -102,10 +103,10 @@ def delete(id):
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Task was not deleted. Database Error"
+			error = lazy_gettext('Task was not deleted. Database Error')
 			current_app.logger.warning(e)
 		else:
-			flash('Task was successfully deleted', 'success')
+			flash(lazy_gettext('Task was successfully deleted'), 'success')
 
 		if error is not None:
 			flash(error, 'danger')

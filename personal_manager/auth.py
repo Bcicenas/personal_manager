@@ -11,7 +11,7 @@ from werkzeug.exceptions import abort
 from sqlalchemy.exc import IntegrityError
 from itsdangerous import URLSafeTimedSerializer
 from sqlalchemy import or_
-from flask_babel import gettext
+from flask_babel import lazy_gettext
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -28,9 +28,9 @@ def register():
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Username or Email already exists"
+			error = lazy_gettext('Username or Email already exists')
 		else:
-			flash(gettext(u'User successfully registered'), 'success')
+			flash(lazy_gettext('User successfully registered'), 'success')
 			return redirect(url_for("auth.login"))
 
 		flash(error, 'danger')
@@ -46,18 +46,18 @@ def login():
 		user = db.session.execute(db.select(User).filter(or_(User.username == username, User.email == username))).first()
 
 		if user is None:
-			error = 'Incorrect username.'
+			error = lazy_gettext('Incorrect username.')
 		elif not user[0].email_confirmed:
-			error = 'Email is not confirmed'
+			error = lazy_gettext('Email is not confirmed')
 		elif not check_password_hash(user[0].password, password):
-			error = 'Incorrect password.'
+			error = lazy_gettext('Incorrect password.')
 
 		if error is None:
 			locale = session['locale'] if session['locale'] else None
 			session.clear()
 			session['locale'] = locale
 			session['user_id'] = user[0].id
-			flash('Login successfully', 'success')
+			flash(lazy_gettext('Login successfully'), 'success')
 			return redirect(url_for('index'))
 
 		flash(error, 'danger')
@@ -77,7 +77,7 @@ def confirm_email(token):
 	user.email_confirmed = True
 
 	db.session.commit()
-	flash('Email was confirmed successfully', 'success')
+	flash(lazy_gettext('Email was confirmed successfully'), 'success')
 	return redirect(url_for("auth.login"))
 
 @bp.route('/forgot_password', methods=('GET', 'POST'))
@@ -89,10 +89,10 @@ def forgot_password():
 		if user.email_confirmed:
 			ts = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
 			user.send_password_reset(ts)
-			flash('Password reset link was sent to ' + form.email.data, 'success')
+			flash(lazy_gettext('Password reset link was sent to ') + form.email.data, 'success')
 			return redirect(url_for("index"))
 		else:
-			error = 'Email is not confirmed'
+			error = lazy_gettext('Email is not confirmed')
 
 		if error:
 			flash(error, 'danger')
@@ -120,9 +120,9 @@ def reset_password(token):
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
-			error = f"Password reset failed. Database Error"
+			error = lazy_gettext('Password reset failed. Database Error')
 		else:
-			flash('Password was successfully changed', 'success')
+			flash(lazy_gettext('Password was successfully changed'), 'success')
 			return redirect(url_for('auth.login'))
 
 	if form.errors:	
@@ -153,7 +153,7 @@ def login_required(view):
 	@functools.wraps(view)
 	def wrapped_view(**kwargs):
 		if g.user is None:
-			flash('Access denied', 'danger')
+			flash(lazy_gettext('Access denied'), 'danger')
 			return redirect(url_for('auth.login'))
 		return view(**kwargs)
 

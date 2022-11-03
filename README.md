@@ -3,10 +3,8 @@ Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
  - localization
- - localization - translations
- - localization(translations) email confirm
- - localization(translations) forgot password
- - localization(translations) success/error messages
+ - localization - translations(404)
+ - custom 404
 
 # Work in Progress
  - localization - translations
@@ -53,3 +51,6 @@ Simple web application to manage your tasks, shoppings lists and more
  - localization(translations) landing page
  - localization(translations) shopping lists
  - localization(translations) tasks
+ - localization(translations) email confirm
+ - localization(translations) forgot password
+ - localization(translations) success/error messages

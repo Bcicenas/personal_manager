@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-03 20:32+0200\n"
+"POT-Creation-Date: 2022-11-03 20:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
 
+#: personal_manager/auth.py:31
+msgid "Username or Email already exists"
+msgstr ""
+
 #: personal_manager/auth.py:33
 msgid "User successfully registered"
+msgstr ""
+
+#: personal_manager/auth.py:49
+msgid "Incorrect username."
+msgstr ""
+
+#: personal_manager/auth.py:51 personal_manager/auth.py:95
+msgid "Email is not confirmed"
+msgstr ""
+
+#: personal_manager/auth.py:53
+msgid "Incorrect password."
+msgstr ""
+
+#: personal_manager/auth.py:60
+msgid "Login successfully"
+msgstr ""
+
+#: personal_manager/auth.py:80
+msgid "Email was confirmed successfully"
+msgstr ""
+
+#: personal_manager/auth.py:92
+msgid "Password reset link was sent to "
+msgstr ""
+
+#: personal_manager/auth.py:123
+msgid "Password reset failed. Database Error"
+msgstr ""
+
+#: personal_manager/auth.py:125 personal_manager/user.py:40
+msgid "Password was successfully changed"
+msgstr ""
+
+#: personal_manager/auth.py:156
+msgid "Access denied"
 msgstr ""
 
 #: personal_manager/forms.py:9 personal_manager/forms.py:16
@@ -148,6 +188,82 @@ msgstr ""
 
 #: personal_manager/models.py:75
 msgid "Password Reset"
+msgstr ""
+
+#: personal_manager/shopping_list.py:41
+msgid "Shopping List was not created. Database Error"
+msgstr ""
+
+#: personal_manager/shopping_list.py:43
+msgid "Shopping List was successfully created"
+msgstr ""
+
+#: personal_manager/shopping_list.py:78
+msgid "Shopping List was not updated. Database Error"
+msgstr ""
+
+#: personal_manager/shopping_list.py:80
+msgid "Shopping List was successfully updated"
+msgstr ""
+
+#: personal_manager/shopping_list.py:103
+msgid "Shopping List was not deleted. Database Error"
+msgstr ""
+
+#: personal_manager/shopping_list.py:106
+msgid "Shopping List was successfully deleted"
+msgstr ""
+
+#: personal_manager/shopping_list.py:142
+msgid "Shopping Item was not created. Database Error"
+msgstr ""
+
+#: personal_manager/shopping_list.py:144
+msgid "Shopping Item was successfully created"
+msgstr ""
+
+#: personal_manager/shopping_list.py:166
+msgid "Shopping Item was not deleted. Database Error"
+msgstr ""
+
+#: personal_manager/shopping_list.py:168
+msgid "Shopping Item was successfully deleted"
+msgstr ""
+
+#: personal_manager/task.py:44
+msgid "Task was not created. Database Error"
+msgstr ""
+
+#: personal_manager/task.py:46
+msgid "Task was successfully created"
+msgstr ""
+
+#: personal_manager/task.py:81
+msgid "Task was not updated. Database Error"
+msgstr ""
+
+#: personal_manager/task.py:83
+msgid "Task was successfully updated"
+msgstr ""
+
+#: personal_manager/task.py:106
+msgid "Task was not deleted. Database Error"
+msgstr ""
+
+#: personal_manager/task.py:109
+msgid "Task was successfully deleted"
+msgstr ""
+
+#: personal_manager/user.py:38
+msgid "Password change failed. Database Error"
+msgstr ""
+
+#: personal_manager/user.py:63
+msgid "Account was not deleted. Database Error"
+msgstr ""
+
+#: personal_manager/user.py:67
+msgid "Account was successfully deleted"
 msgstr ""
 
 #: personal_manager/templates/base.html:24
