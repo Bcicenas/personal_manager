@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css" />   
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
@@ -38,6 +39,19 @@
                 <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
                 <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Log In</a>
               {% endif %}
+                <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                    {% if session['locale'] == 'en' or not session['locale'] %}
+                      <span class="fi fi-gb"></span>
+                    {% else %}
+                      <span class="fi fi-{{ session['locale'] }}"></span>
+                    {% endif %}
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ url_for('user.set_locale', locale='en') }}"><span class="fi fi-gb"></span>&nbsp;English</a>
+                    <a class="dropdown-item" href="{{ url_for('user.set_locale', locale='lt') }}"><span class="fi fi-lt"></span>&nbsp;Lithuanian</a>
+                  </div>
+                </div>
             </div>
           </div>
         </nav>

@@ -53,7 +53,9 @@ def login():
 			error = 'Incorrect password.'
 
 		if error is None:
+			locale = session['locale'] if session['locale'] else None
 			session.clear()
+			session['locale'] = locale
 			session['user_id'] = user[0].id
 			flash('Login successfully', 'success')
 			return redirect(url_for('index'))

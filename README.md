@@ -5,8 +5,8 @@ Simple web application to manage your tasks, shoppings lists and more
  - localization
 
 # Work in Progress
- - localization
- 
+ - localization - translations
+
 # Done Tasks
  - Basic FrontEnd
  - Create Shopping list
@@ -43,3 +43,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - personal details
  - delete account
  - change password
+ - localization - select language(english, lithuanian)
