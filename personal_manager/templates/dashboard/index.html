@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Dashboard{% endblock %}</h1>
+  <h1>{% block title %}{{ _('Dashboard') }}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
   <div class="container dashboard">
     <div class="row">
       <div class="col-md-6 mt-2">
-        <h2>Shopping Lists</h2>
+        <h2>{{ _('Shopping Lists') }}</h2>
         <hr>
-        <a href="{{ url_for('shopping_list.create') }}" class="btn btn-success mb-2" role="button">Add New</a>
+        <a href="{{ url_for('shopping_list.create') }}" class="btn btn-success mb-2" role="button">{{ _('Add New') }}</a>
         <div class="accordion">
           {% for shopping_list in shopping_lists %}
             <div class="card mt-2">
@@ -23,19 +23,19 @@
               </div>
               <div id="shopping_list{{ shopping_list[0].id }}" class="collapse {{ 'show' if loop.first else '' }}" aria-labelledby="shopping_list_heading{{ shopping_list[0].id }}" data-parent="#accordion">
                 <div class="card-body">
-                  <h6 class="card-subtitle mb-2 text-muted">Created {{ shopping_list[0].created_at_in_local_tz }}</h6>
-                  <h6 class="card-subtitle mb-2 text-muted">Last Updated {{ shopping_list[0].last_updated_at_in_local_tz }}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ _('Created') }} {{ shopping_list[0].created_at_in_local_tz }}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ _('Last Updated') }} {{ shopping_list[0].last_updated_at_in_local_tz }}</h6>
                   <ul>
                     {% for shopping_item in shopping_list[0].shopping_items %}
                       <li>{{ shopping_item.name }}</li>
                     {% endfor %}
                   </ul>
                   <hr>
-                  <a class="btn btn-primary mt-1" href="{{ url_for('shopping_list.update', id=shopping_list[0].id) }}">Edit</a>
-                  <a class="btn btn-primary mt-1" href="{{ url_for('shopping_list.shopping_items', id=shopping_list[0].id) }}">Edit Items</a>
+                  <a class="btn btn-primary mt-1" href="{{ url_for('shopping_list.update', id=shopping_list[0].id) }}">{{ _('Edit') }}</a>
+                  <a class="btn btn-primary mt-1" href="{{ url_for('shopping_list.shopping_items', id=shopping_list[0].id) }}">{{ _('Edit Items') }}</a>
                   <form class="d-inline-block" action="{{ url_for('shopping_list.delete', id=shopping_list[0].id) }}" method="post">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                    <input class="btn btn-danger mt-1" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                    <input class="btn btn-danger mt-1" type="submit" value="{{ _('Delete') }}" onclick="return confirm('{{ _('Are you sure?') }}');">
                   </form>
                 </div>
               </div>
@@ -44,9 +44,9 @@
         </div>
       </div>
       <div class="col-md-6 mt-2">
-        <h2>Tasks</h2>
+        <h2>{{ _('Tasks') }}</h2>
         <hr>
-        <a href="{{ url_for('task.create') }}" class="btn btn-success mb-2" role="button">Add New</a>
+        <a href="{{ url_for('task.create') }}" class="btn btn-success mb-2" role="button">{{ _('Add New') }}</a>
         <div class="accordion">
           {% for task in tasks %}
             <div class="card mt-2">
@@ -60,16 +60,16 @@
               </div>
               <div id="task{{ task[0].id }}" class="collapse {{ 'show' if loop.first else '' }}" aria-labelledby="task_heading{{ task[0].id }}" data-parent="#accordion">
                 <div class="card-body">
-                  <h6 class="card-subtitle mb-2 text-muted">Created {{ task[0].created_at_in_local_tz }}</h6>
-                  <h6 class="card-subtitle mb-2 text-muted">Last Updated {{ task[0].last_updated_at_in_local_tz }}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ _('Created') }} {{ task[0].created_at_in_local_tz }}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ _('Last Updated') }} {{ task[0].last_updated_at_in_local_tz }}</h6>
                   <p>
                     {{ task[0].description }}
                   </p>
                   <hr>
-                  <a class="btn btn-primary mt-1" href="{{ url_for('task.update', id=task[0].id) }}">Edit</a>
+                  <a class="btn btn-primary mt-1" href="{{ url_for('task.update', id=task[0].id) }}">{{ _('Edit') }}</a>
                   <form class="d-inline-block" action="{{ url_for('task.delete', id=task[0].id) }}" method="post">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                    <input class="btn btn-danger mt-1" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                    <input class="btn btn-danger mt-1" type="submit" value="{{ _('Delete') }}" onclick="return confirm('{{ _('Are you sure?') }}');">
                   </form>
                 </div>
               </div>

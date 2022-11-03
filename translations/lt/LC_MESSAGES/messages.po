@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-03 17:25+0200\n"
+"POT-Creation-Date: 2022-11-03 17:53+0200\n"
 "PO-Revision-Date: 2022-10-31 15:17+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: lt\n"
@@ -28,10 +28,12 @@ msgid "Home"
 msgstr "Pradinis"
 
 #: personal_manager/templates/base.html:27
+#: personal_manager/templates/dashboard/index.html:47
 msgid "Tasks"
 msgstr "Užduotys"
 
 #: personal_manager/templates/base.html:28
+#: personal_manager/templates/dashboard/index.html:11
 msgid "Shopping Lists"
 msgstr "Pirkinių krepšiai"
 
@@ -44,11 +46,14 @@ msgstr "Naudotojo informacija"
 msgid "Log Out"
 msgstr "Atsijungti"
 
+#: personal_manager/templates/auth/register.html:4
+#: personal_manager/templates/auth/register.html:24
 #: personal_manager/templates/base.html:39
 #: personal_manager/templates/landing_page.html:9
 msgid "Register"
 msgstr "Registracija"
 
+#: personal_manager/templates/auth/login.html:18
 #: personal_manager/templates/base.html:40
 msgid "Login"
 msgstr "Prisijungti"
@@ -61,12 +66,23 @@ msgstr "Anglų"
 msgid "Lithuanian"
 msgstr "Lietuvių"
 
+#: personal_manager/templates/landing_page.html:6
+msgid "Simple web application to manage your tasks, shoppings lists and more"
+msgstr ""
+"Paprasta web aplikacija valdyti savo užduotims, pirkinių krepšiams ir ne "
+"tik"
+
+#: personal_manager/templates/landing_page.html:8
+msgid "Try for free today!"
+msgstr "Išmegink nemokamai dabar!"
+
 #: personal_manager/templates/auth/login.html:4
 msgid "Log In"
 msgstr "Prisijungimas"
 
 #: personal_manager/templates/auth/login.html:11
 #: personal_manager/templates/auth/register.html:11
+#: personal_manager/templates/user/personal_details.html:14
 msgid "Username"
 msgstr "Naudotojo Vardas"
 
@@ -80,10 +96,69 @@ msgid "Forgot password?"
 msgstr "Pamiršai slaptažodį?"
 
 #: personal_manager/templates/auth/register.html:16
+#: personal_manager/templates/user/personal_details.html:15
 msgid "Email"
 msgstr "El. Paštas"
+
+#: personal_manager/templates/dashboard/index.html:4
+msgid "Dashboard"
+msgstr "Valdymo skydelis"
+
+#: personal_manager/templates/dashboard/index.html:13
+#: personal_manager/templates/dashboard/index.html:49
+msgid "Add New"
+msgstr "Pridėti naują"
+
+#: personal_manager/templates/dashboard/index.html:26
+#: personal_manager/templates/dashboard/index.html:63
+msgid "Created"
+msgstr "Sukurtas"
+
+#: personal_manager/templates/dashboard/index.html:27
+#: personal_manager/templates/dashboard/index.html:64
+msgid "Last Updated"
+msgstr "Paskutinį kartą atnaujintas"
+
+#: personal_manager/templates/dashboard/index.html:34
+#: personal_manager/templates/dashboard/index.html:69
+msgid "Edit"
+msgstr "Redaguoti"
+
+#: personal_manager/templates/dashboard/index.html:35
+msgid "Edit Items"
+msgstr "Redaguoti pirkinius"
+
+#: personal_manager/templates/dashboard/index.html:38
+#: personal_manager/templates/dashboard/index.html:72
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: personal_manager/templates/dashboard/index.html:38
+#: personal_manager/templates/dashboard/index.html:72
+#: personal_manager/templates/user/personal_details.html:28
+msgid "Are you sure?"
+msgstr "Ar jus tikrai norite ištrinti?"
 
 #: personal_manager/templates/user/personal_details.html:4
 msgid "Personal details"
 msgstr "Naudotojo informacija"
+
+#: personal_manager/templates/user/personal_details.html:11
+msgid "User details"
+msgstr "Naudotojo duomenys"
+
+#: personal_manager/templates/user/personal_details.html:21
+msgid "Actions"
+msgstr "Veiksmai"
+
+#: personal_manager/templates/user/personal_details.html:24
+msgid "Change Password"
+msgstr "Pakeisti slaptažodį"
+
+#: personal_manager/templates/user/personal_details.html:28
+msgid "Delete Account"
+msgstr "Ištrinti paskyrą"
+
+#~ msgid "Personal details"
+#~ msgstr "Naudotojo informacija"
 

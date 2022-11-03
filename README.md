@@ -4,13 +4,11 @@ Simple web application to manage your tasks, shoppings lists and more
 # To do list
  - localization
  - localization - translations
- - localization(translations) landing page
  - localization(translations) email confirm
- - localization(translations) dashboard
- - localization(translations) personal details
  - localization(translations) forgot password
  - localization(translations) shopping lists
  - localization(translations) tasks
+ - localization(translations) success/error messages
 
 # Work in Progress
  - localization - translations
@@ -52,3 +50,6 @@ Simple web application to manage your tasks, shoppings lists and more
  - delete account
  - change password
  - localization - select language(english, lithuanian)
+ - localization(translations) dashboard
+ - localization(translations) personal details
+ - localization(translations) landing page

@@ -8,24 +8,24 @@
   <div class="container personal-details">
     <div class="card">
       <div class="card-header">
-        User details
+        {{ _('User details') }}
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Username: {{ user.username }}</li>
-        <li class="list-group-item">Email: {{ user.email }}</li>
+        <li class="list-group-item">{{ _('Username') }}: {{ user.username }}</li>
+        <li class="list-group-item">{{ _('Email') }}: {{ user.email }}</li>
       </ul>
     </div>
 
     <div class="card mt-2">
       <div class="card-header">
-        Actions
+        {{ _('Actions') }}
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><a href="{{ url_for('user.change_password') }}">Change Password</a></li>
+        <li class="list-group-item"><a href="{{ url_for('user.change_password') }}">{{ _('Change Password') }}</a></li>
         <li class="list-group-item">
           <form action="{{ url_for('user.delete_account') }}" method="post">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-            <input class="btn btn-block btn-outline-danger " type="submit" value="Delete Account" onclick="return confirm('Are you sure?');">
+            <input class="btn btn-block btn-outline-danger " type="submit" value="{{ _('Delete Account') }}" onclick="return confirm('{{ _('Are you sure?') }}');">
           </form>
         </li>
       </ul>

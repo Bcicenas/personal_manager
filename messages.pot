@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-03 17:25+0200\n"
+"POT-Creation-Date: 2022-11-03 17:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,10 +26,12 @@ msgid "Home"
 msgstr ""
 
 #: personal_manager/templates/base.html:27
+#: personal_manager/templates/dashboard/index.html:47
 msgid "Tasks"
 msgstr ""
 
 #: personal_manager/templates/base.html:28
+#: personal_manager/templates/dashboard/index.html:11
 msgid "Shopping Lists"
 msgstr ""
 
@@ -41,11 +43,14 @@ msgstr ""
 msgid "Log Out"
 msgstr ""
 
+#: personal_manager/templates/auth/register.html:4
+#: personal_manager/templates/auth/register.html:24
 #: personal_manager/templates/base.html:39
 #: personal_manager/templates/landing_page.html:9
 msgid "Register"
 msgstr ""
 
+#: personal_manager/templates/auth/login.html:18
 #: personal_manager/templates/base.html:40
 msgid "Login"
 msgstr ""
@@ -58,13 +63,21 @@ msgstr ""
 msgid "Lithuanian"
 msgstr ""
 
+#: personal_manager/templates/landing_page.html:6
+msgid "Simple web application to manage your tasks, shoppings lists and more"
+msgstr ""
+
+#: personal_manager/templates/landing_page.html:8
+msgid "Try for free today!"
+msgstr ""
+
 #: personal_manager/templates/auth/login.html:4
-#: personal_manager/templates/auth/login.html:18
 msgid "Log In"
 msgstr ""
 
 #: personal_manager/templates/auth/login.html:11
 #: personal_manager/templates/auth/register.html:11
+#: personal_manager/templates/user/personal_details.html:14
 msgid "Username"
 msgstr ""
 
@@ -78,10 +91,66 @@ msgid "Forgot password?"
 msgstr ""
 
 #: personal_manager/templates/auth/register.html:16
+#: personal_manager/templates/user/personal_details.html:15
 msgid "Email"
+msgstr ""
+
+#: personal_manager/templates/dashboard/index.html:4
+msgid "Dashboard"
+msgstr ""
+
+#: personal_manager/templates/dashboard/index.html:13
+#: personal_manager/templates/dashboard/index.html:49
+msgid "Add New"
+msgstr ""
+
+#: personal_manager/templates/dashboard/index.html:26
+#: personal_manager/templates/dashboard/index.html:63
+msgid "Created"
+msgstr ""
+
+#: personal_manager/templates/dashboard/index.html:27
+#: personal_manager/templates/dashboard/index.html:64
+msgid "Last Updated"
+msgstr ""
+
+#: personal_manager/templates/dashboard/index.html:34
+#: personal_manager/templates/dashboard/index.html:69
+msgid "Edit"
+msgstr ""
+
+#: personal_manager/templates/dashboard/index.html:35
+msgid "Edit Items"
+msgstr ""
+
+#: personal_manager/templates/dashboard/index.html:38
+#: personal_manager/templates/dashboard/index.html:72
+msgid "Delete"
+msgstr ""
+
+#: personal_manager/templates/dashboard/index.html:38
+#: personal_manager/templates/dashboard/index.html:72
+#: personal_manager/templates/user/personal_details.html:28
+msgid "Are you sure?"
 msgstr ""
 
 #: personal_manager/templates/user/personal_details.html:4
 msgid "Personal details"
+msgstr ""
+
+#: personal_manager/templates/user/personal_details.html:11
+msgid "User details"
+msgstr ""
+
+#: personal_manager/templates/user/personal_details.html:21
+msgid "Actions"
+msgstr ""
+
+#: personal_manager/templates/user/personal_details.html:24
+msgid "Change Password"
+msgstr ""
+
+#: personal_manager/templates/user/personal_details.html:28
+msgid "Delete Account"
 msgstr ""
 

@@ -3,9 +3,9 @@
 {% block content %}
 <div class="jumbotron">
   <h1 class="display-4">Personal Manager</h1>
-  <p class="lead">Simple web application to manage your tasks, shoppings lists and more</p>
+  <p class="lead">{{ _('Simple web application to manage your tasks, shoppings lists and more') }}</p>
   <hr class="my-4">
-  <p>Try for free today!</p>
+  <p>{{ _('Try for free today!') }}</p>
   <a class="btn btn-primary btn-lg" href="{{ url_for('auth.register') }}" role="button">{{ _('Register') }}</a>
 </div>
 {% endblock %}
