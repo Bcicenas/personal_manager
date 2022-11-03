@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Shopping Items{% endblock %}</h1>
+  <h1>{% block title %}{{ _('Shopping Items') }}{% endblock %}</h1>
 {% endblock %}
 
 
@@ -15,7 +15,7 @@
           <div class="input-group">
             {{ form.name(class_="form-control") }}
             <div class="input-group-append">
-              <input class="btn btn-success" type="submit" value="Add">
+              <input class="btn btn-success" type="submit" value="{{ _('Add') }}">
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
       <table class="table table table-striped table-bordered table-hover">
         <thead>
           <tr>
-            <th scope="col">Name</th>
+            <th scope="col">{{ _('Name') }}</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -37,7 +37,7 @@
               <td class="text-right">
                 <form action="{{ url_for('shopping_list.delete_shopping_list_item', id=shopping_item.id) }}" method="post">
                   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                  <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                  <input class="btn btn-danger" type="submit" value="{{ _('Delete') }}" onclick="return confirm('{{ _('Are you sure?') }}');">
                    <input type="hidden" id="shopping_list_id" name="shopping_list_id" value="{{ shopping_item.shopping_list.id }}">
                 </form>              
               </td>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-03 17:53+0200\n"
+"POT-Creation-Date: 2022-11-03 20:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,22 +21,117 @@ msgstr ""
 msgid "User successfully registered"
 msgstr ""
 
+#: personal_manager/forms.py:9 personal_manager/forms.py:16
+#: personal_manager/forms.py:19
+#: personal_manager/templates/shopping_list/list.html:16
+#: personal_manager/templates/shopping_list/shopping_items.html:28
+#: personal_manager/templates/task/list.html:16
+msgid "Name"
+msgstr ""
+
+#: personal_manager/forms.py:9 personal_manager/forms.py:16
+#: personal_manager/forms.py:19
+msgid "Name is required."
+msgstr ""
+
+#: personal_manager/forms.py:10
+msgid "Description"
+msgstr ""
+
+#: personal_manager/forms.py:11
+msgid "Priority"
+msgstr ""
+
+#: personal_manager/forms.py:11
+msgid "Low"
+msgstr ""
+
+#: personal_manager/forms.py:11
+msgid "Medium"
+msgstr ""
+
+#: personal_manager/forms.py:11
+msgid "High"
+msgstr ""
+
+#: personal_manager/forms.py:12
+msgid "Till date"
+msgstr ""
+
+#: personal_manager/forms.py:13
+msgid "Finished"
+msgstr ""
+
+#: personal_manager/forms.py:22
+#: personal_manager/templates/auth/register.html:16
+#: personal_manager/templates/user/personal_details.html:15
+msgid "Email"
+msgstr ""
+
+#: personal_manager/forms.py:22
+msgid "Email is required"
+msgstr ""
+
+#: personal_manager/forms.py:25 personal_manager/templates/auth/login.html:15
+#: personal_manager/templates/auth/register.html:21
+msgid "Password"
+msgstr ""
+
+#: personal_manager/forms.py:25
+msgid "Password is required."
+msgstr ""
+
+#: personal_manager/forms.py:28
+msgid "Current Password"
+msgstr ""
+
+#: personal_manager/forms.py:28
+msgid "Current Password is required."
+msgstr ""
+
+#: personal_manager/forms.py:29
+msgid "New Password"
+msgstr ""
+
+#: personal_manager/forms.py:29
+msgid "New Password is required."
+msgstr ""
+
+#: personal_manager/forms.py:31
+msgid "Confirm New Password"
+msgstr ""
+
+#: personal_manager/forms.py:32
+msgid "Confirm New Password is required."
+msgstr ""
+
+#: personal_manager/forms.py:32
+msgid "Password mismatch"
+msgstr ""
+
+#: personal_manager/forms.py:40
+msgid "Current Password is invalid"
+msgstr ""
+
 #: personal_manager/templates/base.html:24
 msgid "Home"
 msgstr ""
 
 #: personal_manager/templates/base.html:27
 #: personal_manager/templates/dashboard/index.html:47
+#: personal_manager/templates/task/list.html:4
 msgid "Tasks"
 msgstr ""
 
 #: personal_manager/templates/base.html:28
 #: personal_manager/templates/dashboard/index.html:11
+#: personal_manager/templates/shopping_list/list.html:4
 msgid "Shopping Lists"
 msgstr ""
 
 #: personal_manager/templates/base.html:34
-msgid "Personal Details"
+#: personal_manager/templates/user/personal_details.html:4
+msgid "Personal details"
 msgstr ""
 
 #: personal_manager/templates/base.html:35
@@ -81,18 +176,8 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: personal_manager/templates/auth/login.html:15
-#: personal_manager/templates/auth/register.html:21
-msgid "Password"
-msgstr ""
-
 #: personal_manager/templates/auth/login.html:19
 msgid "Forgot password?"
-msgstr ""
-
-#: personal_manager/templates/auth/register.html:16
-#: personal_manager/templates/user/personal_details.html:15
-msgid "Email"
 msgstr ""
 
 #: personal_manager/templates/dashboard/index.html:4
@@ -101,6 +186,8 @@ msgstr ""
 
 #: personal_manager/templates/dashboard/index.html:13
 #: personal_manager/templates/dashboard/index.html:49
+#: personal_manager/templates/shopping_list/list.html:10
+#: personal_manager/templates/task/list.html:10
 msgid "Add New"
 msgstr ""
 
@@ -116,26 +203,70 @@ msgstr ""
 
 #: personal_manager/templates/dashboard/index.html:34
 #: personal_manager/templates/dashboard/index.html:69
+#: personal_manager/templates/shopping_list/update.html:4
+#: personal_manager/templates/task/update.html:4
 msgid "Edit"
 msgstr ""
 
 #: personal_manager/templates/dashboard/index.html:35
+#: personal_manager/templates/shopping_list/list.html:26
 msgid "Edit Items"
 msgstr ""
 
 #: personal_manager/templates/dashboard/index.html:38
 #: personal_manager/templates/dashboard/index.html:72
+#: personal_manager/templates/shopping_list/list.html:30
+#: personal_manager/templates/shopping_list/shopping_items.html:40
+#: personal_manager/templates/task/list.html:27
+#: personal_manager/templates/task/update.html:16
 msgid "Delete"
 msgstr ""
 
 #: personal_manager/templates/dashboard/index.html:38
 #: personal_manager/templates/dashboard/index.html:72
+#: personal_manager/templates/shopping_list/create.html:10
+#: personal_manager/templates/shopping_list/shopping_items.html:40
+#: personal_manager/templates/shopping_list/update.html:11
+#: personal_manager/templates/shopping_list/update.html:17
+#: personal_manager/templates/task/create.html:10
+#: personal_manager/templates/task/list.html:27
+#: personal_manager/templates/task/update.html:11
+#: personal_manager/templates/task/update.html:16
 #: personal_manager/templates/user/personal_details.html:28
 msgid "Are you sure?"
 msgstr ""
 
-#: personal_manager/templates/user/personal_details.html:4
-msgid "Personal details"
+#: personal_manager/templates/shopping_list/create.html:4
+msgid "New Shopping List"
+msgstr ""
+
+#: personal_manager/templates/shopping_list/create.html:10
+#: personal_manager/templates/shopping_list/update.html:11
+#: personal_manager/templates/task/create.html:10
+#: personal_manager/templates/task/update.html:11
+msgid "Cancel"
+msgstr ""
+
+#: personal_manager/templates/shopping_list/create.html:11
+#: personal_manager/templates/task/create.html:11
+msgid "Create"
+msgstr ""
+
+#: personal_manager/templates/shopping_list/shopping_items.html:4
+msgid "Shopping Items"
+msgstr ""
+
+#: personal_manager/templates/shopping_list/shopping_items.html:18
+msgid "Add"
+msgstr ""
+
+#: personal_manager/templates/shopping_list/update.html:12
+#: personal_manager/templates/task/update.html:12
+msgid "Save"
+msgstr ""
+
+#: personal_manager/templates/task/create.html:4
+msgid "New Task"
 msgstr ""
 
 #: personal_manager/templates/user/personal_details.html:11

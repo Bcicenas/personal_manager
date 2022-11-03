@@ -8,6 +8,7 @@ import re
 from password_strength import PasswordPolicy
 from werkzeug.security import generate_password_hash
 from flask_mail import Message
+from flask_babel import lazy_gettext
 
 # User model
 class User(db.Model):
@@ -144,11 +145,11 @@ class Task(db.Model):
 	@hybrid_property
 	def priority_name(self):
 		if self.priority == 0:
-			return 'Low'
+			return lazy_gettext('Low')
 		elif self.priority == 1:
-			return 'Medium'
+			return lazy_gettext('Medium')
 		else:
-			return 'High'	
+			return lazy_gettext('High')	
 
 	@hybrid_property
 	def priority_in_css_class(self):

@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Shopping Lists{% endblock %}</h1>
+  <h1>{% block title %}{{ _('Shopping Lists') }}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
   <div class="container shopping-list">
     <div class="button-menu">
-      <a href="{{ url_for('shopping_list.create') }}" class="btn btn-success" role="button">Add New</a>
+      <a href="{{ url_for('shopping_list.create') }}" class="btn btn-success" role="button">{{ _('Add New') }}</a>
     </div>
     <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover">
         <thead>
           <tr>
-            <th scope="col">Name</th>
+            <th scope="col">{{ _('Name') }}</th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
@@ -23,11 +23,11 @@
           {% for shopping_list in shopping_lists %}
             <tr scope="row">
               <td><a href="{{ url_for('shopping_list.update', id=shopping_list.id) }}">{{ shopping_list.name }}</a></td>
-              <td><a href="{{ url_for('shopping_list.shopping_items', id=shopping_list.id) }}">Edit Items</a></td>
+              <td><a href="{{ url_for('shopping_list.shopping_items', id=shopping_list.id) }}">{{ _('Edit Items') }}</a></td>
               <td class="text-right">
                 <form action="{{ url_for('shopping_list.delete', id=shopping_list.id) }}" method="post">
                   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                  <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                  <input class="btn btn-danger" type="submit" value="{{ _('Delete') }}" onclick="return confirm('{{ ('Are you sure?') }}');">
                 </form>
               </td>
             </tr>

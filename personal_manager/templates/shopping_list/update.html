@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Edit "{{ shopping_list['name'] }}"{% endblock %}</h1>
+  <h1>{% block title %}{{ _('Edit') }} "{{ shopping_list['name'] }}"{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
   <div class="container shopping-list-form">
     <form method="post">
       {% include 'shopping_list/form.html' %}
-      <a class="btn btn-dark" href="{{ url_for('shopping_list.list') }}" onclick="return confirm('Are you sure?');">Cancel</a>
-      <input class="btn btn-primary" type="submit" value="Save">
+      <a class="btn btn-dark" href="{{ url_for('shopping_list.list') }}" onclick="return confirm('{{ _('Are you sure?') }}');">{{ _('Cancel') }}</a>
+      <input class="btn btn-primary" type="submit" value="{{ _('Save') }}">
     </form>
     <hr>
     <form action="{{ url_for('shopping_list.delete', id=shopping_list.id) }}" method="post">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-      <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+      <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('{{ _('Are you sure?') }}');">
     </form>
   </div>
 {% endblock %}

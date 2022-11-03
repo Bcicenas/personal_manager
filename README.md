@@ -6,8 +6,6 @@ Simple web application to manage your tasks, shoppings lists and more
  - localization - translations
  - localization(translations) email confirm
  - localization(translations) forgot password
- - localization(translations) shopping lists
- - localization(translations) tasks
  - localization(translations) success/error messages
 
 # Work in Progress
@@ -53,3 +51,5 @@ Simple web application to manage your tasks, shoppings lists and more
  - localization(translations) dashboard
  - localization(translations) personal details
  - localization(translations) landing page
+ - localization(translations) shopping lists
+ - localization(translations) tasks
