@@ -1,17 +1,18 @@
-# Translations template for PROJECT.
+# English translations for PROJECT.
 # Copyright (C) 2022 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-11-03 17:25+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2022-10-31 16:01+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,69 +20,71 @@ msgstr ""
 
 #: personal_manager/auth.py:33
 msgid "User successfully registered"
-msgstr ""
+msgstr "User successfully registered"
 
 #: personal_manager/templates/base.html:24
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: personal_manager/templates/base.html:27
 msgid "Tasks"
-msgstr ""
+msgstr "Tasks"
 
 #: personal_manager/templates/base.html:28
 msgid "Shopping Lists"
-msgstr ""
+msgstr "Shopping Lists"
 
 #: personal_manager/templates/base.html:34
+#, fuzzy
 msgid "Personal Details"
-msgstr ""
+msgstr "Personal details"
 
 #: personal_manager/templates/base.html:35
 msgid "Log Out"
-msgstr ""
+msgstr "Log Out"
 
 #: personal_manager/templates/base.html:39
 #: personal_manager/templates/landing_page.html:9
 msgid "Register"
-msgstr ""
+msgstr "Register"
 
 #: personal_manager/templates/base.html:40
 msgid "Login"
-msgstr ""
+msgstr "Login"
 
 #: personal_manager/templates/base.html:51
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: personal_manager/templates/base.html:52
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lithuanian"
 
 #: personal_manager/templates/auth/login.html:4
 #: personal_manager/templates/auth/login.html:18
+#, fuzzy
 msgid "Log In"
-msgstr ""
+msgstr "Login"
 
 #: personal_manager/templates/auth/login.html:11
 #: personal_manager/templates/auth/register.html:11
 msgid "Username"
-msgstr ""
+msgstr "Username"
 
 #: personal_manager/templates/auth/login.html:15
 #: personal_manager/templates/auth/register.html:21
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 #: personal_manager/templates/auth/login.html:19
 msgid "Forgot password?"
-msgstr ""
+msgstr "Forgot password?"
 
 #: personal_manager/templates/auth/register.html:16
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: personal_manager/templates/user/personal_details.html:4
 msgid "Personal details"
-msgstr ""
+msgstr "Personal details"
 

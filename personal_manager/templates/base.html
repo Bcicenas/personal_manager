@@ -21,23 +21,23 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-            <a class="navbar-brand" href="{{ url_for('dashboard.index') }}">Home</a>
+            <a class="navbar-brand" href="{{ url_for('dashboard.index') }}">{{ _('Home') }}</a>
             <div class="navbar-nav ml-auto">
               {% if g.user %}
-                <a class="nav-item nav-link" href="{{ url_for('task.list') }}">Tasks</a>
-                <a class="nav-item nav-link" href="{{ url_for('shopping_list.list') }}">Shopping Lists</a>
+                <a class="nav-item nav-link" href="{{ url_for('task.list') }}">{{ _('Tasks') }}</a>
+                <a class="nav-item nav-link" href="{{ url_for('shopping_list.list') }}">{{ _('Shopping Lists') }}</a>
                 <div class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                     {{ g.user['username'] }}
                   </a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ url_for('user.personal_details') }}">Personal Details</a>
-                    <a class="dropdown-item" href="{{ url_for('auth.logout') }}">Log Out</a>
+                    <a class="dropdown-item" href="{{ url_for('user.personal_details') }}">{{ _('Personal Details') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('auth.logout') }}">{{ _('Log Out') }}</a>
                   </div>
                 </div>
               {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
-                <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Log In</a>
+                <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">{{ _('Register') }}</a>
+                <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
               {% endif %}
                 <div class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -48,8 +48,8 @@
                     {% endif %}
                   </a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ url_for('user.set_locale', locale='en') }}"><span class="fi fi-gb"></span>&nbsp;English</a>
-                    <a class="dropdown-item" href="{{ url_for('user.set_locale', locale='lt') }}"><span class="fi fi-lt"></span>&nbsp;Lithuanian</a>
+                    <a class="dropdown-item" href="{{ url_for('user.set_locale', locale='en') }}"><span class="fi fi-gb"></span>&nbsp;{{ _('English') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('user.set_locale', locale='lt') }}"><span class="fi fi-lt"></span>&nbsp;{{ _('Lithuanian') }}</a>
                   </div>
                 </div>
             </div>
