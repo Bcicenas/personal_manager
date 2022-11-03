@@ -3,6 +3,14 @@ Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
  - localization
+ - localization - translations
+ - localization(translations) landing page
+ - localization(translations) email confirm
+ - localization(translations) dashboard
+ - localization(translations) personal details
+ - localization(translations) forgot password
+ - localization(translations) shopping lists
+ - localization(translations) tasks
 
 # Work in Progress
  - localization - translations
