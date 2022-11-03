@@ -2,12 +2,13 @@
 Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
- - localization
- - localization - translations(404)
- - custom 404
+ - save locale to user
+ - task search
+ - shopping list search
+ - shopping item search
 
 # Work in Progress
- - localization - translations
+ - save locale to user
 
 # Done Tasks
  - Basic FrontEnd
@@ -54,3 +55,5 @@ Simple web application to manage your tasks, shoppings lists and more
  - localization(translations) email confirm
  - localization(translations) forgot password
  - localization(translations) success/error messages
+ - localization - translations(404)
+ - custom 404

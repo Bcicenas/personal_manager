@@ -57,7 +57,7 @@ def create():
 def get_task_id(id, check_owner=True):
 	task = db.session.execute(db.select(Task).filter_by(id=id)).first()
 	if task is None:
-		abort(404, f"Task id {id} doesn't exist.")
+		abort(404, lazy_gettext('Task id ') + str(id) + lazy_gettext(" doesn't exist."))
 
 	if check_owner and task[0].user_id != g.user.id:
 		abort(403)

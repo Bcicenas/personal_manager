@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-03 20:47+0200\n"
+"POT-Creation-Date: 2022-11-03 21:38+0200\n"
 "PO-Revision-Date: 2022-10-31 15:17+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: lt\n"
@@ -72,8 +72,8 @@ msgid "Name"
 msgstr "Pavadinimas"
 
 #: personal_manager/forms.py:9 personal_manager/forms.py:16
-#: personal_manager/forms.py:19 personal_manager/models.py:110
-#: personal_manager/models.py:127
+#: personal_manager/forms.py:19 personal_manager/models.py:109
+#: personal_manager/models.py:126
 msgid "Name is required."
 msgstr "Pavadinimas yra privalomas laukas"
 
@@ -85,15 +85,15 @@ msgstr "Aprašymas"
 msgid "Priority"
 msgstr "Prioritetas"
 
-#: personal_manager/forms.py:11 personal_manager/models.py:148
+#: personal_manager/forms.py:11 personal_manager/models.py:147
 msgid "Low"
 msgstr "Žemas"
 
-#: personal_manager/forms.py:11 personal_manager/models.py:150
+#: personal_manager/forms.py:11 personal_manager/models.py:149
 msgid "Medium"
 msgstr "Medium"
 
-#: personal_manager/forms.py:11 personal_manager/models.py:152
+#: personal_manager/forms.py:11 personal_manager/models.py:151
 msgid "High"
 msgstr "Aukštas"
 
@@ -172,23 +172,23 @@ msgstr "Prašome naudoti stipresnį slaptažodį"
 msgid "Must contain at least 8 characters"
 msgstr "Turi sudaryti bent 8 simboliai"
 
-#: personal_manager/models.py:52 personal_manager/models.py:53
+#: personal_manager/models.py:52
 msgid "Must contain at least 1 uppercase letter"
 msgstr "Privalo būti bent viena Didžioji raidė"
 
-#: personal_manager/models.py:54
+#: personal_manager/models.py:53
 msgid "Must contain at least 1 number"
 msgstr "Privalo būti bent vienas skaičius"
 
-#: personal_manager/models.py:55
+#: personal_manager/models.py:54
 msgid "Must contain at least 1 special character"
 msgstr "Privalo būti bent specialus simbolis"
 
-#: personal_manager/models.py:62
+#: personal_manager/models.py:61
 msgid "Confirm your email"
 msgstr "El. pašto patvirtinimas"
 
-#: personal_manager/models.py:75
+#: personal_manager/models.py:74
 msgid "Password Reset"
 msgstr "Šlaptažodžio nustatymas iš naujo"
 
@@ -199,6 +199,15 @@ msgstr "Pirkinių krepšys nesukurtas. Duomenų bazės klaida"
 #: personal_manager/shopping_list.py:43
 msgid "Shopping List was successfully created"
 msgstr "Pirkinių krepšys sėkmingai sukurtas"
+
+#: personal_manager/shopping_list.py:57
+msgid "Shopping list id "
+msgstr "Pirkinių krepšys id "
+
+#: personal_manager/shopping_list.py:57 personal_manager/shopping_list.py:178
+#: personal_manager/task.py:60
+msgid " doesn't exist."
+msgstr " neegzistuoja"
 
 #: personal_manager/shopping_list.py:78
 msgid "Shopping List was not updated. Database Error"
@@ -232,6 +241,10 @@ msgstr "Pirkinys nebuvo ištrintas. Duomenų bazės klaida"
 msgid "Shopping Item was successfully deleted"
 msgstr "Pirkinys sėkmingai ištrintas"
 
+#: personal_manager/shopping_list.py:178
+msgid "Shopping item id "
+msgstr "Pirkinys id "
+
 #: personal_manager/task.py:44
 msgid "Task was not created. Database Error"
 msgstr "Užduotis nesukurta. Duomenų bazės klaida"
@@ -239,6 +252,10 @@ msgstr "Užduotis nesukurta. Duomenų bazės klaida"
 #: personal_manager/task.py:46
 msgid "Task was successfully created"
 msgstr "Užduotis sukurtas sėkmingai"
+
+#: personal_manager/task.py:60
+msgid "Task id "
+msgstr " Užduotis id "
 
 #: personal_manager/task.py:81
 msgid "Task was not updated. Database Error"
@@ -268,6 +285,11 @@ msgstr "Paskyra nebuvo ištrinta. Duomenų bazės klaida"
 msgid "Account was successfully deleted"
 msgstr "Paskyra sėkmingai ištrinta"
 
+#: personal_manager/templates/404.html:5
+msgid "Page Not Found"
+msgstr "Puslapis nerastas"
+
+#: personal_manager/templates/404.html:9
 #: personal_manager/templates/base.html:24
 msgid "Home"
 msgstr "Pradinis"

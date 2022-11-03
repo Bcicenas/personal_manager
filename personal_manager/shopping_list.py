@@ -54,7 +54,7 @@ def create():
 def get_shopping_id(id, check_owner=True):
 	shopping_list = db.session.execute(db.select(ShoppingList).filter_by(id=id)).first()
 	if shopping_list is None:
-		abort(404, f"Shopping_list id {id} doesn't exist.")
+		abort(404, lazy_gettext('Shopping list id ') + str(id) + lazy_gettext(" doesn't exist."))
 
 	if check_owner and shopping_list[0].user_id != g.user.id:
 		abort(403)
@@ -175,7 +175,7 @@ def delete_shopping_list_item(id):
 def get_shopping_item_id(id, check_owner=True):
 	shopping_item = db.session.execute(db.select(ShoppingItem).filter_by(id=id)).first()
 	if shopping_item is None:
-		abort(404, f"Shopping_item id {id} doesn't exist.")
+		abort(404, lazy_gettext('Shopping item id ') + str(id) + lazy_gettext(" doesn't exist."))
 
 	if check_owner and shopping_item[0].shopping_list.user_id != g.user.id:
 		abort(403)

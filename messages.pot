@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-03 20:47+0200\n"
+"POT-Creation-Date: 2022-11-03 21:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,8 +70,8 @@ msgid "Name"
 msgstr ""
 
 #: personal_manager/forms.py:9 personal_manager/forms.py:16
-#: personal_manager/forms.py:19 personal_manager/models.py:110
-#: personal_manager/models.py:127
+#: personal_manager/forms.py:19 personal_manager/models.py:109
+#: personal_manager/models.py:126
 msgid "Name is required."
 msgstr ""
 
@@ -83,15 +83,15 @@ msgstr ""
 msgid "Priority"
 msgstr ""
 
-#: personal_manager/forms.py:11 personal_manager/models.py:148
+#: personal_manager/forms.py:11 personal_manager/models.py:147
 msgid "Low"
 msgstr ""
 
-#: personal_manager/forms.py:11 personal_manager/models.py:150
+#: personal_manager/forms.py:11 personal_manager/models.py:149
 msgid "Medium"
 msgstr ""
 
-#: personal_manager/forms.py:11 personal_manager/models.py:152
+#: personal_manager/forms.py:11 personal_manager/models.py:151
 msgid "High"
 msgstr ""
 
@@ -170,23 +170,23 @@ msgstr ""
 msgid "Must contain at least 8 characters"
 msgstr ""
 
-#: personal_manager/models.py:52 personal_manager/models.py:53
+#: personal_manager/models.py:52
 msgid "Must contain at least 1 uppercase letter"
 msgstr ""
 
-#: personal_manager/models.py:54
+#: personal_manager/models.py:53
 msgid "Must contain at least 1 number"
 msgstr ""
 
-#: personal_manager/models.py:55
+#: personal_manager/models.py:54
 msgid "Must contain at least 1 special character"
 msgstr ""
 
-#: personal_manager/models.py:62
+#: personal_manager/models.py:61
 msgid "Confirm your email"
 msgstr ""
 
-#: personal_manager/models.py:75
+#: personal_manager/models.py:74
 msgid "Password Reset"
 msgstr ""
 
@@ -196,6 +196,15 @@ msgstr ""
 
 #: personal_manager/shopping_list.py:43
 msgid "Shopping List was successfully created"
+msgstr ""
+
+#: personal_manager/shopping_list.py:57
+msgid "Shopping list id "
+msgstr ""
+
+#: personal_manager/shopping_list.py:57 personal_manager/shopping_list.py:178
+#: personal_manager/task.py:60
+msgid " doesn't exist."
 msgstr ""
 
 #: personal_manager/shopping_list.py:78
@@ -230,12 +239,20 @@ msgstr ""
 msgid "Shopping Item was successfully deleted"
 msgstr ""
 
+#: personal_manager/shopping_list.py:178
+msgid "Shopping item id "
+msgstr ""
+
 #: personal_manager/task.py:44
 msgid "Task was not created. Database Error"
 msgstr ""
 
 #: personal_manager/task.py:46
 msgid "Task was successfully created"
+msgstr ""
+
+#: personal_manager/task.py:60
+msgid "Task id "
 msgstr ""
 
 #: personal_manager/task.py:81
@@ -266,6 +283,11 @@ msgstr ""
 msgid "Account was successfully deleted"
 msgstr ""
 
+#: personal_manager/templates/404.html:5
+msgid "Page Not Found"
+msgstr ""
+
+#: personal_manager/templates/404.html:9
 #: personal_manager/templates/base.html:24
 msgid "Home"
 msgstr ""

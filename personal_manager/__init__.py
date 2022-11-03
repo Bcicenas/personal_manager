@@ -6,11 +6,16 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from flask_wtf.csrf import CSRFProtect
 from flask_babel import Babel
+from flask import Flask, render_template
+
 
 db = SQLAlchemy()
 mail = Mail()
 csrf = CSRFProtect()
 babel = Babel()
+
+def page_not_found(e):
+	return render_template('404.html', e=e), 404
 
 def create_app(test_config=None):
 	# create and configure the app
@@ -42,6 +47,9 @@ def create_app(test_config=None):
 	else:
 		# load the test config if passed in
 		app.config.from_mapping(test_config)
+
+	# custom error handlers
+	app.register_error_handler(404, page_not_found)
 
 	db.init_app(app)
 	mail.init_app(app)

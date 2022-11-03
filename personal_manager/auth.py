@@ -70,7 +70,7 @@ def confirm_email(token):
 	try:
 		email = ts.loads(token, salt=current_app.config['EMAIL_CONFIRM_SALT'], max_age=86400)
 	except:
-		abort(404)
+		abort(404, 'Token has expired')
 
 	user = User.query.filter_by(email=email).first_or_404()
 
@@ -106,7 +106,7 @@ def reset_password(token):
 	try:
 		email = ts.loads(token, salt=current_app.config['EMAIL_CONFIRM_SALT'], max_age=86400)
 	except:
-		abort(404)
+		abort(404, 'Token has expired')
 
 	error = None
 	form = PasswordForm()
