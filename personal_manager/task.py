@@ -113,3 +113,4 @@ def delete(id):
 
 	
 	return redirect(url_for('task.list'))
+	

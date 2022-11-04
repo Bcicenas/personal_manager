@@ -64,4 +64,3 @@ def test_delete_not_found(client, auth):
 	auth.login()
 	response = client.post('/tasks/delete/1')
 	assert b'Task id 1 doesn&#39;t exist.' in response.data
-

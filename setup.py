@@ -13,6 +13,7 @@ setup(
 		'Flask-Mail',
 		'Flask-WTF',
 		'flask-paginate',
-		'Flask-Babel'
+		'Flask-Babel',
+		'email_validator'
 	],
 )

@@ -8,7 +8,6 @@ from flask_wtf.csrf import CSRFProtect
 from flask_babel import Babel
 from flask import Flask, render_template
 
-
 db = SQLAlchemy()
 mail = Mail()
 csrf = CSRFProtect()

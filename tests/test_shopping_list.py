@@ -90,4 +90,3 @@ def test_shopping_list_delete(client, auth):
 	assert response.headers["Location"] == '/shopping_lists/list'
 	response = client.get('/shopping_lists/list', follow_redirects=True)
 	assert b'Shopping List was successfully deleted' in response.data
-

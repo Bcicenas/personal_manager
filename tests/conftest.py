@@ -65,3 +65,4 @@ def load_db(app):
 			con.execute(_data_sql)
 			
 	return 'db_loaded'
+	

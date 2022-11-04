@@ -166,3 +166,4 @@ class Task(db.Model):
 	@hybrid_property
 	def last_updated_at_in_local_tz(self):
 		return self.last_updated_at.replace(tzinfo=current_app.config['UTC-TZ']).astimezone(current_app.config['LOCAL-TZ']).strftime(current_app.config['DATE-FORMAT'])
+		

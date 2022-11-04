@@ -13,3 +13,4 @@ def test_index(client, auth):
 	assert b'test_primary' in response.data
 	assert b'item1' in response.data
 	assert b'task1' in response.data
+	
