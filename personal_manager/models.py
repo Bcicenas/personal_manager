@@ -1,5 +1,6 @@
 from . import db
 from . import mail
+from . import convert_date_time
 from datetime import datetime
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import validates
@@ -96,11 +97,11 @@ class ShoppingList(db.Model):
 
 	@hybrid_property
 	def created_at_in_local_tz(self):
-		return self.created_at.replace(tzinfo=current_app.config['UTC-TZ']).astimezone(current_app.config['LOCAL-TZ']).strftime(current_app.config['DATE-FORMAT'])
+		return convert_date_time(self.created_at, 'UTC-TZ', 'LOCAL-TZ')
 
 	@hybrid_property
 	def last_updated_at_in_local_tz(self):
-		return self.last_updated_at.replace(tzinfo=current_app.config['UTC-TZ']).astimezone(current_app.config['LOCAL-TZ']).strftime(current_app.config['DATE-FORMAT'])
+		return convert_date_time(self.last_updated_at, 'UTC-TZ', 'LOCAL-TZ')
 
 
 	@validates("name")
@@ -161,9 +162,13 @@ class Task(db.Model):
 
 	@hybrid_property
 	def created_at_in_local_tz(self):
-		return self.created_at.replace(tzinfo=current_app.config['UTC-TZ']).astimezone(current_app.config['LOCAL-TZ']).strftime(current_app.config['DATE-FORMAT'])
+		return convert_date_time(self.created_at, 'UTC-TZ', 'LOCAL-TZ')
+
+	@hybrid_property
+	def till_date_in_local_tz(self):
+		return convert_date_time(self.till_date, 'UTC-TZ', 'LOCAL-TZ')
 
 	@hybrid_property
 	def last_updated_at_in_local_tz(self):
-		return self.last_updated_at.replace(tzinfo=current_app.config['UTC-TZ']).astimezone(current_app.config['LOCAL-TZ']).strftime(current_app.config['DATE-FORMAT'])
+		return convert_date_time(self.last_updated_at, 'UTC-TZ', 'LOCAL-TZ')
 		

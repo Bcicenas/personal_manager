@@ -96,3 +96,6 @@ def get_localized_msg(record_name, current_page, total, items_per_page):
 	start = (current_page - 1) * items_per_page + 1
 	end = total if (start + (items_per_page - 1)) > total else (start + (items_per_page - 1))
 	return lazy_gettext('displaying') + " <b>{start} - {end}</b> " + lazy_gettext('in total') + " <b>{total}</b>"
+
+def convert_date_time(datetime_obj, from_tz, to_tz):
+	return datetime_obj.replace(tzinfo=current_app.config[from_tz]).astimezone(current_app.config[to_tz]).strftime(current_app.config['DATE-FORMAT'])

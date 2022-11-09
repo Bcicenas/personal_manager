@@ -3,7 +3,7 @@ from flask import (
 )
 from datetime import datetime
 from werkzeug.exceptions import abort
-
+from . import convert_date_time
 from personal_manager.auth import login_required
 from .models import Task
 from .forms import TaskForm, process_form_errors
@@ -37,7 +37,7 @@ def create():
 		try:
 			form.populate_obj(task)
 			task.user_id = g.user.id
-
+			task.till_date = convert_date_time(datetime.combine(task.till_date, datetime.min.time()), 'LOCAL-TZ', 'UTC-TZ')
 			db.session.add(task)
 			db.session.commit()	
 		except ValueError as e:
@@ -70,11 +70,13 @@ def get_task_id(id, check_owner=True):
 @login_required
 def update(id):
 	task = get_task_id(id)
+	task.till_date = datetime.strptime(task.till_date_in_local_tz, current_app.config['DATE-FORMAT'])
 	form = TaskForm(request.form, obj=task)
 	error = None
 	if request.method == 'POST' and form.validate():
 		try:
 			form.populate_obj(task)
+			task.till_date = convert_date_time(datetime.combine(task.till_date, datetime.min.time()), 'LOCAL-TZ', 'UTC-TZ')
 			task.last_updated_at = datetime.utcnow()
 			db.session.commit()	
 		except ValueError as e:
