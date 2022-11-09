@@ -11,7 +11,6 @@ class Config:
     LOCAL_TZ = tz.tzlocal()
     DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
     
-    
     # mail settings
     MAIL_SERVER = os.getenv('EMAIL_HOST')
     MAIL_PORT = os.getenv('EMAIL_PORT')
@@ -37,5 +36,5 @@ class DevConfig(Config):
     SECRET_KEY = 'dev'
     FLASK_ENV = 'development'
     DEBUG = True
-    TESTING = True
+    TESTING = False
     SQLALCHEMY_DATABASE_URI = "mysql://dev_user:D3v_user@localhost:3306/personal_manager"

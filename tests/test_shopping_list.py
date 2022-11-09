@@ -80,7 +80,7 @@ def test_delete_shopping_item(client, auth):
 def test_delete_shopping_item_not_found(client, auth):
 	auth.login()
 	response = client.post('/shopping_lists/delete_shopping_list_item/1')
-	assert b"Shopping_item id 1 doesn&#39;t exist." in response.data
+	assert b"Shopping item id 1 doesn&#39;t exist." in response.data
 
 
 def test_shopping_list_delete(client, auth):
