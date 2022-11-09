@@ -5,7 +5,7 @@ from flask import Flask, request, current_app, session, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from flask_wtf.csrf import CSRFProtect
-from flask_babel import Babel
+from flask_babel import Babel, lazy_gettext
 from flask import Flask, render_template
 
 db = SQLAlchemy()
@@ -90,3 +90,9 @@ def get_locale():
 		return session['locale']
 	else:
 		return current_app.config['BABEL_DEFAULT_LOCALE']
+
+# translate pagination
+def get_localized_msg(record_name, current_page, total, items_per_page):
+	start = (current_page - 1) * items_per_page + 1
+	end = total if (start + (items_per_page - 1)) > total else (start + (items_per_page - 1))
+	return lazy_gettext('displaying') + " <b>{start} - {end}</b> " + lazy_gettext('in total') + " <b>{total}</b>"

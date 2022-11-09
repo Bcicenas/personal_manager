@@ -6,7 +6,7 @@ from werkzeug.exceptions import abort
 
 from personal_manager.auth import login_required
 from .models import User, ShoppingList, ShoppingItem
-from . import db
+from . import db, get_localized_msg
 from .forms import ShoppingListForm, ShoppingItemForm, process_form_errors
 from sqlalchemy.exc import IntegrityError
 import logging
@@ -20,7 +20,9 @@ bp = Blueprint('shopping_list', __name__, url_prefix='/shopping_lists')
 def list():
 	page = request.args.get(get_page_parameter(), type=int, default=1)
 	shopping_lists = db.paginate(db.select(ShoppingList).filter_by(user_id=g.user.id).order_by(ShoppingList.created_at.desc()), page=page, per_page=current_app.config['PER_PAGE_PARAMETER'])
-	pagination = Pagination(page=page, total=shopping_lists.total, per_page=current_app.config['PER_PAGE_PARAMETER'], record_name='shopping lists')
+	items_per_page = current_app.config['PER_PAGE_PARAMETER']
+	display_msg = get_localized_msg(lazy_gettext('shopping lists'), page, shopping_lists.total, items_per_page)
+	pagination = Pagination(page=page, total=shopping_lists.total, per_page=items_per_page, display_msg=display_msg)
 	return render_template('shopping_list/list.html', shopping_lists=shopping_lists, pagination=pagination)
 
 @bp.route('/create', methods=('GET', 'POST'))
@@ -114,13 +116,14 @@ def delete(id):
 @bp.route('/shopping_items/<int:id>')
 @login_required
 def shopping_items(id):
-	
 	shopping_item = ShoppingItem()
 	form = ShoppingItemForm(request.form, obj=shopping_item)	
 	shopping_list = get_shopping_id(id)
 	page = request.args.get(get_page_parameter(), type=int, default=1)
 	shopping_items = db.paginate(db.select(ShoppingItem).filter_by(shopping_list_id=id).order_by(ShoppingItem.created_at.desc()), page=page, per_page=current_app.config['PER_PAGE_PARAMETER'])
-	pagination = Pagination(page=page, total=shopping_items.total, per_page=current_app.config['PER_PAGE_PARAMETER'], record_name='shopping items')
+	items_per_page = current_app.config['PER_PAGE_PARAMETER']
+	display_msg = get_localized_msg(lazy_gettext('shopping items'), page, shopping_items.total, items_per_page)
+	pagination = Pagination(page=page, total=shopping_items.total, per_page=items_per_page, display_msg=display_msg)
 	return render_template('shopping_list/shopping_items.html', form=form, shopping_list=shopping_list, shopping_items=shopping_items, pagination=pagination)
 
 @bp.route('/create_shopping_list_item/<int:id>', methods=('POST',))

@@ -7,7 +7,7 @@ from werkzeug.exceptions import abort
 from personal_manager.auth import login_required
 from .models import Task
 from .forms import TaskForm, process_form_errors
-from . import db
+from . import db, get_localized_msg
 from sqlalchemy.exc import IntegrityError
 from flask_paginate import Pagination, get_page_parameter
 from flask_babel import lazy_gettext
@@ -19,7 +19,9 @@ bp = Blueprint('task', __name__, url_prefix='/tasks')
 def list():
 	page = request.args.get(get_page_parameter(), type=int, default=1)
 	tasks = db.paginate(db.select(Task).filter_by(user_id=g.user.id).order_by(Task.created_at.desc()), page=page, per_page=current_app.config['PER_PAGE_PARAMETER'])
-	pagination = Pagination(page=page, total=tasks.total, per_page=current_app.config['PER_PAGE_PARAMETER'], record_name='tasks')
+	items_per_page = current_app.config['PER_PAGE_PARAMETER']
+	display_msg = get_localized_msg(lazy_gettext('tasks'), page, tasks.total, items_per_page)
+	pagination = Pagination(page=page, total=tasks.total, per_page=items_per_page, display_msg=display_msg)
 
 	return render_template('task/list.html', tasks=tasks, pagination=pagination)
 
@@ -113,4 +115,3 @@ def delete(id):
 
 	
 	return redirect(url_for('task.list'))
-	

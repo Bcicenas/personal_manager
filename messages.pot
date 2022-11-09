@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-03 21:38+0200\n"
+"POT-Creation-Date: 2022-11-09 15:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
+
+#: personal_manager/__init__.py:98
+msgid "displaying"
+msgstr ""
+
+#: personal_manager/__init__.py:98
+msgid "in total"
+msgstr ""
 
 #: personal_manager/auth.py:31
 msgid "Username or Email already exists"
@@ -190,84 +198,96 @@ msgstr ""
 msgid "Password Reset"
 msgstr ""
 
-#: personal_manager/shopping_list.py:41
-msgid "Shopping List was not created. Database Error"
+#: personal_manager/shopping_list.py:24
+msgid "shopping lists"
 msgstr ""
 
 #: personal_manager/shopping_list.py:43
+msgid "Shopping List was not created. Database Error"
+msgstr ""
+
+#: personal_manager/shopping_list.py:45
 msgid "Shopping List was successfully created"
 msgstr ""
 
-#: personal_manager/shopping_list.py:57
+#: personal_manager/shopping_list.py:59
 msgid "Shopping list id "
 msgstr ""
 
-#: personal_manager/shopping_list.py:57 personal_manager/shopping_list.py:178
-#: personal_manager/task.py:60
+#: personal_manager/shopping_list.py:59 personal_manager/shopping_list.py:181
+#: personal_manager/task.py:62
 msgid " doesn't exist."
 msgstr ""
 
-#: personal_manager/shopping_list.py:78
+#: personal_manager/shopping_list.py:80
 msgid "Shopping List was not updated. Database Error"
 msgstr ""
 
-#: personal_manager/shopping_list.py:80
+#: personal_manager/shopping_list.py:82
 msgid "Shopping List was successfully updated"
 msgstr ""
 
-#: personal_manager/shopping_list.py:103
+#: personal_manager/shopping_list.py:105
 msgid "Shopping List was not deleted. Database Error"
 msgstr ""
 
-#: personal_manager/shopping_list.py:106
+#: personal_manager/shopping_list.py:108
 msgid "Shopping List was successfully deleted"
 msgstr ""
 
-#: personal_manager/shopping_list.py:142
+#: personal_manager/shopping_list.py:125
+msgid "shopping items"
+msgstr ""
+
+#: personal_manager/shopping_list.py:145
 msgid "Shopping Item was not created. Database Error"
 msgstr ""
 
-#: personal_manager/shopping_list.py:144
+#: personal_manager/shopping_list.py:147
 msgid "Shopping Item was successfully created"
 msgstr ""
 
-#: personal_manager/shopping_list.py:166
+#: personal_manager/shopping_list.py:169
 msgid "Shopping Item was not deleted. Database Error"
 msgstr ""
 
-#: personal_manager/shopping_list.py:168
+#: personal_manager/shopping_list.py:171
 msgid "Shopping Item was successfully deleted"
 msgstr ""
 
-#: personal_manager/shopping_list.py:178
+#: personal_manager/shopping_list.py:181
 msgid "Shopping item id "
 msgstr ""
 
-#: personal_manager/task.py:44
-msgid "Task was not created. Database Error"
+#: personal_manager/task.py:23
+msgid "tasks"
 msgstr ""
 
 #: personal_manager/task.py:46
+msgid "Task was not created. Database Error"
+msgstr ""
+
+#: personal_manager/task.py:48
 msgid "Task was successfully created"
 msgstr ""
 
-#: personal_manager/task.py:60
+#: personal_manager/task.py:62
 msgid "Task id "
 msgstr ""
 
-#: personal_manager/task.py:81
+#: personal_manager/task.py:83
 msgid "Task was not updated. Database Error"
 msgstr ""
 
-#: personal_manager/task.py:83
+#: personal_manager/task.py:85
 msgid "Task was successfully updated"
 msgstr ""
 
-#: personal_manager/task.py:106
+#: personal_manager/task.py:108
 msgid "Task was not deleted. Database Error"
 msgstr ""
 
-#: personal_manager/task.py:109
+#: personal_manager/task.py:111
 msgid "Task was successfully deleted"
 msgstr ""
 

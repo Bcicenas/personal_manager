@@ -24,6 +24,7 @@
               <td><a href="{{ url_for('task.update', id=task.id) }}">{{ task.name }}</a></td>
               <td class="text-right">
                 <form action="{{ url_for('task.delete', id=task.id) }}" method="post">
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                   <input class="btn btn-danger" type="submit" value="{{ _('Delete') }}" onclick="return confirm('{{ _('Are you sure?') }}');">
                 </form>              
               </td>
