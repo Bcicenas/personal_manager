@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-09 15:08+0200\n"
+"POT-Creation-Date: 2022-11-09 15:34+0200\n"
 "PO-Revision-Date: 2022-10-31 15:17+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: lt\n"
@@ -369,6 +369,10 @@ msgstr "Išmegink nemokamai dabar!"
 msgid "Forgot Password"
 msgstr "Pamiršai slaptažodį"
 
+#: personal_manager/templates/auth/forgot_password.html:17
+msgid "Send"
+msgstr "Siųsti"
+
 #: personal_manager/templates/auth/login.html:4
 msgid "Log In"
 msgstr "Prisijungimas"
@@ -428,7 +432,7 @@ msgstr "Redaguoti pirkinius"
 #: personal_manager/templates/dashboard/index.html:72
 #: personal_manager/templates/shopping_list/list.html:30
 #: personal_manager/templates/shopping_list/shopping_items.html:40
-#: personal_manager/templates/task/list.html:27
+#: personal_manager/templates/task/list.html:28
 #: personal_manager/templates/task/update.html:16
 msgid "Delete"
 msgstr "Ištrinti"
@@ -440,7 +444,7 @@ msgstr "Ištrinti"
 #: personal_manager/templates/shopping_list/update.html:11
 #: personal_manager/templates/shopping_list/update.html:17
 #: personal_manager/templates/task/create.html:10
-#: personal_manager/templates/task/list.html:27
+#: personal_manager/templates/task/list.html:28
 #: personal_manager/templates/task/update.html:11
 #: personal_manager/templates/task/update.html:16
 #: personal_manager/templates/user/personal_details.html:28
