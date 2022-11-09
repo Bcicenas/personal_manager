@@ -6,8 +6,10 @@ Simple web application to manage your tasks, shoppings lists and more
  - task search
  - shopping list search
  - shopping item search
+ - config file
 
 # Work in Progress
+ - config file
  - save locale to user
 
 # Done Tasks

@@ -97,11 +97,11 @@ class ShoppingList(db.Model):
 
 	@hybrid_property
 	def created_at_in_local_tz(self):
-		return convert_date_time(self.created_at, 'UTC-TZ', 'LOCAL-TZ')
+		return convert_date_time(self.created_at, 'UTC_TZ', 'LOCAL_TZ')
 
 	@hybrid_property
 	def last_updated_at_in_local_tz(self):
-		return convert_date_time(self.last_updated_at, 'UTC-TZ', 'LOCAL-TZ')
+		return convert_date_time(self.last_updated_at, 'UTC_TZ', 'LOCAL_TZ')
 
 
 	@validates("name")
@@ -162,13 +162,13 @@ class Task(db.Model):
 
 	@hybrid_property
 	def created_at_in_local_tz(self):
-		return convert_date_time(self.created_at, 'UTC-TZ', 'LOCAL-TZ')
+		return convert_date_time(self.created_at, 'UTC_TZ', 'LOCAL_TZ')
 
 	@hybrid_property
 	def till_date_in_local_tz(self):
-		return convert_date_time(self.till_date, 'UTC-TZ', 'LOCAL-TZ')
+		return convert_date_time(self.till_date, 'UTC_TZ', 'LOCAL_TZ')
 
 	@hybrid_property
 	def last_updated_at_in_local_tz(self):
-		return convert_date_time(self.last_updated_at, 'UTC-TZ', 'LOCAL-TZ')
+		return convert_date_time(self.last_updated_at, 'UTC_TZ', 'LOCAL_TZ')
 		

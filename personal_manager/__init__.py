@@ -1,12 +1,12 @@
 import os
 from datetime import datetime
-from dateutil import tz
 from flask import Flask, request, current_app, session, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from flask_wtf.csrf import CSRFProtect
 from flask_babel import Babel, lazy_gettext
 from flask import Flask, render_template
+from personal_manager.config import DevConfig
 
 db = SQLAlchemy()
 mail = Mail()
@@ -19,26 +19,7 @@ def page_not_found(e):
 def create_app(test_config=None):
 	# create and configure the app
 	app = Flask(__name__, instance_relative_config=True)
-	app.config.from_mapping(
-		SECRET_KEY='dev',
-	)
-	app.config['UTC-TZ']  = tz.tzutc()
-	app.config['LOCAL-TZ'] = tz.tzlocal()
-	app.config['DATE-FORMAT'] = "%Y-%m-%d %H:%M:%S"
-	app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://dev_user:D3v_user@localhost:3306/personal_manager"
-	
-	# mail settings
-	app.config['MAIL_SERVER'] = os.getenv('EMAIL_HOST')
-	app.config['MAIL_PORT'] = os.getenv('EMAIL_PORT')
-	app.config['MAIL_USERNAME'] = os.getenv('EMAIL_USERNAME')
-	app.config['MAIL_PASSWORD'] = os.getenv('EMAIL_PASSWORD')
-	app.config['MAIL_DEFAULT_SENDER'] = 'confirmation@personal_manager.com'
-	app.config['MAIL_USE_TLS'] = True
-	app.config['EMAIL_CONFIRM_SALT'] = 'dev_salt'
-	app.config['PER_PAGE_PARAMETER'] = 10
-	app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-
-	app.config['BABEL_TRANSLATION_DIRECTORIES'] = os.getcwd() + '/translations'
+	app.config.from_object('personal_manager.config.DevConfig')
 
 	if test_config is None:
 		# load the instance config, if it exists, when not testing
@@ -98,4 +79,4 @@ def get_localized_msg(record_name, current_page, total, items_per_page):
 	return lazy_gettext('displaying') + " <b>{start} - {end}</b> " + lazy_gettext('in total') + " <b>{total}</b>"
 
 def convert_date_time(datetime_obj, from_tz, to_tz):
-	return datetime_obj.replace(tzinfo=current_app.config[from_tz]).astimezone(current_app.config[to_tz]).strftime(current_app.config['DATE-FORMAT'])
+	return datetime_obj.replace(tzinfo=current_app.config[from_tz]).astimezone(current_app.config[to_tz]).strftime(current_app.config['DATE_FORMAT'])
