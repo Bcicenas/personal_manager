@@ -10,16 +10,10 @@ with open(os.path.join(os.path.dirname(__file__), 'data.sql'), 'rb') as f:
 from sqlalchemy import create_engine
 from sqlalchemy import text
 
-
 @pytest.fixture
 def app():
 	db_fd, db_path = tempfile.mkstemp()
-
-	app = create_app({
-		'TESTING': True,
-		'SQLALCHEMY_DATABASE_URI': "mysql://dev_user:D3v_user@localhost:3306/personal_manager_test",
-		'WTF_CSRF_ENABLED': False
-	})
+	app = create_app('testing')
 	
 	yield app
 

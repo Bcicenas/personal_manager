@@ -6,7 +6,7 @@ from flask_mail import Mail
 from flask_wtf.csrf import CSRFProtect
 from flask_babel import Babel, lazy_gettext
 from flask import Flask, render_template
-from personal_manager.config import DevConfig
+from personal_manager.config import DevConfig, ProdConfig, TestConfig
 
 db = SQLAlchemy()
 mail = Mail()
@@ -16,13 +16,16 @@ babel = Babel()
 def page_not_found(e):
 	return render_template('404.html', e=e), 404
 
-def create_app(test_config=None):
+def create_app(app_env='development'):
 	# create and configure the app
 	app = Flask(__name__, instance_relative_config=True)
-	app.config.from_object('personal_manager.config.DevConfig')
-
-	if test_config is not None:
-		app.config.from_mapping(test_config)
+	
+	if app_env == 'development':
+		app.config.from_object('personal_manager.config.DevConfig')
+	elif app_env == 'production':
+		app.config.from_object('personal_manager.config.ProdConfig')
+	else:
+		app.config.from_object('personal_manager.config.TestConfig')	
 
 	# custom error handlers
 	app.register_error_handler(404, page_not_found)
