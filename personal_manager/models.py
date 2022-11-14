@@ -18,6 +18,7 @@ class User(db.Model):
 	username = db.Column(db.String(255), unique=True, nullable=False)
 	email = db.Column(db.String(255), unique=True, nullable=False)
 	password = db.Column(db.String(255), nullable=False)
+	locale = db.Column(db.String(50), nullable=False, default='en')
 	email_confirmed = db.Column(db.Boolean(255), default=False)
 	shopping_lists = db.relationship("ShoppingList", back_populates="user", cascade="all, delete")
 

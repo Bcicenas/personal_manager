@@ -7,6 +7,14 @@ def test_personal_details(client, auth):
 	assert b'User details' in response.data
 	assert b'Username: admin' in response.data
 	assert b'Email: admin@email.com' in response.data
+	assert b'Language' in response.data
+
+def test_update_personal_details(client, auth):
+	auth.login()
+	response = client.post('/users/personal_details', 
+			data={'locale': 'en'})
+	response = client.get('/users/personal_details', follow_redirects=True)
+	assert b'User details were updated successfully' in response.data
 
 @pytest.mark.parametrize(('current_password', 'new_password', 'confirm_new_passord', 'message'), (
 	('', 'test', 'test', b'Current Password is required.'),
@@ -36,3 +44,4 @@ def test_delete_account(client, auth):
 	assert response.headers["Location"] == '/'
 	response = client.get('/', follow_redirects=True)
 	assert b'Account was successfully deleted' in response.data
+

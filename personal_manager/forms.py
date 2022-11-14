@@ -19,25 +19,32 @@ class ShoppingItemForm(FlaskForm):
 	name = StringField(lazy_gettext('Name'), validators=[DataRequired(lazy_gettext('Name is required.'))])
 
 class EmailForm(FlaskForm):
-    email = StringField(lazy_gettext('Email'), validators=[DataRequired(lazy_gettext('Email is required')), Email()])
+	email = StringField(lazy_gettext('Email'), validators=[DataRequired(lazy_gettext('Email is required')), Email()])
 
 class PasswordForm(FlaskForm):
-    password = PasswordField(lazy_gettext('Password'), validators=[DataRequired(lazy_gettext('Password is required.'))])
+	password = PasswordField(lazy_gettext('Password'), validators=[DataRequired(lazy_gettext('Password is required.'))])
 
 class PasswordChangeForm(FlaskForm):
-    current_password = PasswordField(lazy_gettext('Current Password'), validators=[DataRequired(lazy_gettext('Current Password is required.'))])
-    new_password = PasswordField(lazy_gettext('New Password'), validators=[DataRequired(lazy_gettext('New Password is required.'))])
-    confirm_new_passord = PasswordField(
-    	lazy_gettext('Confirm New Password'), 
-    	validators=[DataRequired(lazy_gettext('Confirm New Password is required.')), EqualTo('new_password', lazy_gettext('Password mismatch'))])
+	current_password = PasswordField(lazy_gettext('Current Password'), validators=[DataRequired(lazy_gettext('Current Password is required.'))])
+	new_password = PasswordField(lazy_gettext('New Password'), validators=[DataRequired(lazy_gettext('New Password is required.'))])
+	confirm_new_passord = PasswordField(
+		lazy_gettext('Confirm New Password'), 
+		validators=[DataRequired(lazy_gettext('Confirm New Password is required.')), EqualTo('new_password', lazy_gettext('Password mismatch'))])
 
-    def __init__(self, user, *args, **kwargs):
-        super(PasswordChangeForm, self).__init__(*args, **kwargs)
-        self.user = user
+	def __init__(self, user, *args, **kwargs):
+		super(PasswordChangeForm, self).__init__(*args, **kwargs)
+		self.user = user
 
-    def validate_current_password(self, field):
-        if not check_password_hash(self.user.password, field.data):
-            raise ValidationError(lazy_gettext('Current Password is invalid'))
+	def validate_current_password(self, field):
+		if not check_password_hash(self.user.password, field.data):
+			raise ValidationError(lazy_gettext('Current Password is invalid'))
+
+class UserUpdateForm(FlaskForm):
+	locale = SelectField(lazy_gettext('Language'), choices=[('en', lazy_gettext('English')), ('lt', lazy_gettext('Lithuanian'))])
+
+	def __init__(self, user, *args, **kwargs):
+		super(UserUpdateForm, self).__init__(*args, **kwargs)
+		self.user = user
 
 def process_form_errors(errors):
 	end_errors = ''

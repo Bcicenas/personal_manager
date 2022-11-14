@@ -6,7 +6,7 @@ from werkzeug.exceptions import abort
 
 from personal_manager.auth import login_required
 from .models import User
-from .forms import PasswordChangeForm, process_form_errors
+from .forms import PasswordChangeForm, UserUpdateForm, process_form_errors
 from . import db
 from sqlalchemy.exc import IntegrityError
 import logging
@@ -14,10 +14,30 @@ from flask_babel import lazy_gettext
 
 bp = Blueprint('user', __name__, url_prefix='/users')
 
-@bp.route('/personal_details')
+@bp.route('/personal_details', methods=('GET', 'POST'))
 @login_required
 def personal_details():
-	return render_template('user/personal_details.html', user=g.user)
+	error = None
+	form = UserUpdateForm(request.form, obj=g.user)
+	if request.method == 'POST' and form.validate_on_submit():
+		try:
+			form.populate_obj(g.user)
+			db.session.commit()
+		except ValueError as e:
+			error = f"{e}"
+		except IntegrityError as e:
+			error = lazy_gettext('User details were not updated. Database Error')
+		else:
+			session['locale'] = g.user.locale
+			flash(lazy_gettext('User details were updated successfully'), 'success')
+			return redirect(url_for('user.personal_details'))
+
+	if form.errors:	
+		error = process_form_errors(form.errors)
+
+	if error is not None:
+		flash(error, 'danger')
+	return render_template('user/personal_details.html', user=g.user, form=form)
 
 
 @bp.route('/change_password', methods=('GET', 'POST'))

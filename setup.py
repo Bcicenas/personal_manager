@@ -16,6 +16,7 @@ setup(
 		'Flask-Babel',
 		'email_validator',
 		'python-dotenv',
-		'pytest-dotenv'
+		'pytest-dotenv',
+		'Flask-Alembic'
 	],
 )

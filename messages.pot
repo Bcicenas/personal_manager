@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-09 15:34+0200\n"
+"POT-Creation-Date: 2022-11-14 15:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
 
-#: personal_manager/__init__.py:98
+#: personal_manager/__init__.py:81
 msgid "displaying"
 msgstr ""
 
-#: personal_manager/__init__.py:98
+#: personal_manager/__init__.py:81
 msgid "in total"
 msgstr ""
 
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Password reset failed. Database Error"
 msgstr ""
 
-#: personal_manager/auth.py:125 personal_manager/user.py:40
+#: personal_manager/auth.py:125 personal_manager/user.py:59
 msgid "Password was successfully changed"
 msgstr ""
 
@@ -78,8 +78,8 @@ msgid "Name"
 msgstr ""
 
 #: personal_manager/forms.py:9 personal_manager/forms.py:16
-#: personal_manager/forms.py:19 personal_manager/models.py:109
-#: personal_manager/models.py:126
+#: personal_manager/forms.py:19 personal_manager/models.py:111
+#: personal_manager/models.py:128
 msgid "Name is required."
 msgstr ""
 
@@ -91,15 +91,15 @@ msgstr ""
 msgid "Priority"
 msgstr ""
 
-#: personal_manager/forms.py:11 personal_manager/models.py:147
+#: personal_manager/forms.py:11 personal_manager/models.py:149
 msgid "Low"
 msgstr ""
 
-#: personal_manager/forms.py:11 personal_manager/models.py:149
+#: personal_manager/forms.py:11 personal_manager/models.py:151
 msgid "Medium"
 msgstr ""
 
-#: personal_manager/forms.py:11 personal_manager/models.py:151
+#: personal_manager/forms.py:11 personal_manager/models.py:153
 msgid "High"
 msgstr ""
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: personal_manager/forms.py:25 personal_manager/models.py:40
+#: personal_manager/forms.py:25 personal_manager/models.py:42
 msgid "Password is required."
 msgstr ""
 
@@ -162,39 +162,51 @@ msgstr ""
 msgid "Current Password is invalid"
 msgstr ""
 
-#: personal_manager/models.py:26
+#: personal_manager/forms.py:43
+msgid "Language"
+msgstr ""
+
+#: personal_manager/forms.py:43 personal_manager/templates/base.html:51
+msgid "English"
+msgstr ""
+
+#: personal_manager/forms.py:43 personal_manager/templates/base.html:52
+msgid "Lithuanian"
+msgstr ""
+
+#: personal_manager/models.py:28
 msgid "Username is required."
 msgstr ""
 
-#: personal_manager/models.py:34
+#: personal_manager/models.py:36
 msgid "Email is invalid"
 msgstr ""
 
-#: personal_manager/models.py:50
+#: personal_manager/models.py:52
 msgid "Please choose a stronger password."
 msgstr ""
 
-#: personal_manager/models.py:51
+#: personal_manager/models.py:53
 msgid "Must contain at least 8 characters"
 msgstr ""
 
-#: personal_manager/models.py:52
+#: personal_manager/models.py:54
 msgid "Must contain at least 1 uppercase letter"
 msgstr ""
 
-#: personal_manager/models.py:53
+#: personal_manager/models.py:55
 msgid "Must contain at least 1 number"
 msgstr ""
 
-#: personal_manager/models.py:54
+#: personal_manager/models.py:56
 msgid "Must contain at least 1 special character"
 msgstr ""
 
-#: personal_manager/models.py:61
+#: personal_manager/models.py:63
 msgid "Confirm your email"
 msgstr ""
 
-#: personal_manager/models.py:74
+#: personal_manager/models.py:76
 msgid "Password Reset"
 msgstr ""
 
@@ -275,31 +287,39 @@ msgstr ""
 msgid "Task id "
 msgstr ""
 
-#: personal_manager/task.py:83
+#: personal_manager/task.py:85
 msgid "Task was not updated. Database Error"
 msgstr ""
 
-#: personal_manager/task.py:85
+#: personal_manager/task.py:87
 msgid "Task was successfully updated"
 msgstr ""
 
-#: personal_manager/task.py:108
+#: personal_manager/task.py:110
 msgid "Task was not deleted. Database Error"
 msgstr ""
 
-#: personal_manager/task.py:111
+#: personal_manager/task.py:113
 msgid "Task was successfully deleted"
 msgstr ""
 
-#: personal_manager/user.py:38
+#: personal_manager/user.py:29
+msgid "User details were not updated. Database Error"
+msgstr ""
+
+#: personal_manager/user.py:31
+msgid "User details were updated successfully"
+msgstr ""
+
+#: personal_manager/user.py:57
 msgid "Password change failed. Database Error"
 msgstr ""
 
-#: personal_manager/user.py:63
+#: personal_manager/user.py:82
 msgid "Account was not deleted. Database Error"
 msgstr ""
 
-#: personal_manager/user.py:67
+#: personal_manager/user.py:86
 msgid "Account was successfully deleted"
 msgstr ""
 
@@ -343,14 +363,6 @@ msgstr ""
 #: personal_manager/templates/auth/login.html:18
 #: personal_manager/templates/base.html:40
 msgid "Login"
-msgstr ""
-
-#: personal_manager/templates/base.html:51
-msgid "English"
-msgstr ""
-
-#: personal_manager/templates/base.html:52
-msgid "Lithuanian"
 msgstr ""
 
 #: personal_manager/templates/landing_page.html:6
@@ -443,7 +455,7 @@ msgstr ""
 #: personal_manager/templates/task/list.html:28
 #: personal_manager/templates/task/update.html:11
 #: personal_manager/templates/task/update.html:16
-#: personal_manager/templates/user/personal_details.html:28
+#: personal_manager/templates/user/personal_details.html:41
 msgid "Are you sure?"
 msgstr ""
 
@@ -473,6 +485,7 @@ msgstr ""
 
 #: personal_manager/templates/shopping_list/update.html:12
 #: personal_manager/templates/task/update.html:12
+#: personal_manager/templates/user/personal_details.html:26
 msgid "Save"
 msgstr ""
 
@@ -481,7 +494,7 @@ msgid "New Task"
 msgstr ""
 
 #: personal_manager/templates/user/change_password.html:4
-#: personal_manager/templates/user/personal_details.html:24
+#: personal_manager/templates/user/personal_details.html:37
 msgid "Change Password"
 msgstr ""
 
@@ -497,11 +510,11 @@ msgstr ""
 msgid "User details"
 msgstr ""
 
-#: personal_manager/templates/user/personal_details.html:21
+#: personal_manager/templates/user/personal_details.html:34
 msgid "Actions"
 msgstr ""
 
-#: personal_manager/templates/user/personal_details.html:28
+#: personal_manager/templates/user/personal_details.html:41
 msgid "Delete Account"
 msgstr ""
 

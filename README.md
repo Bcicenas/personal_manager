@@ -5,10 +5,9 @@ Simple web application to manage your tasks, shoppings lists and more
  - save locale to user
  - task search
  - shopping list search
- - shopping item search
 
 # Work in Progress
- - save locale to user
+ - shopping item search
 
 # Done Tasks
  - Basic FrontEnd
@@ -58,3 +57,5 @@ Simple web application to manage your tasks, shoppings lists and more
  - localization - translations(404)
  - custom 404
  - config file
+ - save locale to user
+  

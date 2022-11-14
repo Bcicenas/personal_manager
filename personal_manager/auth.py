@@ -53,7 +53,7 @@ def login():
 			error = lazy_gettext('Incorrect password.')
 
 		if error is None:
-			locale = session['locale'] if 'locale' in session.keys() else None
+			locale = session['locale'] if 'locale' in session.keys() else user[0].locale
 			session.clear()
 			session['locale'] = locale
 			session['user_id'] = user[0].id

@@ -7,11 +7,13 @@ from flask_wtf.csrf import CSRFProtect
 from flask_babel import Babel, lazy_gettext
 from flask import Flask, render_template
 from personal_manager.config import DevConfig, ProdConfig, TestConfig
+from flask_alembic import Alembic
 
 db = SQLAlchemy()
 mail = Mail()
 csrf = CSRFProtect()
 babel = Babel()
+alembic = Alembic()
 
 def page_not_found(e):
 	return render_template('404.html', e=e), 404
@@ -34,6 +36,7 @@ def create_app(app_env='development'):
 	mail.init_app(app)
 	csrf.init_app(app)
 	babel.init_app(app)
+	alembic.init_app(app)
 
 	# ensure the instance folder exists
 	try:
