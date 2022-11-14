@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-14 15:54+0200\n"
+"POT-Creation-Date: 2022-11-14 16:32+0200\n"
 "PO-Revision-Date: 2022-10-31 16:01+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -62,11 +62,15 @@ msgstr "Password reset link was sent to "
 msgid "Password reset failed. Database Error"
 msgstr "Password reset failed. Database Error"
 
-#: personal_manager/auth.py:125 personal_manager/user.py:59
+#: personal_manager/auth.py:125 personal_manager/user.py:60
 msgid "Password was successfully changed"
 msgstr "Password was successfully changed"
 
-#: personal_manager/auth.py:156
+#: personal_manager/auth.py:150
+msgid "Logged out successfully"
+msgstr "Logged out successfully"
+
+#: personal_manager/auth.py:157
 msgid "Access denied"
 msgstr "Access denied"
 
@@ -308,19 +312,19 @@ msgstr "Task was successfully deleted"
 msgid "User details were not updated. Database Error"
 msgstr "User details were not updated. Database Error"
 
-#: personal_manager/user.py:31
+#: personal_manager/user.py:32
 msgid "User details were updated successfully"
 msgstr "User details were updated successfully"
 
-#: personal_manager/user.py:57
+#: personal_manager/user.py:58
 msgid "Password change failed. Database Error"
 msgstr "Password change failed. Database Error"
 
-#: personal_manager/user.py:82
+#: personal_manager/user.py:83
 msgid "Account was not deleted. Database Error"
 msgstr "Account was not deleted. Database Error"
 
-#: personal_manager/user.py:86
+#: personal_manager/user.py:87
 msgid "Account was successfully deleted"
 msgstr "Account was successfully deleted"
 

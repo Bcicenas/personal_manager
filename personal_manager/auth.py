@@ -147,6 +147,7 @@ def load_logged_in_user():
 @bp.route('/logout')
 def logout():
 	session.clear()
+	flash(lazy_gettext('Logged out successfully'), 'success')
 	return redirect(url_for('index'))
 
 def login_required(view):

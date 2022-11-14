@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-14 15:54+0200\n"
+"POT-Creation-Date: 2022-11-14 16:32+0200\n"
 "PO-Revision-Date: 2022-10-31 15:17+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: lt\n"
@@ -63,11 +63,15 @@ msgstr "Slaptažodžio atkūrimo nuoroda išsiųsta "
 msgid "Password reset failed. Database Error"
 msgstr "Slaptažodio nutatymas išnaujo nepavyko. Duomenų bazės klaida"
 
-#: personal_manager/auth.py:125 personal_manager/user.py:59
+#: personal_manager/auth.py:125 personal_manager/user.py:60
 msgid "Password was successfully changed"
 msgstr "Slaptažodis pakeistas sėkmingas"
 
-#: personal_manager/auth.py:156
+#: personal_manager/auth.py:150
+msgid "Logged out successfully"
+msgstr "Atsijungta sėkmingai"
+
+#: personal_manager/auth.py:157
 msgid "Access denied"
 msgstr "Prieiga uždrausta"
 
@@ -309,19 +313,19 @@ msgstr "Užduotis sėkmingai ištrinta"
 msgid "User details were not updated. Database Error"
 msgstr "Naudotojo informacija neatnaujinta. Duomenų bazės klaida"
 
-#: personal_manager/user.py:31
+#: personal_manager/user.py:32
 msgid "User details were updated successfully"
 msgstr "Naudotojo informacija sėkmingai atnaujinta"
 
-#: personal_manager/user.py:57
+#: personal_manager/user.py:58
 msgid "Password change failed. Database Error"
 msgstr "Slaptažodis nebuvo pakeistas. Duomenų bazės klaida"
 
-#: personal_manager/user.py:82
+#: personal_manager/user.py:83
 msgid "Account was not deleted. Database Error"
 msgstr "Paskyra nebuvo ištrinta. Duomenų bazės klaida"
 
-#: personal_manager/user.py:86
+#: personal_manager/user.py:87
 msgid "Account was successfully deleted"
 msgstr "Paskyra sėkmingai ištrinta"
 

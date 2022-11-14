@@ -58,4 +58,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - custom 404
  - config file
  - save locale to user
-  
+ - Logout notification 

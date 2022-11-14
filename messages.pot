@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-14 15:54+0200\n"
+"POT-Creation-Date: 2022-11-14 16:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,11 +61,15 @@ msgstr ""
 msgid "Password reset failed. Database Error"
 msgstr ""
 
-#: personal_manager/auth.py:125 personal_manager/user.py:59
+#: personal_manager/auth.py:125 personal_manager/user.py:60
 msgid "Password was successfully changed"
 msgstr ""
 
-#: personal_manager/auth.py:156
+#: personal_manager/auth.py:150
+msgid "Logged out successfully"
+msgstr ""
+
+#: personal_manager/auth.py:157
 msgid "Access denied"
 msgstr ""
 
@@ -307,19 +311,19 @@ msgstr ""
 msgid "User details were not updated. Database Error"
 msgstr ""
 
-#: personal_manager/user.py:31
+#: personal_manager/user.py:32
 msgid "User details were updated successfully"
 msgstr ""
 
-#: personal_manager/user.py:57
+#: personal_manager/user.py:58
 msgid "Password change failed. Database Error"
 msgstr ""
 
-#: personal_manager/user.py:82
+#: personal_manager/user.py:83
 msgid "Account was not deleted. Database Error"
 msgstr ""
 
-#: personal_manager/user.py:86
+#: personal_manager/user.py:87
 msgid "Account was successfully deleted"
 msgstr ""
 
