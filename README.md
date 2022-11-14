@@ -2,12 +2,9 @@
 Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
- - save locale to user
- - task search
- - shopping list search
-
+ - Acitvity
 # Work in Progress
- - shopping item search
+
 
 # Done Tasks
  - Basic FrontEnd
@@ -58,4 +55,8 @@ Simple web application to manage your tasks, shoppings lists and more
  - custom 404
  - config file
  - save locale to user
- - Logout notification 
+ - Logout notification
+ - Added fontawesome 6.2 free version
+ - task search
+ - shopping list search
+ - shopping item search

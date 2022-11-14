@@ -44,6 +44,8 @@ class DevConfig(Config):
 	EMAIL_CONFIRM_SALT = 'dev_salt'
 	DEBUG = True
 	TESTING = False
+	SQLALCHEMY_ECHO = True
+	SQLALCHEMY_RECORD_QUERIES = True
 	SQLALCHEMY_DATABASE_URI = os.environ.get('DEVELOPMENT_DATABASE_URI')
 
 class TestConfig(Config):
