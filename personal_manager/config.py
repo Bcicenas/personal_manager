@@ -9,7 +9,7 @@ class Config:
 	UTC_TZ  = tz.tzutc()
 	LOCAL_TZ = tz.tzlocal()
 	DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
-	
+
 	# mail settings
 	MAIL_SERVER = os.environ.get('EMAIL_HOST')
 	MAIL_PORT = os.environ.get('EMAIL_PORT')

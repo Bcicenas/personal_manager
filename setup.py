@@ -17,6 +17,7 @@ setup(
 		'email_validator',
 		'python-dotenv',
 		'pytest-dotenv',
-		'Flask-Alembic'
+		'Flask-Alembic',
+		'jinja2-time'
 	],
 )

@@ -31,7 +31,6 @@ def create_app(app_env='development'):
 
 	# custom error handlers
 	app.register_error_handler(404, page_not_found)
-
 	db.init_app(app)
 	mail.init_app(app)
 	csrf.init_app(app)
@@ -60,6 +59,11 @@ def create_app(app_env='development'):
 	app.register_blueprint(user.bp)
 
 	from . import models
+
+	from .utils import get_current_year
+	# global variables for templates
+	app.jinja_env.globals['get_current_year'] = get_current_year()
+
 	with app.app_context():
 		db.create_all()
 
@@ -82,3 +86,4 @@ def get_localized_msg(record_name, current_page, total, items_per_page):
 
 def convert_date_time(datetime_obj, from_tz, to_tz):
 	return datetime_obj.replace(tzinfo=current_app.config[from_tz]).astimezone(current_app.config[to_tz]).strftime(current_app.config['DATE_FORMAT'])
+
