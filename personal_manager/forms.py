@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, TextAreaField, SelectField, DateField, PasswordField
+from wtforms.widgets import TextInput
 from wtforms.validators import DataRequired, Email, EqualTo
 from wtforms import ValidationError
 from werkzeug.security import check_password_hash
@@ -9,7 +10,7 @@ class TaskForm(FlaskForm):
 	name = StringField(lazy_gettext('Name'), validators=[DataRequired(lazy_gettext('Name is required.'))])
 	description = TextAreaField(lazy_gettext('Description'))
 	priority = SelectField(lazy_gettext('Priority'), choices=[(0, lazy_gettext('Low')), (1, lazy_gettext('Medium')), (2, lazy_gettext('High'))])
-	till_date = DateField(lazy_gettext('Till date'))
+	till_date = DateField(lazy_gettext('Till date'), id="dp", widget=TextInput())
 	finished = BooleanField(lazy_gettext('Finished'), render_kw ={'checked':''})
 
 class ShoppingListForm(FlaskForm):

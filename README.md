@@ -61,3 +61,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - shopping list search
  - shopping item search
  - Show current year in footer
+ - DatePicker fix

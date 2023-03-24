@@ -5,7 +5,7 @@
       {{ field(checked=task.finished, class_="form-check-input") }}
       {{ field.label(class_="form-check-label") }}
     </div>
-  {% elif field.widget.input_type == 'date' %}
+  {% elif field.id == 'dp' %}
     <div class="form-group">
       {{ field.label }}
       {{ field(class_="form-control datepicker") }}

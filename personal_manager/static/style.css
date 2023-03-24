@@ -34,3 +34,7 @@ html, body {
   height: 50px;
   clear:both;
 } 
+
+.datepicker {
+  padding: .375rem .75rem;
+}
