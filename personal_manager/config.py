@@ -3,7 +3,7 @@ import os
 from dateutil import tz
 from dotenv import load_dotenv
 
-load_dotenv('/home/personal_manager/.env')
+load_dotenv('/home/personal_manager_env/.env')
 
 class Config:
 	"""Base config."""
