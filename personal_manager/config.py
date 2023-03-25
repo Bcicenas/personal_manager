@@ -1,6 +1,9 @@
 """Flask configuration."""
 import os
 from dateutil import tz
+from dotenv import load_dotenv
+
+load_dotenv('/home/personal_manager/.env')
 
 class Config:
 	"""Base config."""
@@ -33,6 +36,8 @@ class ProdConfig(Config):
 	EMAIL_CONFIRM_SALT = os.environ.get('EMAIL_CONFIRM_SALT')
 	SESSION_COOKIE_SECURE = True
 	FLASK_ENV = 'production'
+	# translations
+	BABEL_TRANSLATION_DIRECTORIES = '/var/www/personal_manager/translations'
 	DEBUG = False
 	TESTING = False
 	SQLALCHEMY_DATABASE_URI = os.environ.get('PRODUCTION_DATABASE_URI')

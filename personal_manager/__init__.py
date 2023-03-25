@@ -34,7 +34,7 @@ def create_app(app_env='development'):
 	db.init_app(app)
 	mail.init_app(app)
 	csrf.init_app(app)
-	babel.init_app(app)
+	babel.init_app(app, locale_selector=get_locale)
 	alembic.init_app(app)
 
 	# ensure the instance folder exists
@@ -71,7 +71,6 @@ def create_app(app_env='development'):
 	
 	return app
 
-@babel.localeselector
 def get_locale():
 	if 'locale' in session.keys():
 		return session['locale']
