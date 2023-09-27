@@ -24,7 +24,6 @@
           <tr>
             <th scope="col">{{ _('Name') }}</th>
             <th scope="col"></th>
-            <th scope="col"></th>
           </tr>
         </thead>
 
@@ -32,7 +31,6 @@
           {% for plan in plans %}
             <tr scope="row">
               <td><a href="{{ url_for('plan.update', id=plan.id) }}">{{ plan.name }}</a></td>
-              <td><a href="#">{{ _('Edit Items') }}</a></td>
               <td class="text-right">
                 <form action="{{ url_for('plan.delete', id=plan.id) }}" method="post">
                   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>

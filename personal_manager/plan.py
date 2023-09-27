@@ -6,7 +6,7 @@ from werkzeug.exceptions import abort
 
 from personal_manager.auth import login_required
 from .models import User, Plan, PlanTask
-from . import db, get_localized_msg
+from . import db, get_localized_msg, convert_list_tuple_to_list
 from .forms import PlanForm, process_form_errors
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import and_
@@ -36,13 +36,20 @@ def list():
 def create():
 	plan = Plan()
 	form = PlanForm(request.form, obj=plan)
+	tasks = g.user.tasks
 	error = None
+
 	if request.method == 'POST' and form.validate():
 		try:
 			form.populate_obj(plan)
 			plan.user_id = g.user.id
+
+			for task in request.form.getlist('selected_tasks[]'):
+				plan.plan_tasks.append(PlanTask(task_id=task))
+
 			db.session.add(plan)
-			db.session.commit()	
+			db.session.commit()
+
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
@@ -57,7 +64,7 @@ def create():
 	if error is not None:
 		flash(error, 'danger')
 
-	return render_template('plan/create.html', form=form)
+	return render_template('plan/create.html', form=form, tasks=tasks, plan=plan)
 
 def get_plan_id(id, check_owner=True):
 	plan = db.session.execute(db.select(Plan).filter_by(id=id)).first()
@@ -74,12 +81,25 @@ def get_plan_id(id, check_owner=True):
 def update(id):
 	plan = get_plan_id(id)
 	form = PlanForm(request.form, obj=plan)
+	tasks = g.user.tasks
 	error = None
 	if request.method == 'POST' and form.validate():
 		try:
 			form.populate_obj(plan)
 			plan.last_updated_at = datetime.utcnow()
-			db.session.commit()	
+
+			# delete removed tasks
+			db.session.execute(db.delete(PlanTask).where(PlanTask.plan_id == plan.id, ~(PlanTask.task_id).in_(request.form.getlist('selected_tasks[]'))))
+
+			# get existing tasks
+			existing_tasks = convert_list_tuple_to_list(db.session.execute(db.select(PlanTask.task_id).where(PlanTask.plan_id == plan.id, (PlanTask.task_id).in_(request.form.getlist('selected_tasks[]')))).all())
+
+			# append newly selected tasks
+			for task in request.form.getlist('selected_tasks[]'):
+				if int(task) not in existing_tasks:
+					plan.plan_tasks.append(PlanTask(task_id = task))
+
+			db.session.commit()
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:
@@ -94,7 +114,7 @@ def update(id):
 	if error is not None:
 		flash(error, 'danger')
 
-	return render_template('plan/update.html', plan=plan, form=form)
+	return render_template('plan/update.html', plan=plan, form=form, tasks=tasks)
 
 @bp.route('/delete/<int:id>', methods=('POST',))
 @login_required

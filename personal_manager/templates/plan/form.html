@@ -1,8 +1,23 @@
 {% for field in form %}
-  <div class="form-group">
-    {% if field.widget.input_type != 'hidden' %}
+
+  {% if field.widget.input_type == 'checkbox' %}
+    <div class="form-check">
+      {{ field(checked=task.finished, class_="form-check-input") }}
+      {{ field.label(class_="form-check-label") }}
+    </div>
+  {% elif field.id == 'dp' %}
+    <div class="form-group">
       {{ field.label }}
-    {% endif %}
-    {{ field(class_="form-control") }}
-  </div>
+      {{ field(class_="form-control datepicker") }}
+    </div>
+  {% else %}
+    <div class="form-group">
+      {% if field.widget.input_type != 'hidden' %}
+        {{ field.label }}
+      {% endif %}
+      {{ field(class_="form-control") }}
+    </div>
+  {% endif %}
+
 {% endfor %}
+<script src="{{ url_for('static', filename='datepicker.js') }}"></script>

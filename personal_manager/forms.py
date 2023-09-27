@@ -8,6 +8,7 @@ from flask_babel import lazy_gettext, gettext
 
 class PlanForm(FlaskForm):
 	name = StringField(lazy_gettext('Name'), validators=[DataRequired(lazy_gettext('Name is required.'))])
+	plan_date = DateField(lazy_gettext('Plan date'), id="dp", widget=TextInput())
 
 class TaskForm(FlaskForm):
 	name = StringField(lazy_gettext('Name'), validators=[DataRequired(lazy_gettext('Name is required.'))])

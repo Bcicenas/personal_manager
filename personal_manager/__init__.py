@@ -89,3 +89,11 @@ def get_localized_msg(record_name, current_page, total, items_per_page):
 def convert_date_time(datetime_obj, from_tz, to_tz):
 	return datetime_obj.replace(tzinfo=current_app.config[from_tz]).astimezone(current_app.config[to_tz]).strftime(current_app.config['DATE_FORMAT'])
 
+def convert_list_tuple_to_list(tuple_list):
+	out = []
+	for t in tuple_list:
+		for item in t:
+			out.append(item)
+
+	return out
+

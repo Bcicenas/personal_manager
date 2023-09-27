@@ -6,8 +6,11 @@
 
 {% block content %}
   <form method="post">
-    {% include 'plan/form.html' %}
     <a class="btn btn-dark" href="{{ url_for('plan.list') }}" onclick="return confirm('{{ _('Are you sure?') }}');">{{ _('Cancel') }}</a>
     <input class="btn btn-success" type="submit" value="{{ _('Create') }}">
+    <br/>    
+    <br/>    
+    {% include 'plan/form.html' %}
+    {% include 'plan/tasks_form.html' %}
   </form>
 {% endblock %}

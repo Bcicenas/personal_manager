@@ -4,7 +4,7 @@ Simple web application to manage your tasks, shoppings lists and more
 # To do list
  - Acitvity
 # Work in Progress
-
+ - Show Calendar with plans
 
 # Done Tasks
  - Basic FrontEnd
@@ -62,3 +62,5 @@ Simple web application to manage your tasks, shoppings lists and more
  - shopping item search
  - Show current year in footer
  - DatePicker fix
+ - Plans
+ - Add tasks to plans

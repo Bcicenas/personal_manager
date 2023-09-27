@@ -21,6 +21,7 @@ class User(db.Model):
 	locale = db.Column(db.String(50), nullable=False, default='en')
 	email_confirmed = db.Column(db.Boolean(255), default=False)
 	shopping_lists = db.relationship("ShoppingList", back_populates="user", cascade="all, delete")
+	tasks = db.relationship("Task", back_populates="user", cascade="all, delete")
 
 	@validates("username")
 	def validate_username(self, key, username):
@@ -143,6 +144,8 @@ class Task(db.Model):
 	last_updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
 	till_date = db.Column(db.DateTime(), default=datetime.utcnow)
 	
+	user = db.relationship("User", back_populates="tasks")
+
 	@hybrid_property
 	def priority_name(self):
 		if self.priority == 0:
@@ -182,7 +185,7 @@ class Plan(db.Model):
 	last_updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
 	plan_date = db.Column(db.DateTime(), default=datetime.utcnow)
 	user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-	plan_tasks = db.relationship("PlanTask", back_populates="plan", cascade="all, delete")	
+	plan_tasks = db.relationship("PlanTask", back_populates="plan", cascade="all, delete", lazy="dynamic")	
 
 	@hybrid_property
 	def created_at_in_local_tz(self):
@@ -205,6 +208,7 @@ class PlanTask(db.Model):
 	task_id = db.Column(db.Integer, db.ForeignKey("tasks.id", ondelete="CASCADE"), nullable=False)	
 
 	plan = db.relationship("Plan", back_populates="plan_tasks")
+	task = db.relationship("Task")
 
 	@hybrid_property
 	def created_at_in_local_tz(self):
