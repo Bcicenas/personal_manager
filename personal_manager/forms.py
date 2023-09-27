@@ -6,6 +6,9 @@ from wtforms import ValidationError
 from werkzeug.security import check_password_hash
 from flask_babel import lazy_gettext, gettext
 
+class PlanForm(FlaskForm):
+	name = StringField(lazy_gettext('Name'), validators=[DataRequired(lazy_gettext('Name is required.'))])
+
 class TaskForm(FlaskForm):
 	name = StringField(lazy_gettext('Name'), validators=[DataRequired(lazy_gettext('Name is required.'))])
 	description = TextAreaField(lazy_gettext('Description'))

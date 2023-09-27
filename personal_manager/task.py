@@ -5,7 +5,7 @@ from datetime import datetime
 from werkzeug.exceptions import abort
 from . import convert_date_time
 from personal_manager.auth import login_required
-from .models import Task
+from .models import Task, ShoppingList
 from .forms import TaskForm, process_form_errors
 from . import db, get_localized_msg
 from sqlalchemy.exc import IntegrityError
@@ -47,7 +47,7 @@ def create():
 			task.user_id = g.user.id
 			task.till_date = convert_date_time(datetime.combine(task.till_date, datetime.min.time()), 'LOCAL_TZ', 'UTC_TZ')
 			db.session.add(task)
-			db.session.commit()	
+			db.session.commit()
 		except ValueError as e:
 			error = f"{e}"
 		except IntegrityError as e:

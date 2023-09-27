@@ -26,6 +26,7 @@
             <a class="navbar-brand" href="{{ url_for('dashboard.index') }}">{{ _('Home') }}</a>
             <div class="navbar-nav ml-auto">
               {% if g.user %}
+                <a class="nav-item nav-link" href="{{ url_for('plan.list') }}">{{ _('Plans') }}</a>
                 <a class="nav-item nav-link" href="{{ url_for('task.list') }}">{{ _('Tasks') }}</a>
                 <a class="nav-item nav-link" href="{{ url_for('shopping_list.list') }}">{{ _('Shopping Lists') }}</a>
                 <div class="nav-item dropdown">

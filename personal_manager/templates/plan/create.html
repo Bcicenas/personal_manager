@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ _('New Plan') }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    {% include 'plan/form.html' %}
+    <a class="btn btn-dark" href="{{ url_for('plan.list') }}" onclick="return confirm('{{ _('Are you sure?') }}');">{{ _('Cancel') }}</a>
+    <input class="btn btn-success" type="submit" value="{{ _('Create') }}">
+  </form>
+{% endblock %}

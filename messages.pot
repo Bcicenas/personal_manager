@@ -1,472 +1,603 @@
 # Translations template for PROJECT.
-# Copyright (C) 2022 ORGANIZATION
+# Copyright (C) 2023 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-14 16:32+0200\n"
+"POT-Creation-Date: 2023-09-27 13:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
+"Generated-By: Babel 2.12.1\n"
 
-#: personal_manager/__init__.py:81
+#: build/lib/personal_manager/__init__.py:84 personal_manager/__init__.py:87
 msgid "displaying"
 msgstr ""
 
-#: personal_manager/__init__.py:81
+#: build/lib/personal_manager/__init__.py:84 personal_manager/__init__.py:87
 msgid "in total"
 msgstr ""
 
-#: personal_manager/auth.py:31
+#: build/lib/personal_manager/auth.py:31 personal_manager/auth.py:31
 msgid "Username or Email already exists"
 msgstr ""
 
-#: personal_manager/auth.py:33
+#: build/lib/personal_manager/auth.py:33 personal_manager/auth.py:33
 msgid "User successfully registered"
 msgstr ""
 
-#: personal_manager/auth.py:49
+#: build/lib/personal_manager/auth.py:49 personal_manager/auth.py:49
 msgid "Incorrect username."
 msgstr ""
 
+#: build/lib/personal_manager/auth.py:51 build/lib/personal_manager/auth.py:95
 #: personal_manager/auth.py:51 personal_manager/auth.py:95
 msgid "Email is not confirmed"
 msgstr ""
 
-#: personal_manager/auth.py:53
+#: build/lib/personal_manager/auth.py:53 personal_manager/auth.py:53
 msgid "Incorrect password."
 msgstr ""
 
-#: personal_manager/auth.py:60
+#: build/lib/personal_manager/auth.py:60 personal_manager/auth.py:60
 msgid "Login successfully"
 msgstr ""
 
-#: personal_manager/auth.py:80
+#: build/lib/personal_manager/auth.py:80 personal_manager/auth.py:80
 msgid "Email was confirmed successfully"
 msgstr ""
 
-#: personal_manager/auth.py:92
+#: build/lib/personal_manager/auth.py:92 personal_manager/auth.py:92
 msgid "Password reset link was sent to "
 msgstr ""
 
-#: personal_manager/auth.py:123
+#: build/lib/personal_manager/auth.py:123 personal_manager/auth.py:123
 msgid "Password reset failed. Database Error"
 msgstr ""
 
+#: build/lib/personal_manager/auth.py:125 build/lib/personal_manager/user.py:60
 #: personal_manager/auth.py:125 personal_manager/user.py:60
 msgid "Password was successfully changed"
 msgstr ""
 
-#: personal_manager/auth.py:150
+#: build/lib/personal_manager/auth.py:150 personal_manager/auth.py:150
 msgid "Logged out successfully"
 msgstr ""
 
-#: personal_manager/auth.py:157
+#: build/lib/personal_manager/auth.py:157 personal_manager/auth.py:157
 msgid "Access denied"
 msgstr ""
 
-#: personal_manager/forms.py:9 personal_manager/forms.py:16
-#: personal_manager/forms.py:19
-#: personal_manager/templates/shopping_list/list.html:16
-#: personal_manager/templates/shopping_list/shopping_items.html:28
-#: personal_manager/templates/task/list.html:16
+#: build/lib/personal_manager/forms.py:10
+#: build/lib/personal_manager/forms.py:17
+#: build/lib/personal_manager/forms.py:20
+#: build/lib/personal_manager/templates/shopping_list/list.html:14
+#: build/lib/personal_manager/templates/shopping_list/list.html:25
+#: build/lib/personal_manager/templates/shopping_list/shopping_items.html:26
+#: build/lib/personal_manager/templates/shopping_list/shopping_items.html:37
+#: build/lib/personal_manager/templates/task/list.html:14
+#: build/lib/personal_manager/templates/task/list.html:25
+#: personal_manager/forms.py:10 personal_manager/forms.py:13
+#: personal_manager/forms.py:20 personal_manager/forms.py:23
+#: personal_manager/templates/plan/list.html:14
+#: personal_manager/templates/plan/list.html:25
+#: personal_manager/templates/shopping_list/list.html:14
+#: personal_manager/templates/shopping_list/list.html:25
+#: personal_manager/templates/shopping_list/shopping_items.html:26
+#: personal_manager/templates/shopping_list/shopping_items.html:37
+#: personal_manager/templates/task/list.html:14
+#: personal_manager/templates/task/list.html:25
 msgid "Name"
 msgstr ""
 
-#: personal_manager/forms.py:9 personal_manager/forms.py:16
-#: personal_manager/forms.py:19 personal_manager/models.py:111
+#: build/lib/personal_manager/forms.py:10
+#: build/lib/personal_manager/forms.py:17
+#: build/lib/personal_manager/forms.py:20
+#: build/lib/personal_manager/models.py:111
+#: build/lib/personal_manager/models.py:128 personal_manager/forms.py:10
+#: personal_manager/forms.py:13 personal_manager/forms.py:20
+#: personal_manager/forms.py:23 personal_manager/models.py:111
 #: personal_manager/models.py:128
 msgid "Name is required."
 msgstr ""
 
-#: personal_manager/forms.py:10
+#: build/lib/personal_manager/forms.py:11 personal_manager/forms.py:14
 msgid "Description"
 msgstr ""
 
-#: personal_manager/forms.py:11
+#: build/lib/personal_manager/forms.py:12 personal_manager/forms.py:15
 msgid "Priority"
 msgstr ""
 
-#: personal_manager/forms.py:11 personal_manager/models.py:149
+#: build/lib/personal_manager/forms.py:12
+#: build/lib/personal_manager/models.py:149 personal_manager/forms.py:15
+#: personal_manager/models.py:149
 msgid "Low"
 msgstr ""
 
-#: personal_manager/forms.py:11 personal_manager/models.py:151
+#: build/lib/personal_manager/forms.py:12
+#: build/lib/personal_manager/models.py:151 personal_manager/forms.py:15
+#: personal_manager/models.py:151
 msgid "Medium"
 msgstr ""
 
-#: personal_manager/forms.py:11 personal_manager/models.py:153
+#: build/lib/personal_manager/forms.py:12
+#: build/lib/personal_manager/models.py:153 personal_manager/forms.py:15
+#: personal_manager/models.py:153
 msgid "High"
 msgstr ""
 
-#: personal_manager/forms.py:12
+#: build/lib/personal_manager/forms.py:13 personal_manager/forms.py:16
 msgid "Till date"
 msgstr ""
 
-#: personal_manager/forms.py:13
+#: build/lib/personal_manager/forms.py:14 personal_manager/forms.py:17
 msgid "Finished"
 msgstr ""
 
-#: personal_manager/forms.py:22
+#: build/lib/personal_manager/forms.py:23
+#: build/lib/personal_manager/templates/auth/register.html:16
+#: build/lib/personal_manager/templates/user/personal_details.html:15
+#: personal_manager/forms.py:26
 #: personal_manager/templates/auth/register.html:16
 #: personal_manager/templates/user/personal_details.html:15
 msgid "Email"
 msgstr ""
 
-#: personal_manager/forms.py:22
+#: build/lib/personal_manager/forms.py:23 personal_manager/forms.py:26
 msgid "Email is required"
 msgstr ""
 
-#: personal_manager/forms.py:25 personal_manager/templates/auth/login.html:15
+#: build/lib/personal_manager/forms.py:26
+#: build/lib/personal_manager/templates/auth/login.html:15
+#: build/lib/personal_manager/templates/auth/register.html:21
+#: personal_manager/forms.py:29 personal_manager/templates/auth/login.html:15
 #: personal_manager/templates/auth/register.html:21
 msgid "Password"
 msgstr ""
 
-#: personal_manager/forms.py:25 personal_manager/models.py:42
+#: build/lib/personal_manager/forms.py:26
+#: build/lib/personal_manager/models.py:42 personal_manager/forms.py:29
+#: personal_manager/models.py:42
 msgid "Password is required."
 msgstr ""
 
-#: personal_manager/forms.py:28
+#: build/lib/personal_manager/forms.py:29 personal_manager/forms.py:32
 msgid "Current Password"
 msgstr ""
 
-#: personal_manager/forms.py:28
+#: build/lib/personal_manager/forms.py:29 personal_manager/forms.py:32
 msgid "Current Password is required."
 msgstr ""
 
-#: personal_manager/forms.py:29
+#: build/lib/personal_manager/forms.py:30 personal_manager/forms.py:33
 msgid "New Password"
 msgstr ""
 
-#: personal_manager/forms.py:29
+#: build/lib/personal_manager/forms.py:30 personal_manager/forms.py:33
 msgid "New Password is required."
 msgstr ""
 
-#: personal_manager/forms.py:31
+#: build/lib/personal_manager/forms.py:32 personal_manager/forms.py:35
 msgid "Confirm New Password"
 msgstr ""
 
-#: personal_manager/forms.py:32
+#: build/lib/personal_manager/forms.py:33 personal_manager/forms.py:36
 msgid "Confirm New Password is required."
 msgstr ""
 
-#: personal_manager/forms.py:32
+#: build/lib/personal_manager/forms.py:33 personal_manager/forms.py:36
 msgid "Password mismatch"
 msgstr ""
 
-#: personal_manager/forms.py:40
+#: build/lib/personal_manager/forms.py:41 personal_manager/forms.py:44
 msgid "Current Password is invalid"
 msgstr ""
 
-#: personal_manager/forms.py:43
+#: build/lib/personal_manager/forms.py:44 personal_manager/forms.py:47
 msgid "Language"
 msgstr ""
 
-#: personal_manager/forms.py:43 personal_manager/templates/base.html:51
+#: build/lib/personal_manager/forms.py:44
+#: build/lib/personal_manager/templates/base.html:53
+#: personal_manager/forms.py:47 personal_manager/templates/base.html:54
 msgid "English"
 msgstr ""
 
-#: personal_manager/forms.py:43 personal_manager/templates/base.html:52
+#: build/lib/personal_manager/forms.py:44
+#: build/lib/personal_manager/templates/base.html:54
+#: personal_manager/forms.py:47 personal_manager/templates/base.html:55
 msgid "Lithuanian"
 msgstr ""
 
-#: personal_manager/models.py:28
+#: build/lib/personal_manager/models.py:28 personal_manager/models.py:28
 msgid "Username is required."
 msgstr ""
 
-#: personal_manager/models.py:36
+#: build/lib/personal_manager/models.py:36 personal_manager/models.py:36
 msgid "Email is invalid"
 msgstr ""
 
-#: personal_manager/models.py:52
+#: build/lib/personal_manager/models.py:52 personal_manager/models.py:52
 msgid "Please choose a stronger password."
 msgstr ""
 
-#: personal_manager/models.py:53
+#: build/lib/personal_manager/models.py:53 personal_manager/models.py:53
 msgid "Must contain at least 8 characters"
 msgstr ""
 
-#: personal_manager/models.py:54
+#: build/lib/personal_manager/models.py:54 personal_manager/models.py:54
 msgid "Must contain at least 1 uppercase letter"
 msgstr ""
 
-#: personal_manager/models.py:55
+#: build/lib/personal_manager/models.py:55 personal_manager/models.py:55
 msgid "Must contain at least 1 number"
 msgstr ""
 
-#: personal_manager/models.py:56
+#: build/lib/personal_manager/models.py:56 personal_manager/models.py:56
 msgid "Must contain at least 1 special character"
 msgstr ""
 
-#: personal_manager/models.py:63
+#: build/lib/personal_manager/models.py:63 personal_manager/models.py:63
 msgid "Confirm your email"
 msgstr ""
 
-#: personal_manager/models.py:76
+#: build/lib/personal_manager/models.py:76 personal_manager/models.py:76
 msgid "Password Reset"
 msgstr ""
 
-#: personal_manager/shopping_list.py:24
+#: build/lib/personal_manager/shopping_list.py:30
+#: personal_manager/shopping_list.py:30
 msgid "shopping lists"
 msgstr ""
 
-#: personal_manager/shopping_list.py:43
+#: build/lib/personal_manager/shopping_list.py:49
+#: personal_manager/shopping_list.py:49
 msgid "Shopping List was not created. Database Error"
 msgstr ""
 
-#: personal_manager/shopping_list.py:45
+#: build/lib/personal_manager/shopping_list.py:51
+#: personal_manager/shopping_list.py:51
 msgid "Shopping List was successfully created"
 msgstr ""
 
-#: personal_manager/shopping_list.py:59
+#: build/lib/personal_manager/shopping_list.py:65
+#: personal_manager/shopping_list.py:65
 msgid "Shopping list id "
 msgstr ""
 
-#: personal_manager/shopping_list.py:59 personal_manager/shopping_list.py:181
-#: personal_manager/task.py:62
+#: build/lib/personal_manager/shopping_list.py:65
+#: build/lib/personal_manager/shopping_list.py:192
+#: build/lib/personal_manager/task.py:70 personal_manager/plan.py:65
+#: personal_manager/shopping_list.py:65 personal_manager/shopping_list.py:192
+#: personal_manager/task.py:70
 msgid " doesn't exist."
 msgstr ""
 
-#: personal_manager/shopping_list.py:80
+#: build/lib/personal_manager/shopping_list.py:86
+#: personal_manager/shopping_list.py:86
 msgid "Shopping List was not updated. Database Error"
 msgstr ""
 
-#: personal_manager/shopping_list.py:82
+#: build/lib/personal_manager/shopping_list.py:88
+#: personal_manager/shopping_list.py:88
 msgid "Shopping List was successfully updated"
 msgstr ""
 
-#: personal_manager/shopping_list.py:105
+#: build/lib/personal_manager/shopping_list.py:111
+#: personal_manager/shopping_list.py:111
 msgid "Shopping List was not deleted. Database Error"
 msgstr ""
 
-#: personal_manager/shopping_list.py:108
+#: build/lib/personal_manager/shopping_list.py:114
+#: personal_manager/shopping_list.py:114
 msgid "Shopping List was successfully deleted"
 msgstr ""
 
-#: personal_manager/shopping_list.py:125
+#: build/lib/personal_manager/shopping_list.py:136
+#: personal_manager/shopping_list.py:136
 msgid "shopping items"
 msgstr ""
 
-#: personal_manager/shopping_list.py:145
+#: build/lib/personal_manager/shopping_list.py:156
+#: personal_manager/shopping_list.py:156
 msgid "Shopping Item was not created. Database Error"
 msgstr ""
 
-#: personal_manager/shopping_list.py:147
+#: build/lib/personal_manager/shopping_list.py:158
+#: personal_manager/shopping_list.py:158
 msgid "Shopping Item was successfully created"
 msgstr ""
 
-#: personal_manager/shopping_list.py:169
+#: build/lib/personal_manager/shopping_list.py:180
+#: personal_manager/shopping_list.py:180
 msgid "Shopping Item was not deleted. Database Error"
 msgstr ""
 
-#: personal_manager/shopping_list.py:171
+#: build/lib/personal_manager/shopping_list.py:182
+#: personal_manager/shopping_list.py:182
 msgid "Shopping Item was successfully deleted"
 msgstr ""
 
-#: personal_manager/shopping_list.py:181
+#: build/lib/personal_manager/shopping_list.py:192
+#: personal_manager/shopping_list.py:192
 msgid "Shopping item id "
 msgstr ""
 
-#: personal_manager/task.py:23
+#: build/lib/personal_manager/task.py:31 personal_manager/task.py:31
 msgid "tasks"
 msgstr ""
 
-#: personal_manager/task.py:46
+#: build/lib/personal_manager/task.py:54 personal_manager/task.py:54
 msgid "Task was not created. Database Error"
 msgstr ""
 
-#: personal_manager/task.py:48
+#: build/lib/personal_manager/task.py:56 personal_manager/task.py:56
 msgid "Task was successfully created"
 msgstr ""
 
-#: personal_manager/task.py:62
+#: build/lib/personal_manager/task.py:70 personal_manager/task.py:70
 msgid "Task id "
 msgstr ""
 
-#: personal_manager/task.py:85
+#: build/lib/personal_manager/task.py:93 personal_manager/task.py:93
 msgid "Task was not updated. Database Error"
 msgstr ""
 
-#: personal_manager/task.py:87
+#: build/lib/personal_manager/task.py:95 personal_manager/task.py:95
 msgid "Task was successfully updated"
 msgstr ""
 
-#: personal_manager/task.py:110
+#: build/lib/personal_manager/task.py:118 personal_manager/task.py:118
 msgid "Task was not deleted. Database Error"
 msgstr ""
 
-#: personal_manager/task.py:113
+#: build/lib/personal_manager/task.py:121 personal_manager/task.py:121
 msgid "Task was successfully deleted"
 msgstr ""
 
-#: personal_manager/user.py:29
+#: build/lib/personal_manager/user.py:29 personal_manager/user.py:29
 msgid "User details were not updated. Database Error"
 msgstr ""
 
-#: personal_manager/user.py:32
+#: build/lib/personal_manager/user.py:32 personal_manager/user.py:32
 msgid "User details were updated successfully"
 msgstr ""
 
-#: personal_manager/user.py:58
+#: build/lib/personal_manager/user.py:58 personal_manager/user.py:58
 msgid "Password change failed. Database Error"
 msgstr ""
 
-#: personal_manager/user.py:83
+#: build/lib/personal_manager/user.py:83 personal_manager/user.py:83
 msgid "Account was not deleted. Database Error"
 msgstr ""
 
-#: personal_manager/user.py:87
+#: build/lib/personal_manager/user.py:87 personal_manager/user.py:87
 msgid "Account was successfully deleted"
 msgstr ""
 
+#: build/lib/personal_manager/templates/404.html:5
 #: personal_manager/templates/404.html:5
 msgid "Page Not Found"
 msgstr ""
 
+#: build/lib/personal_manager/templates/404.html:9
+#: build/lib/personal_manager/templates/base.html:26
 #: personal_manager/templates/404.html:9
-#: personal_manager/templates/base.html:24
+#: personal_manager/templates/base.html:26
 msgid "Home"
 msgstr ""
 
-#: personal_manager/templates/base.html:27
+#: build/lib/personal_manager/templates/base.html:29
+#: build/lib/personal_manager/templates/dashboard/index.html:47
+#: build/lib/personal_manager/templates/task/list.html:4
+#: personal_manager/templates/base.html:30
 #: personal_manager/templates/dashboard/index.html:47
 #: personal_manager/templates/task/list.html:4
 msgid "Tasks"
 msgstr ""
 
-#: personal_manager/templates/base.html:28
+#: build/lib/personal_manager/templates/base.html:30
+#: build/lib/personal_manager/templates/dashboard/index.html:11
+#: build/lib/personal_manager/templates/shopping_list/list.html:4
+#: personal_manager/templates/base.html:31
 #: personal_manager/templates/dashboard/index.html:11
 #: personal_manager/templates/shopping_list/list.html:4
 msgid "Shopping Lists"
 msgstr ""
 
-#: personal_manager/templates/base.html:34
+#: build/lib/personal_manager/templates/base.html:36
+#: build/lib/personal_manager/templates/user/personal_details.html:4
+#: personal_manager/templates/base.html:37
 #: personal_manager/templates/user/personal_details.html:4
 msgid "Personal details"
 msgstr ""
 
-#: personal_manager/templates/base.html:35
+#: build/lib/personal_manager/templates/base.html:37
+#: personal_manager/templates/base.html:38
 msgid "Log Out"
 msgstr ""
 
+#: build/lib/personal_manager/templates/auth/register.html:4
+#: build/lib/personal_manager/templates/auth/register.html:24
+#: build/lib/personal_manager/templates/base.html:41
+#: build/lib/personal_manager/templates/landing_page.html:9
 #: personal_manager/templates/auth/register.html:4
 #: personal_manager/templates/auth/register.html:24
-#: personal_manager/templates/base.html:39
+#: personal_manager/templates/base.html:42
 #: personal_manager/templates/landing_page.html:9
 msgid "Register"
 msgstr ""
 
+#: build/lib/personal_manager/templates/auth/login.html:18
+#: build/lib/personal_manager/templates/base.html:42
 #: personal_manager/templates/auth/login.html:18
-#: personal_manager/templates/base.html:40
+#: personal_manager/templates/base.html:43
 msgid "Login"
 msgstr ""
 
+#: build/lib/personal_manager/templates/landing_page.html:6
 #: personal_manager/templates/landing_page.html:6
 msgid "Simple web application to manage your tasks, shoppings lists and more"
 msgstr ""
 
+#: build/lib/personal_manager/templates/landing_page.html:8
 #: personal_manager/templates/landing_page.html:8
 msgid "Try for free today!"
 msgstr ""
 
+#: build/lib/personal_manager/templates/auth/forgot_password.html:4
 #: personal_manager/templates/auth/forgot_password.html:4
 msgid "Forgot Password"
 msgstr ""
 
+#: build/lib/personal_manager/templates/auth/forgot_password.html:17
 #: personal_manager/templates/auth/forgot_password.html:17
 msgid "Send"
 msgstr ""
 
+#: build/lib/personal_manager/templates/auth/login.html:4
 #: personal_manager/templates/auth/login.html:4
 msgid "Log In"
 msgstr ""
 
+#: build/lib/personal_manager/templates/auth/login.html:11
+#: build/lib/personal_manager/templates/auth/register.html:11
+#: build/lib/personal_manager/templates/user/personal_details.html:14
 #: personal_manager/templates/auth/login.html:11
 #: personal_manager/templates/auth/register.html:11
 #: personal_manager/templates/user/personal_details.html:14
 msgid "Username"
 msgstr ""
 
+#: build/lib/personal_manager/templates/auth/login.html:19
 #: personal_manager/templates/auth/login.html:19
 msgid "Forgot password?"
 msgstr ""
 
+#: build/lib/personal_manager/templates/auth/reset_password.html:4
 #: personal_manager/templates/auth/reset_password.html:4
 msgid "Reset password"
 msgstr ""
 
+#: build/lib/personal_manager/templates/auth/reset_password.html:17
 #: personal_manager/templates/auth/reset_password.html:17
 msgid "Reset"
 msgstr ""
 
+#: build/lib/personal_manager/templates/dashboard/index.html:4
 #: personal_manager/templates/dashboard/index.html:4
 msgid "Dashboard"
 msgstr ""
 
+#: build/lib/personal_manager/templates/dashboard/index.html:13
+#: build/lib/personal_manager/templates/dashboard/index.html:49
+#: build/lib/personal_manager/templates/shopping_list/list.html:10
+#: build/lib/personal_manager/templates/task/list.html:10
 #: personal_manager/templates/dashboard/index.html:13
 #: personal_manager/templates/dashboard/index.html:49
+#: personal_manager/templates/plan/list.html:10
 #: personal_manager/templates/shopping_list/list.html:10
 #: personal_manager/templates/task/list.html:10
 msgid "Add New"
 msgstr ""
 
+#: build/lib/personal_manager/templates/dashboard/index.html:26
+#: build/lib/personal_manager/templates/dashboard/index.html:63
 #: personal_manager/templates/dashboard/index.html:26
 #: personal_manager/templates/dashboard/index.html:63
 msgid "Created"
 msgstr ""
 
+#: build/lib/personal_manager/templates/dashboard/index.html:27
+#: build/lib/personal_manager/templates/dashboard/index.html:64
 #: personal_manager/templates/dashboard/index.html:27
 #: personal_manager/templates/dashboard/index.html:64
 msgid "Last Updated"
 msgstr ""
 
+#: build/lib/personal_manager/templates/dashboard/index.html:34
+#: build/lib/personal_manager/templates/dashboard/index.html:69
+#: build/lib/personal_manager/templates/shopping_list/update.html:4
+#: build/lib/personal_manager/templates/task/update.html:4
 #: personal_manager/templates/dashboard/index.html:34
 #: personal_manager/templates/dashboard/index.html:69
+#: personal_manager/templates/plan/update.html:4
 #: personal_manager/templates/shopping_list/update.html:4
 #: personal_manager/templates/task/update.html:4
 msgid "Edit"
 msgstr ""
 
+#: build/lib/personal_manager/templates/dashboard/index.html:35
+#: build/lib/personal_manager/templates/shopping_list/list.html:35
 #: personal_manager/templates/dashboard/index.html:35
-#: personal_manager/templates/shopping_list/list.html:26
+#: personal_manager/templates/plan/list.html:35
+#: personal_manager/templates/shopping_list/list.html:35
 msgid "Edit Items"
 msgstr ""
 
+#: build/lib/personal_manager/templates/dashboard/index.html:38
+#: build/lib/personal_manager/templates/dashboard/index.html:72
+#: build/lib/personal_manager/templates/shopping_list/list.html:39
+#: build/lib/personal_manager/templates/shopping_list/shopping_items.html:49
+#: build/lib/personal_manager/templates/task/list.html:37
+#: build/lib/personal_manager/templates/task/update.html:16
 #: personal_manager/templates/dashboard/index.html:38
 #: personal_manager/templates/dashboard/index.html:72
-#: personal_manager/templates/shopping_list/list.html:30
-#: personal_manager/templates/shopping_list/shopping_items.html:40
-#: personal_manager/templates/task/list.html:28
+#: personal_manager/templates/plan/list.html:39
+#: personal_manager/templates/shopping_list/list.html:39
+#: personal_manager/templates/shopping_list/shopping_items.html:49
+#: personal_manager/templates/task/list.html:37
 #: personal_manager/templates/task/update.html:16
 msgid "Delete"
 msgstr ""
 
+#: build/lib/personal_manager/templates/dashboard/index.html:38
+#: build/lib/personal_manager/templates/dashboard/index.html:72
+#: build/lib/personal_manager/templates/shopping_list/create.html:10
+#: build/lib/personal_manager/templates/shopping_list/shopping_items.html:49
+#: build/lib/personal_manager/templates/shopping_list/update.html:11
+#: build/lib/personal_manager/templates/shopping_list/update.html:17
+#: build/lib/personal_manager/templates/task/create.html:10
+#: build/lib/personal_manager/templates/task/list.html:37
+#: build/lib/personal_manager/templates/task/update.html:11
+#: build/lib/personal_manager/templates/task/update.html:16
+#: build/lib/personal_manager/templates/user/personal_details.html:41
 #: personal_manager/templates/dashboard/index.html:38
 #: personal_manager/templates/dashboard/index.html:72
+#: personal_manager/templates/plan/create.html:10
+#: personal_manager/templates/plan/update.html:11
+#: personal_manager/templates/plan/update.html:17
 #: personal_manager/templates/shopping_list/create.html:10
-#: personal_manager/templates/shopping_list/shopping_items.html:40
+#: personal_manager/templates/shopping_list/shopping_items.html:49
 #: personal_manager/templates/shopping_list/update.html:11
 #: personal_manager/templates/shopping_list/update.html:17
 #: personal_manager/templates/task/create.html:10
-#: personal_manager/templates/task/list.html:28
+#: personal_manager/templates/task/list.html:37
 #: personal_manager/templates/task/update.html:11
 #: personal_manager/templates/task/update.html:16
 #: personal_manager/templates/user/personal_details.html:41
 msgid "Are you sure?"
 msgstr ""
 
+#: build/lib/personal_manager/templates/shopping_list/create.html:4
 #: personal_manager/templates/shopping_list/create.html:4
 msgid "New Shopping List"
 msgstr ""
 
+#: build/lib/personal_manager/templates/shopping_list/create.html:10
+#: build/lib/personal_manager/templates/shopping_list/update.html:11
+#: build/lib/personal_manager/templates/task/create.html:10
+#: build/lib/personal_manager/templates/task/update.html:11
+#: personal_manager/templates/plan/create.html:10
+#: personal_manager/templates/plan/update.html:11
 #: personal_manager/templates/shopping_list/create.html:10
 #: personal_manager/templates/shopping_list/update.html:11
 #: personal_manager/templates/task/create.html:10
@@ -474,51 +605,109 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+#: build/lib/personal_manager/templates/shopping_list/create.html:11
+#: build/lib/personal_manager/templates/task/create.html:11
+#: personal_manager/templates/plan/create.html:11
 #: personal_manager/templates/shopping_list/create.html:11
 #: personal_manager/templates/task/create.html:11
 msgid "Create"
 msgstr ""
 
+#: build/lib/personal_manager/templates/shopping_list/shopping_items.html:4
 #: personal_manager/templates/shopping_list/shopping_items.html:4
 msgid "Shopping Items"
 msgstr ""
 
+#: build/lib/personal_manager/templates/shopping_list/shopping_items.html:18
 #: personal_manager/templates/shopping_list/shopping_items.html:18
 msgid "Add"
 msgstr ""
 
+#: build/lib/personal_manager/templates/shopping_list/update.html:12
+#: build/lib/personal_manager/templates/task/update.html:12
+#: build/lib/personal_manager/templates/user/personal_details.html:26
+#: personal_manager/templates/plan/update.html:12
 #: personal_manager/templates/shopping_list/update.html:12
 #: personal_manager/templates/task/update.html:12
 #: personal_manager/templates/user/personal_details.html:26
 msgid "Save"
 msgstr ""
 
+#: build/lib/personal_manager/templates/task/create.html:4
 #: personal_manager/templates/task/create.html:4
 msgid "New Task"
 msgstr ""
 
+#: build/lib/personal_manager/templates/user/change_password.html:4
+#: build/lib/personal_manager/templates/user/personal_details.html:37
 #: personal_manager/templates/user/change_password.html:4
 #: personal_manager/templates/user/personal_details.html:37
 msgid "Change Password"
 msgstr ""
 
+#: build/lib/personal_manager/templates/user/change_password.html:17
 #: personal_manager/templates/user/change_password.html:17
 msgid "Change"
 msgstr ""
 
+#: build/lib/personal_manager/templates/user/change_password.html:17
 #: personal_manager/templates/user/change_password.html:17
 msgid "Are you sure want to change your password?"
 msgstr ""
 
+#: build/lib/personal_manager/templates/user/personal_details.html:11
 #: personal_manager/templates/user/personal_details.html:11
 msgid "User details"
 msgstr ""
 
+#: build/lib/personal_manager/templates/user/personal_details.html:34
 #: personal_manager/templates/user/personal_details.html:34
 msgid "Actions"
 msgstr ""
 
+#: build/lib/personal_manager/templates/user/personal_details.html:41
 #: personal_manager/templates/user/personal_details.html:41
 msgid "Delete Account"
+msgstr ""
+
+#: personal_manager/plan.py:30
+msgid "plans"
+msgstr ""
+
+#: personal_manager/plan.py:49
+msgid "Plan was not created. Database Error"
+msgstr ""
+
+#: personal_manager/plan.py:51
+msgid "Plan was successfully created"
+msgstr ""
+
+#: personal_manager/plan.py:65
+msgid "Plan id "
+msgstr ""
+
+#: personal_manager/plan.py:86
+msgid "Plan was not updated. Database Error"
+msgstr ""
+
+#: personal_manager/plan.py:88
+msgid "Plan was successfully updated"
+msgstr ""
+
+#: personal_manager/plan.py:111
+msgid "Plan was not deleted. Database Error"
+msgstr ""
+
+#: personal_manager/plan.py:114
+msgid "Plan was successfully deleted"
+msgstr ""
+
+#: personal_manager/templates/base.html:29
+#: personal_manager/templates/plan/list.html:4
+msgid "Plans"
+msgstr ""
+
+#: personal_manager/templates/plan/create.html:4
+msgid "New Plan"
 msgstr ""
 

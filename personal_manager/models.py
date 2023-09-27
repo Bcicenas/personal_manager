@@ -172,4 +172,44 @@ class Task(db.Model):
 	@hybrid_property
 	def last_updated_at_in_local_tz(self):
 		return convert_date_time(self.last_updated_at, 'UTC_TZ', 'LOCAL_TZ')
-		
+
+
+class Plan(db.Model):
+	__tablename__ = "plans"
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(255), nullable=False)
+	created_at = db.Column(db.DateTime(), default=datetime.utcnow)
+	last_updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
+	plan_date = db.Column(db.DateTime(), default=datetime.utcnow)
+	user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+	plan_tasks = db.relationship("PlanTask", back_populates="plan", cascade="all, delete")	
+
+	@hybrid_property
+	def created_at_in_local_tz(self):
+		return convert_date_time(self.created_at, 'UTC_TZ', 'LOCAL_TZ')
+
+	@hybrid_property
+	def plan_date_in_local_tz(self):
+		return convert_date_time(self.plan_date, 'UTC_TZ', 'LOCAL_TZ')
+
+	@hybrid_property
+	def last_updated_at_in_local_tz(self):
+		return convert_date_time(self.last_updated_at, 'UTC_TZ', 'LOCAL_TZ')
+
+class PlanTask(db.Model):
+	__tablename__ = "plan_tasks"
+	id = db.Column(db.Integer, primary_key=True)
+	created_at = db.Column(db.DateTime(), default=datetime.utcnow)
+	last_updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
+	plan_id = db.Column(db.Integer, db.ForeignKey("plans.id", ondelete="CASCADE"), nullable=False)	
+	task_id = db.Column(db.Integer, db.ForeignKey("tasks.id", ondelete="CASCADE"), nullable=False)	
+
+	plan = db.relationship("Plan", back_populates="plan_tasks")
+
+	@hybrid_property
+	def created_at_in_local_tz(self):
+		return convert_date_time(self.created_at, 'UTC_TZ', 'LOCAL_TZ')
+
+	@hybrid_property
+	def last_updated_at_in_local_tz(self):
+		return convert_date_time(self.last_updated_at, 'UTC_TZ', 'LOCAL_TZ')

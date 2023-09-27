@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ _('Edit') }} "{{ plan['name'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="container plan-list-form">
+    <form method="post">
+      {% include 'plan/form.html' %}
+      <a class="btn btn-dark" href="{{ url_for('plan.list') }}" onclick="return confirm('{{ _('Are you sure?') }}');">{{ _('Cancel') }}</a>
+      <input class="btn btn-primary" type="submit" value="{{ _('Save') }}">
+    </form>
+    <hr>
+    <form action="{{ url_for('plan.delete', id=plan.id) }}" method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+      <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('{{ _('Are you sure?') }}');">
+    </form>
+  </div>
+{% endblock %}

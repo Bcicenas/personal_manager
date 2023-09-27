@@ -1,0 +1,8 @@
+{% for field in form %}
+  <div class="form-group">
+    {% if field.widget.input_type != 'hidden' %}
+      {{ field.label }}
+    {% endif %}
+    {{ field(class_="form-control") }}
+  </div>
+{% endfor %}
