@@ -1,23 +1,15 @@
-<label for="tasks">Tasks</label>
-<div class="form-group input-group">
-	<select name="tasks" class="form-control tasks-dropdown">
-		{% for task in tasks %}
-			<option value="{{ task.id }}"> {{ task.name }}</option>
-		{% endfor %}
-	</select>
-  <div class="input-group-append">
-      <input class="btn btn-success task-add-btn" type="button" value="Add">
-  </div>
-</div>
-<div id="task_list">
-  <h3>{{ _('Task List') }}</h3>
-  <hr/>
-  {% for task in plan.plan_tasks %}
-		<p>
-			<input type="hidden" name="selected_tasks[]" value="{{ task.task_id }}" />
-			{{ task.task.name }}
-			<input class="btn btn-danger task-remove-btn" type="button" value="Remove">
-		</p>
-  {% endfor %}
-</div>
+<h3>{{ _('Task List') }}</h3>
+<table id="task_list" class="table mt-task-table">
+	<tr>
+		<th>{{ _('Task') }}</th>
+		<th></th>
+	</tr>
+	{% for task in plan.plan_tasks %}
+		<tr>
+			<td><input type="hidden" name="selected_tasks[]" value="{{ task.task_id }}" />
+			<a href="{{ url_for('task.update', id=task.task_id )}}">{{ task.task.name }}</a></td>
+			<td class="text-right"><input class="btn btn-danger task-remove-btn" type="button" value="Remove"></td>
+		</tr>
+	{% endfor %}
+</table>
 <script src="{{ url_for('static', filename='tasks_form.js') }}"></script>

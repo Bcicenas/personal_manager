@@ -64,3 +64,5 @@ Simple web application to manage your tasks, shoppings lists and more
  - DatePicker fix
  - Plans
  - Add tasks to plans
+ - Task Calendar in dashboard
+ - Links in Plans Task List

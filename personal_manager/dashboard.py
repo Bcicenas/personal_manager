@@ -13,7 +13,7 @@ from datetime import datetime
 
 bp = Blueprint('dashboard', __name__)
 
-@bp.route('/')
+@bp.route('/', methods=('GET', 'POST'))
 def index():
 	if g.user is None:
 		return render_template('landing_page.html')
@@ -23,11 +23,11 @@ def index():
 		session['calendar-date'] = datetime.now()
 	else:
 		if request.form.get('calendar-date') is not None:
-			session['calendar-date'] = request.form.get('calendar-date')
+			session['calendar-date'] = datetime.strptime(request.form.get('calendar-date'), '%Y-%m-%d')
 
 	year = session['calendar-date'].year
 	month = session['calendar-date'].month
-	
+
 	# get month plans for calendar
 	# last day for query
 	day_range = calendar.monthrange(year, month)

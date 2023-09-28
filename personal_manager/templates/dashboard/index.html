@@ -6,6 +6,18 @@
 
 {% block content %}
   <div class="container dashboard">
+    <div class="button-menu">
+      <form action="{{ url_for('dashboard.index') }}" method="post" class="mt-2">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <div class="input-group mb-3">
+          <input class="form-control datepicker" id="dp" name="calendar-date" type="text" value="{{ session['calendar-date'].strftime('%Y-%m-%d') }}">
+          <div class="input-group-append">
+            <button class="btn btn-success" type="submit">{{ _('Submit') }}</button>
+          </div>
+        </div>
+        <script src="{{ url_for('static', filename='datepicker.js') }}"></script> 
+      </form>       
+    </div>   
     <div class="row">
       <div class="col-md-12 mt-2">
         {{ calendar | safe }}

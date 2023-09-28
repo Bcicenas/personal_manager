@@ -38,3 +38,7 @@ html, body {
 .datepicker {
   padding: .375rem .75rem;
 }
+
+.mt-task-table{
+  margin-top: 2.5rem;
+}

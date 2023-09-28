@@ -21,3 +21,14 @@
 
 {% endfor %}
 <script src="{{ url_for('static', filename='datepicker.js') }}"></script>
+<label for="tasks">Tasks</label>
+<div class="form-group input-group">
+  <select name="tasks" class="form-control tasks-dropdown">
+    {% for task in tasks %}
+      <option value="{{ task.id }}"> {{ task.name }}</option>
+    {% endfor %}
+  </select>
+  <div class="input-group-append">
+      <input class="btn btn-success task-add-btn" type="button" value="Add">
+  </div>
+</div>
