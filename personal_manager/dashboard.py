@@ -5,7 +5,7 @@ from werkzeug.exceptions import abort
 from flask import session
 from personal_manager.auth import login_required
 from . models import User, ShoppingList, Task, Plan
-from . import db
+from . import db, parsed_locale
 
 import calendar
 from .utils import CustomHTMLCal
@@ -44,7 +44,7 @@ def index():
 	for plan in plans:
 		plan_data[str(plan[0].plan_date.day)].append('<a href="%s">%s<a>' % (url_for('plan.update', id=plan[0].id), plan[0].name))
 
-	this_month_calendar = CustomHTMLCal(day_data=plan_data).formatmonth(year, month)
+	this_month_calendar = CustomHTMLCal(day_data=plan_data, locale=parsed_locale()).formatmonth(year, month)
 
 	# # shopping lists
 	# shopping_lists = db.session.execute(

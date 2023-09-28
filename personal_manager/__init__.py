@@ -80,6 +80,13 @@ def get_locale():
 	else:
 		return current_app.config['BABEL_DEFAULT_LOCALE']
 
+def parsed_locale():
+	locale = get_locale()
+	if locale == 'lt':
+		return 'lt_LT.utf8'
+	else:
+		return None
+		
 # translate pagination
 def get_localized_msg(record_name, current_page, total, items_per_page):
 	start = (current_page - 1) * items_per_page + 1
