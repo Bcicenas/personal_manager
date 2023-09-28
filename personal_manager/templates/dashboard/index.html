@@ -17,11 +17,32 @@
         </div>
         <script src="{{ url_for('static', filename='datepicker.js') }}"></script> 
       </form>       
-    </div>   
+    </div>
     <div class="row">
       <div class="col-md-12 mt-2">
-        <div class="table-responsive">
-          {{ calendar | safe }}
+        <div class="card">
+          <div class="card-header">{{ _('Plans for ') }} {{ session['calendar-date'].strftime('%Y-%m-%d') }}</div>
+          <ul class="list-group list-group-flush">
+            {% if daily_plans %}
+              {% for plan in daily_plans %}
+                <li class="list-group-item"><a href="{{ url_for('plan.update', id=plan[0].id )}}">{{ plan[0].name }}</a></li>
+              {% endfor %}
+            {% else %}
+              <li class="list-group-item">{{ _('No plans')}}</li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>       
+    <div class="row">
+      <div class="col-md-12 mt-4">
+        <div class="card">
+          <div class="card-header">{{ _('Monthly plans') }} {{ session['calendar-date'].strftime('%Y-%m') }}</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              {{ calendar | safe }}
+            </div>
+          </div>
         </div>
       </div>
     </div>

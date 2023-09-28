@@ -20,7 +20,7 @@ def index():
 	
 	# calendar
 	if 'calendar-date' not in session:
-		session['calendar-date'] = datetime.now()
+		session['calendar-date'] = datetime.strptime(datetime.now().strftime('%Y-%m-%d'), '%Y-%m-%d')
 	else:
 		if request.form.get('calendar-date') is not None:
 			session['calendar-date'] = datetime.strptime(request.form.get('calendar-date'), '%Y-%m-%d')
@@ -46,6 +46,10 @@ def index():
 
 	this_month_calendar = CustomHTMLCal(day_data=plan_data, locale=parsed_locale()).formatmonth(year, month)
 
+	daily_plans = db.session.execute(
+		db.select(Plan).filter(Plan.plan_date == session['calendar-date'], Plan.user_id==g.user.id)
+	).fetchall()
+
 	# # shopping lists
 	# shopping_lists = db.session.execute(
 	# 	db.select(ShoppingList).filter_by(user_id=g.user.id).order_by(ShoppingList.created_at.desc()).limit(10)
@@ -56,4 +60,4 @@ def index():
 	# 	db.select(Task).filter_by(user_id=g.user.id).order_by(Task.created_at.desc()).limit(10)
 	# ).fetchall()
 
-	return render_template('dashboard/index.html', calendar=this_month_calendar)
+	return render_template('dashboard/index.html', calendar=this_month_calendar, daily_plans=daily_plans)

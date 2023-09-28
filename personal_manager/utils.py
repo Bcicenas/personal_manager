@@ -8,7 +8,7 @@ class CustomHTMLCal(calendar.LocaleHTMLCalendar):
 	# cssclasses = [style + " text-nowrap" for style in
 	# 			  calendar.HTMLCalendar.cssclasses]
 	# cssclass_month_head = "text-center month-head"
-	cssclass_month = "table month calendar-table"
+	cssclass_month = "table table-bordered month calendar-table"
 	# cssclass_year = "text-italic lead"
 	def __init__(self,day_data=None, **kw):
 		self.day_data = day_data

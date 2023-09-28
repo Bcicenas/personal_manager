@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-09-28 13:50+0300\n"
+"POT-Creation-Date: 2023-09-28 14:47+0300\n"
 "PO-Revision-Date: 2022-10-31 15:17+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: lt\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: build/lib/personal_manager/__init__.py:84 personal_manager/__init__.py:87
+#: build/lib/personal_manager/__init__.py:84 personal_manager/__init__.py:94
 msgid "displaying"
 msgstr "rodoma"
 
-#: build/lib/personal_manager/__init__.py:84 personal_manager/__init__.py:87
+#: build/lib/personal_manager/__init__.py:84 personal_manager/__init__.py:94
 msgid "in total"
 msgstr "iš"
 
@@ -401,7 +401,7 @@ msgstr "Pradinis"
 #: build/lib/personal_manager/templates/dashboard/index.html:47
 #: build/lib/personal_manager/templates/task/list.html:4
 #: personal_manager/templates/base.html:30
-#: personal_manager/templates/dashboard/index.html:66
+#: personal_manager/templates/dashboard/index.html:83
 #: personal_manager/templates/task/list.html:4
 msgid "Tasks"
 msgstr "Užduotys"
@@ -410,7 +410,7 @@ msgstr "Užduotys"
 #: build/lib/personal_manager/templates/dashboard/index.html:11
 #: build/lib/personal_manager/templates/shopping_list/list.html:4
 #: personal_manager/templates/base.html:31
-#: personal_manager/templates/dashboard/index.html:30
+#: personal_manager/templates/dashboard/index.html:47
 #: personal_manager/templates/shopping_list/list.html:4
 msgid "Shopping Lists"
 msgstr "Pirkinių krepšiai"
@@ -505,8 +505,8 @@ msgstr "Valdymo skydelis"
 #: build/lib/personal_manager/templates/dashboard/index.html:49
 #: build/lib/personal_manager/templates/shopping_list/list.html:10
 #: build/lib/personal_manager/templates/task/list.html:10
-#: personal_manager/templates/dashboard/index.html:32
-#: personal_manager/templates/dashboard/index.html:68
+#: personal_manager/templates/dashboard/index.html:49
+#: personal_manager/templates/dashboard/index.html:85
 #: personal_manager/templates/plan/list.html:10
 #: personal_manager/templates/shopping_list/list.html:10
 #: personal_manager/templates/task/list.html:10
@@ -515,15 +515,15 @@ msgstr "Pridėti naują"
 
 #: build/lib/personal_manager/templates/dashboard/index.html:26
 #: build/lib/personal_manager/templates/dashboard/index.html:63
-#: personal_manager/templates/dashboard/index.html:45
-#: personal_manager/templates/dashboard/index.html:82
+#: personal_manager/templates/dashboard/index.html:62
+#: personal_manager/templates/dashboard/index.html:99
 msgid "Created"
 msgstr "Sukurtas"
 
 #: build/lib/personal_manager/templates/dashboard/index.html:27
 #: build/lib/personal_manager/templates/dashboard/index.html:64
-#: personal_manager/templates/dashboard/index.html:46
-#: personal_manager/templates/dashboard/index.html:83
+#: personal_manager/templates/dashboard/index.html:63
+#: personal_manager/templates/dashboard/index.html:100
 msgid "Last Updated"
 msgstr "Paskutinį kartą atnaujintas"
 
@@ -531,8 +531,8 @@ msgstr "Paskutinį kartą atnaujintas"
 #: build/lib/personal_manager/templates/dashboard/index.html:69
 #: build/lib/personal_manager/templates/shopping_list/update.html:4
 #: build/lib/personal_manager/templates/task/update.html:4
-#: personal_manager/templates/dashboard/index.html:53
-#: personal_manager/templates/dashboard/index.html:88
+#: personal_manager/templates/dashboard/index.html:70
+#: personal_manager/templates/dashboard/index.html:105
 #: personal_manager/templates/plan/update.html:4
 #: personal_manager/templates/shopping_list/update.html:4
 #: personal_manager/templates/task/update.html:4
@@ -541,7 +541,7 @@ msgstr "Redaguoti"
 
 #: build/lib/personal_manager/templates/dashboard/index.html:35
 #: build/lib/personal_manager/templates/shopping_list/list.html:35
-#: personal_manager/templates/dashboard/index.html:54
+#: personal_manager/templates/dashboard/index.html:71
 #: personal_manager/templates/shopping_list/list.html:35
 msgid "Edit Items"
 msgstr "Redaguoti pirkinius"
@@ -552,8 +552,8 @@ msgstr "Redaguoti pirkinius"
 #: build/lib/personal_manager/templates/shopping_list/shopping_items.html:49
 #: build/lib/personal_manager/templates/task/list.html:37
 #: build/lib/personal_manager/templates/task/update.html:16
-#: personal_manager/templates/dashboard/index.html:57
-#: personal_manager/templates/dashboard/index.html:91
+#: personal_manager/templates/dashboard/index.html:74
+#: personal_manager/templates/dashboard/index.html:108
 #: personal_manager/templates/plan/list.html:37
 #: personal_manager/templates/shopping_list/list.html:39
 #: personal_manager/templates/shopping_list/shopping_items.html:49
@@ -573,8 +573,8 @@ msgstr "Ištrinti"
 #: build/lib/personal_manager/templates/task/update.html:11
 #: build/lib/personal_manager/templates/task/update.html:16
 #: build/lib/personal_manager/templates/user/personal_details.html:41
-#: personal_manager/templates/dashboard/index.html:57
-#: personal_manager/templates/dashboard/index.html:91
+#: personal_manager/templates/dashboard/index.html:74
+#: personal_manager/templates/dashboard/index.html:108
 #: personal_manager/templates/plan/create.html:9
 #: personal_manager/templates/plan/update.html:11
 #: personal_manager/templates/plan/update.html:15
@@ -719,6 +719,18 @@ msgstr "Planai"
 msgid "Submit"
 msgstr "Spausti"
 
+#: personal_manager/templates/dashboard/index.html:24
+msgid "Plans for "
+msgstr "Planai "
+
+#: personal_manager/templates/dashboard/index.html:31
+msgid "No plans"
+msgstr "Planų nėra"
+
+#: personal_manager/templates/dashboard/index.html:39
+msgid "Monthly plans"
+msgstr "Mėnesiniai planai"
+
 #: personal_manager/templates/plan/create.html:4
 msgid "New Plan"
 msgstr "Naujas planas"
@@ -732,11 +744,12 @@ msgstr "Plano informacija"
 msgid "Task List"
 msgstr " Užduočių sąrašas"
 
-#: personal_manager/templates/plan/tasks_form.html:4
-msgid "Task"
-msgstr "Užduotis"
-
-#: personal_manager/templates/plan/tasks_form.html:11
+#: personal_manager/templates/plan/tasks_form.html:2
+#: personal_manager/templates/plan/tasks_form.html:12
 msgid "Remove"
 msgstr "Pašalinti"
+
+#: personal_manager/templates/plan/tasks_form.html:5
+msgid "Task"
+msgstr "Užduotis"
 
