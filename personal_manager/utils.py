@@ -22,4 +22,4 @@ class CustomHTMLCal(calendar.HTMLCalendar):
 			# day outside month
 			return '<td class="%s">&nbsp;</td>' % self.cssclass_noday
 		else:
-			return '<td class="%s">%d %s</td>' % (self.cssclasses[weekday], day, ', '.join(self.day_data[str(day)]))
+			return '<td class="%s"><div class="card"><div class="card-header">%d</div> <div class="card-body">%s</div></div></td>' % (self.cssclasses[weekday], day, '<br> '.join(self.day_data[str(day)]))

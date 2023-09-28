@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-09-27 13:47+0300\n"
+"POT-Creation-Date: 2023-09-28 13:50+0300\n"
 "PO-Revision-Date: 2022-10-31 15:17+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: lt\n"
@@ -86,8 +86,8 @@ msgstr "Prieiga uždrausta"
 #: build/lib/personal_manager/templates/shopping_list/shopping_items.html:37
 #: build/lib/personal_manager/templates/task/list.html:14
 #: build/lib/personal_manager/templates/task/list.html:25
-#: personal_manager/forms.py:10 personal_manager/forms.py:13
-#: personal_manager/forms.py:20 personal_manager/forms.py:23
+#: personal_manager/forms.py:10 personal_manager/forms.py:14
+#: personal_manager/forms.py:21 personal_manager/forms.py:24
 #: personal_manager/templates/plan/list.html:14
 #: personal_manager/templates/plan/list.html:25
 #: personal_manager/templates/shopping_list/list.html:14
@@ -104,154 +104,154 @@ msgstr "Pavadinimas"
 #: build/lib/personal_manager/forms.py:20
 #: build/lib/personal_manager/models.py:111
 #: build/lib/personal_manager/models.py:128 personal_manager/forms.py:10
-#: personal_manager/forms.py:13 personal_manager/forms.py:20
-#: personal_manager/forms.py:23 personal_manager/models.py:111
-#: personal_manager/models.py:128
+#: personal_manager/forms.py:14 personal_manager/forms.py:21
+#: personal_manager/forms.py:24 personal_manager/models.py:112
+#: personal_manager/models.py:129
 msgid "Name is required."
 msgstr "Pavadinimas yra privalomas laukas"
 
-#: build/lib/personal_manager/forms.py:11 personal_manager/forms.py:14
+#: build/lib/personal_manager/forms.py:11 personal_manager/forms.py:15
 msgid "Description"
 msgstr "Aprašymas"
 
-#: build/lib/personal_manager/forms.py:12 personal_manager/forms.py:15
+#: build/lib/personal_manager/forms.py:12 personal_manager/forms.py:16
 msgid "Priority"
 msgstr "Prioritetas"
 
 #: build/lib/personal_manager/forms.py:12
-#: build/lib/personal_manager/models.py:149 personal_manager/forms.py:15
-#: personal_manager/models.py:149
+#: build/lib/personal_manager/models.py:149 personal_manager/forms.py:16
+#: personal_manager/models.py:152
 msgid "Low"
 msgstr "Žemas"
 
 #: build/lib/personal_manager/forms.py:12
-#: build/lib/personal_manager/models.py:151 personal_manager/forms.py:15
-#: personal_manager/models.py:151
+#: build/lib/personal_manager/models.py:151 personal_manager/forms.py:16
+#: personal_manager/models.py:154
 msgid "Medium"
 msgstr "Medium"
 
 #: build/lib/personal_manager/forms.py:12
-#: build/lib/personal_manager/models.py:153 personal_manager/forms.py:15
-#: personal_manager/models.py:153
+#: build/lib/personal_manager/models.py:153 personal_manager/forms.py:16
+#: personal_manager/models.py:156
 msgid "High"
 msgstr "Aukštas"
 
-#: build/lib/personal_manager/forms.py:13 personal_manager/forms.py:16
+#: build/lib/personal_manager/forms.py:13 personal_manager/forms.py:17
 msgid "Till date"
 msgstr "Pabaigos data"
 
-#: build/lib/personal_manager/forms.py:14 personal_manager/forms.py:17
+#: build/lib/personal_manager/forms.py:14 personal_manager/forms.py:18
 msgid "Finished"
 msgstr "Užbaigtas"
 
 #: build/lib/personal_manager/forms.py:23
 #: build/lib/personal_manager/templates/auth/register.html:16
 #: build/lib/personal_manager/templates/user/personal_details.html:15
-#: personal_manager/forms.py:26
+#: personal_manager/forms.py:27
 #: personal_manager/templates/auth/register.html:16
 #: personal_manager/templates/user/personal_details.html:15
 msgid "Email"
 msgstr "El. Paštas"
 
-#: build/lib/personal_manager/forms.py:23 personal_manager/forms.py:26
+#: build/lib/personal_manager/forms.py:23 personal_manager/forms.py:27
 msgid "Email is required"
 msgstr "El. Paštas yra privalomas laukas"
 
 #: build/lib/personal_manager/forms.py:26
 #: build/lib/personal_manager/templates/auth/login.html:15
 #: build/lib/personal_manager/templates/auth/register.html:21
-#: personal_manager/forms.py:29 personal_manager/templates/auth/login.html:15
+#: personal_manager/forms.py:30 personal_manager/templates/auth/login.html:15
 #: personal_manager/templates/auth/register.html:21
 msgid "Password"
 msgstr "Slaptažodis"
 
 #: build/lib/personal_manager/forms.py:26
-#: build/lib/personal_manager/models.py:42 personal_manager/forms.py:29
-#: personal_manager/models.py:42
+#: build/lib/personal_manager/models.py:42 personal_manager/forms.py:30
+#: personal_manager/models.py:43
 msgid "Password is required."
 msgstr "Slaptažodis yra privalomas laukas"
 
-#: build/lib/personal_manager/forms.py:29 personal_manager/forms.py:32
+#: build/lib/personal_manager/forms.py:29 personal_manager/forms.py:33
 msgid "Current Password"
 msgstr "Dabartinis Slaptažodis"
 
-#: build/lib/personal_manager/forms.py:29 personal_manager/forms.py:32
+#: build/lib/personal_manager/forms.py:29 personal_manager/forms.py:33
 msgid "Current Password is required."
 msgstr "Dabartinis Slaptažodis yra privalomas laukas"
 
-#: build/lib/personal_manager/forms.py:30 personal_manager/forms.py:33
+#: build/lib/personal_manager/forms.py:30 personal_manager/forms.py:34
 msgid "New Password"
 msgstr "Naujas slaptažodis"
 
-#: build/lib/personal_manager/forms.py:30 personal_manager/forms.py:33
+#: build/lib/personal_manager/forms.py:30 personal_manager/forms.py:34
 msgid "New Password is required."
 msgstr "Naujas Slaptažodis yra privalomas laukas"
 
-#: build/lib/personal_manager/forms.py:32 personal_manager/forms.py:35
+#: build/lib/personal_manager/forms.py:32 personal_manager/forms.py:36
 msgid "Confirm New Password"
 msgstr "Patvirtinti naują slaptažodį"
 
-#: build/lib/personal_manager/forms.py:33 personal_manager/forms.py:36
+#: build/lib/personal_manager/forms.py:33 personal_manager/forms.py:37
 msgid "Confirm New Password is required."
 msgstr "Patvirtinti naują slaptažodį yra privalomas laukas"
 
-#: build/lib/personal_manager/forms.py:33 personal_manager/forms.py:36
+#: build/lib/personal_manager/forms.py:33 personal_manager/forms.py:37
 msgid "Password mismatch"
 msgstr "Slaptažodžiai nesutampa"
 
-#: build/lib/personal_manager/forms.py:41 personal_manager/forms.py:44
+#: build/lib/personal_manager/forms.py:41 personal_manager/forms.py:45
 msgid "Current Password is invalid"
 msgstr "Neteisingas dabartinis slaptažodis"
 
-#: build/lib/personal_manager/forms.py:44 personal_manager/forms.py:47
+#: build/lib/personal_manager/forms.py:44 personal_manager/forms.py:48
 msgid "Language"
 msgstr "Kalba"
 
 #: build/lib/personal_manager/forms.py:44
 #: build/lib/personal_manager/templates/base.html:53
-#: personal_manager/forms.py:47 personal_manager/templates/base.html:54
+#: personal_manager/forms.py:48 personal_manager/templates/base.html:54
 msgid "English"
 msgstr "Anglų"
 
 #: build/lib/personal_manager/forms.py:44
 #: build/lib/personal_manager/templates/base.html:54
-#: personal_manager/forms.py:47 personal_manager/templates/base.html:55
+#: personal_manager/forms.py:48 personal_manager/templates/base.html:55
 msgid "Lithuanian"
 msgstr "Lietuvių"
 
-#: build/lib/personal_manager/models.py:28 personal_manager/models.py:28
+#: build/lib/personal_manager/models.py:28 personal_manager/models.py:29
 msgid "Username is required."
 msgstr "Naudotojo vardas yra privalomas laukas"
 
-#: build/lib/personal_manager/models.py:36 personal_manager/models.py:36
+#: build/lib/personal_manager/models.py:36 personal_manager/models.py:37
 msgid "Email is invalid"
 msgstr "Neteisingas El. Paštas"
 
-#: build/lib/personal_manager/models.py:52 personal_manager/models.py:52
+#: build/lib/personal_manager/models.py:52 personal_manager/models.py:53
 msgid "Please choose a stronger password."
 msgstr "Prašome naudoti stipresnį slaptažodį"
 
-#: build/lib/personal_manager/models.py:53 personal_manager/models.py:53
+#: build/lib/personal_manager/models.py:53 personal_manager/models.py:54
 msgid "Must contain at least 8 characters"
 msgstr "Turi sudaryti bent 8 simboliai"
 
-#: build/lib/personal_manager/models.py:54 personal_manager/models.py:54
+#: build/lib/personal_manager/models.py:54 personal_manager/models.py:55
 msgid "Must contain at least 1 uppercase letter"
 msgstr "Privalo būti bent viena Didžioji raidė"
 
-#: build/lib/personal_manager/models.py:55 personal_manager/models.py:55
+#: build/lib/personal_manager/models.py:55 personal_manager/models.py:56
 msgid "Must contain at least 1 number"
 msgstr "Privalo būti bent vienas skaičius"
 
-#: build/lib/personal_manager/models.py:56 personal_manager/models.py:56
+#: build/lib/personal_manager/models.py:56 personal_manager/models.py:57
 msgid "Must contain at least 1 special character"
 msgstr "Privalo būti bent specialus simbolis"
 
-#: build/lib/personal_manager/models.py:63 personal_manager/models.py:63
+#: build/lib/personal_manager/models.py:63 personal_manager/models.py:64
 msgid "Confirm your email"
 msgstr "El. pašto patvirtinimas"
 
-#: build/lib/personal_manager/models.py:76 personal_manager/models.py:76
+#: build/lib/personal_manager/models.py:76 personal_manager/models.py:77
 msgid "Password Reset"
 msgstr "Šlaptažodžio nustatymas iš naujo"
 
@@ -277,7 +277,7 @@ msgstr "Pirkinių krepšys id "
 
 #: build/lib/personal_manager/shopping_list.py:65
 #: build/lib/personal_manager/shopping_list.py:192
-#: build/lib/personal_manager/task.py:70 personal_manager/plan.py:65
+#: build/lib/personal_manager/task.py:70 personal_manager/plan.py:72
 #: personal_manager/shopping_list.py:65 personal_manager/shopping_list.py:192
 #: personal_manager/task.py:70
 msgid " doesn't exist."
@@ -401,7 +401,7 @@ msgstr "Pradinis"
 #: build/lib/personal_manager/templates/dashboard/index.html:47
 #: build/lib/personal_manager/templates/task/list.html:4
 #: personal_manager/templates/base.html:30
-#: personal_manager/templates/dashboard/index.html:47
+#: personal_manager/templates/dashboard/index.html:66
 #: personal_manager/templates/task/list.html:4
 msgid "Tasks"
 msgstr "Užduotys"
@@ -410,7 +410,7 @@ msgstr "Užduotys"
 #: build/lib/personal_manager/templates/dashboard/index.html:11
 #: build/lib/personal_manager/templates/shopping_list/list.html:4
 #: personal_manager/templates/base.html:31
-#: personal_manager/templates/dashboard/index.html:11
+#: personal_manager/templates/dashboard/index.html:30
 #: personal_manager/templates/shopping_list/list.html:4
 msgid "Shopping Lists"
 msgstr "Pirkinių krepšiai"
@@ -505,8 +505,8 @@ msgstr "Valdymo skydelis"
 #: build/lib/personal_manager/templates/dashboard/index.html:49
 #: build/lib/personal_manager/templates/shopping_list/list.html:10
 #: build/lib/personal_manager/templates/task/list.html:10
-#: personal_manager/templates/dashboard/index.html:13
-#: personal_manager/templates/dashboard/index.html:49
+#: personal_manager/templates/dashboard/index.html:32
+#: personal_manager/templates/dashboard/index.html:68
 #: personal_manager/templates/plan/list.html:10
 #: personal_manager/templates/shopping_list/list.html:10
 #: personal_manager/templates/task/list.html:10
@@ -515,15 +515,15 @@ msgstr "Pridėti naują"
 
 #: build/lib/personal_manager/templates/dashboard/index.html:26
 #: build/lib/personal_manager/templates/dashboard/index.html:63
-#: personal_manager/templates/dashboard/index.html:26
-#: personal_manager/templates/dashboard/index.html:63
+#: personal_manager/templates/dashboard/index.html:45
+#: personal_manager/templates/dashboard/index.html:82
 msgid "Created"
 msgstr "Sukurtas"
 
 #: build/lib/personal_manager/templates/dashboard/index.html:27
 #: build/lib/personal_manager/templates/dashboard/index.html:64
-#: personal_manager/templates/dashboard/index.html:27
-#: personal_manager/templates/dashboard/index.html:64
+#: personal_manager/templates/dashboard/index.html:46
+#: personal_manager/templates/dashboard/index.html:83
 msgid "Last Updated"
 msgstr "Paskutinį kartą atnaujintas"
 
@@ -531,8 +531,8 @@ msgstr "Paskutinį kartą atnaujintas"
 #: build/lib/personal_manager/templates/dashboard/index.html:69
 #: build/lib/personal_manager/templates/shopping_list/update.html:4
 #: build/lib/personal_manager/templates/task/update.html:4
-#: personal_manager/templates/dashboard/index.html:34
-#: personal_manager/templates/dashboard/index.html:69
+#: personal_manager/templates/dashboard/index.html:53
+#: personal_manager/templates/dashboard/index.html:88
 #: personal_manager/templates/plan/update.html:4
 #: personal_manager/templates/shopping_list/update.html:4
 #: personal_manager/templates/task/update.html:4
@@ -541,8 +541,7 @@ msgstr "Redaguoti"
 
 #: build/lib/personal_manager/templates/dashboard/index.html:35
 #: build/lib/personal_manager/templates/shopping_list/list.html:35
-#: personal_manager/templates/dashboard/index.html:35
-#: personal_manager/templates/plan/list.html:35
+#: personal_manager/templates/dashboard/index.html:54
 #: personal_manager/templates/shopping_list/list.html:35
 msgid "Edit Items"
 msgstr "Redaguoti pirkinius"
@@ -553,9 +552,9 @@ msgstr "Redaguoti pirkinius"
 #: build/lib/personal_manager/templates/shopping_list/shopping_items.html:49
 #: build/lib/personal_manager/templates/task/list.html:37
 #: build/lib/personal_manager/templates/task/update.html:16
-#: personal_manager/templates/dashboard/index.html:38
-#: personal_manager/templates/dashboard/index.html:72
-#: personal_manager/templates/plan/list.html:39
+#: personal_manager/templates/dashboard/index.html:57
+#: personal_manager/templates/dashboard/index.html:91
+#: personal_manager/templates/plan/list.html:37
 #: personal_manager/templates/shopping_list/list.html:39
 #: personal_manager/templates/shopping_list/shopping_items.html:49
 #: personal_manager/templates/task/list.html:37
@@ -574,11 +573,11 @@ msgstr "Ištrinti"
 #: build/lib/personal_manager/templates/task/update.html:11
 #: build/lib/personal_manager/templates/task/update.html:16
 #: build/lib/personal_manager/templates/user/personal_details.html:41
-#: personal_manager/templates/dashboard/index.html:38
-#: personal_manager/templates/dashboard/index.html:72
-#: personal_manager/templates/plan/create.html:10
+#: personal_manager/templates/dashboard/index.html:57
+#: personal_manager/templates/dashboard/index.html:91
+#: personal_manager/templates/plan/create.html:9
 #: personal_manager/templates/plan/update.html:11
-#: personal_manager/templates/plan/update.html:17
+#: personal_manager/templates/plan/update.html:15
 #: personal_manager/templates/shopping_list/create.html:10
 #: personal_manager/templates/shopping_list/shopping_items.html:49
 #: personal_manager/templates/shopping_list/update.html:11
@@ -600,8 +599,8 @@ msgstr "Naujas pirkinių krepšys"
 #: build/lib/personal_manager/templates/shopping_list/update.html:11
 #: build/lib/personal_manager/templates/task/create.html:10
 #: build/lib/personal_manager/templates/task/update.html:11
-#: personal_manager/templates/plan/create.html:10
-#: personal_manager/templates/plan/update.html:11
+#: personal_manager/templates/plan/create.html:9
+#: personal_manager/templates/plan/update.html:15
 #: personal_manager/templates/shopping_list/create.html:10
 #: personal_manager/templates/shopping_list/update.html:11
 #: personal_manager/templates/task/create.html:10
@@ -611,7 +610,7 @@ msgstr "Atšaukti"
 
 #: build/lib/personal_manager/templates/shopping_list/create.html:11
 #: build/lib/personal_manager/templates/task/create.html:11
-#: personal_manager/templates/plan/create.html:11
+#: personal_manager/templates/plan/create.html:10
 #: personal_manager/templates/shopping_list/create.html:11
 #: personal_manager/templates/task/create.html:11
 msgid "Create"
@@ -623,6 +622,7 @@ msgid "Shopping Items"
 msgstr "Pirkiniai"
 
 #: build/lib/personal_manager/templates/shopping_list/shopping_items.html:18
+#: personal_manager/templates/plan/form.html:32
 #: personal_manager/templates/shopping_list/shopping_items.html:18
 msgid "Add"
 msgstr "Pridėti"
@@ -630,7 +630,7 @@ msgstr "Pridėti"
 #: build/lib/personal_manager/templates/shopping_list/update.html:12
 #: build/lib/personal_manager/templates/task/update.html:12
 #: build/lib/personal_manager/templates/user/personal_details.html:26
-#: personal_manager/templates/plan/update.html:12
+#: personal_manager/templates/plan/update.html:16
 #: personal_manager/templates/shopping_list/update.html:12
 #: personal_manager/templates/task/update.html:12
 #: personal_manager/templates/user/personal_details.html:26
@@ -674,35 +674,39 @@ msgstr "Veiksmai"
 msgid "Delete Account"
 msgstr "Ištrinti paskyrą"
 
+#: personal_manager/forms.py:11
+msgid "Plan date"
+msgstr "Plano data"
+
 #: personal_manager/plan.py:30
 msgid "plans"
 msgstr "planai"
 
-#: personal_manager/plan.py:49
+#: personal_manager/plan.py:56
 msgid "Plan was not created. Database Error"
 msgstr "Planas nesukurtas. Duomenų bazės klaida"
 
-#: personal_manager/plan.py:51
+#: personal_manager/plan.py:58
 msgid "Plan was successfully created"
 msgstr "Planas sukurtas sėkmingai"
 
-#: personal_manager/plan.py:65
+#: personal_manager/plan.py:72
 msgid "Plan id "
 msgstr "Plano id"
 
-#: personal_manager/plan.py:86
+#: personal_manager/plan.py:106
 msgid "Plan was not updated. Database Error"
 msgstr "PLanas neatnaujinta. Duomenų bazės klaida"
 
-#: personal_manager/plan.py:88
+#: personal_manager/plan.py:108
 msgid "Plan was successfully updated"
 msgstr "Planas sėkmingai atnaujintas"
 
-#: personal_manager/plan.py:111
+#: personal_manager/plan.py:131
 msgid "Plan was not deleted. Database Error"
 msgstr "Planas neištrintas. Duomenų bazės klaida"
 
-#: personal_manager/plan.py:114
+#: personal_manager/plan.py:134
 msgid "Plan was successfully deleted"
 msgstr "Planas sėkmingai ištrintas"
 
@@ -711,7 +715,28 @@ msgstr "Planas sėkmingai ištrintas"
 msgid "Plans"
 msgstr "Planai"
 
+#: personal_manager/templates/dashboard/index.html:15
+msgid "Submit"
+msgstr "Spausti"
+
 #: personal_manager/templates/plan/create.html:4
 msgid "New Plan"
 msgstr "Naujas planas"
+
+#: personal_manager/templates/plan/create.html:15
+#: personal_manager/templates/plan/update.html:21
+msgid "Plan Details"
+msgstr "Plano informacija"
+
+#: personal_manager/templates/plan/tasks_form.html:1
+msgid "Task List"
+msgstr " Užduočių sąrašas"
+
+#: personal_manager/templates/plan/tasks_form.html:4
+msgid "Task"
+msgstr "Užduotis"
+
+#: personal_manager/templates/plan/tasks_form.html:11
+msgid "Remove"
+msgstr "Pašalinti"
 

@@ -66,3 +66,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - Add tasks to plans
  - Task Calendar in dashboard
  - Links in Plans Task List
+ - Calendar visual update

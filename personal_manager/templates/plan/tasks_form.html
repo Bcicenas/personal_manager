@@ -1,4 +1,5 @@
 <h3>{{ _('Task List') }}</h3>
+<input type="hidden" class="translation" value="{{ _('Remove') }}" />
 <table id="task_list" class="table mt-task-table">
 	<tr>
 		<th>{{ _('Task') }}</th>
@@ -8,7 +9,7 @@
 		<tr>
 			<td><input type="hidden" name="selected_tasks[]" value="{{ task.task_id }}" />
 			<a href="{{ url_for('task.update', id=task.task_id )}}">{{ task.task.name }}</a></td>
-			<td class="text-right"><input class="btn btn-danger task-remove-btn" type="button" value="Remove"></td>
+			<td class="text-right"><input class="btn btn-danger task-remove-btn" type="button" value="{{ _('Remove') }}"></td>
 		</tr>
 	{% endfor %}
 </table>
