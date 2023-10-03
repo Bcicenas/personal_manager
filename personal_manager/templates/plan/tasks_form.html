@@ -3,12 +3,16 @@
 <table id="task_list" class="table table-bordered mt-task-table">
 	<tr>
 		<th>{{ _('Task') }}</th>
+		<th>{{ _('Start Time') }}</th>
+		<th>{{ _('Duration') }}</th>
 		<th></th>
 	</tr>
 	{% for task in plan.plan_tasks %}
 		<tr>
 			<td><input type="hidden" name="selected_tasks[]" value="{{ task.task_id }}" />
 			<a href="{{ url_for('task.update', id=task.task_id )}}">{{ task.task.name }}</a></td>
+			<td>{{ task.start_time }}</td>
+			<td>{{ task.task.duration / 60 }}h</td>
 			<td class="text-right"><input class="btn btn-danger task-remove-btn" type="button" value="{{ _('Remove') }}"></td>
 		</tr>
 	{% endfor %}

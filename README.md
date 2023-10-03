@@ -4,8 +4,9 @@ Simple web application to manage your tasks, shoppings lists and more
 # To do list
  - Add time to tasks in plans tasks
  - Task duration
+ - Task duration validation
 # Work in Progress
- - Show Calendar with plans
+ - Add time to tasks in plans tasks
 
 # Done Tasks
  - Basic FrontEnd

@@ -139,10 +139,10 @@ class Task(db.Model):
 	# priority - 0 low, 1 - medium, 2 - high 
 	priority = db.Column(db.SmallInteger, default=0)
 	user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-	finished = db.Column(db.Boolean(255), default=False)
+	# 0 to 1440(0 to 24h) in minutes
+	duration = db.Column(db.Integer, default=0)
 	created_at = db.Column(db.DateTime(), default=datetime.utcnow)
 	last_updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
-	till_date = db.Column(db.DateTime(), default=datetime.utcnow)
 	
 	user = db.relationship("User", back_populates="tasks")
 
@@ -167,10 +167,6 @@ class Task(db.Model):
 	@hybrid_property
 	def created_at_in_local_tz(self):
 		return convert_date_time(self.created_at, 'UTC_TZ', 'LOCAL_TZ')
-
-	@hybrid_property
-	def till_date_in_local_tz(self):
-		return convert_date_time(self.till_date, 'UTC_TZ', 'LOCAL_TZ')
 
 	@hybrid_property
 	def last_updated_at_in_local_tz(self):
@@ -204,6 +200,8 @@ class PlanTask(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	created_at = db.Column(db.DateTime(), default=datetime.utcnow)
 	last_updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
+	# time - 0 to 24h
+	start_time = db.Column(db.SmallInteger, default=0)
 	plan_id = db.Column(db.Integer, db.ForeignKey("plans.id", ondelete="CASCADE"), nullable=False)	
 	task_id = db.Column(db.Integer, db.ForeignKey("tasks.id", ondelete="CASCADE"), nullable=False)	
 
