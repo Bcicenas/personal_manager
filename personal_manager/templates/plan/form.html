@@ -28,7 +28,7 @@
       <option value="{{ task.id }}"> {{ task.name }}</option>
     {% endfor %}
   </select>
-  <select name="task_start_time" class="form-control input-group-append">
+  <select name="task_start_time" class="form-control input-group-append start-time-dropdown">
     {% for i in range(24) %}
       <option value="{{ i }}"> {{ "0%d" % (i) if i < 10 else i }}:00</option>
     {% endfor %}

@@ -44,8 +44,9 @@ def create():
 			form.populate_obj(plan)
 			plan.user_id = g.user.id
 
-			for task in request.form.getlist('selected_tasks[]'):
-				plan.plan_tasks.append(PlanTask(task_id=task))
+			start_times = request.form.getlist('selected_tasks[][\'start_time\']')
+			for index, task in enumerate(request.form.getlist('selected_tasks[\'task_id\']')):
+				plan.plan_tasks.append(PlanTask(task_id=task['task_id'], start_time=int(start_times[index])))
 
 			db.session.add(plan)
 			db.session.commit()
@@ -89,15 +90,16 @@ def update(id):
 			plan.last_updated_at = datetime.utcnow()
 
 			# delete removed tasks
-			db.session.execute(db.delete(PlanTask).where(PlanTask.plan_id == plan.id, ~(PlanTask.task_id).in_(request.form.getlist('selected_tasks[]'))))
+			db.session.execute(db.delete(PlanTask).where(PlanTask.plan_id == plan.id, ~(PlanTask.task_id).in_(request.form.getlist('selected_tasks[][\'task_id\']'))))
 
 			# get existing tasks
-			existing_tasks = convert_list_tuple_to_list(db.session.execute(db.select(PlanTask.task_id).where(PlanTask.plan_id == plan.id, (PlanTask.task_id).in_(request.form.getlist('selected_tasks[]')))).all())
+			existing_tasks = convert_list_tuple_to_list(db.session.execute(db.select(PlanTask.task_id).where(PlanTask.plan_id == plan.id, (PlanTask.task_id).in_(request.form.getlist('selected_tasks[][\'task_id\']')))).all())
 
 			# append newly selected tasks
-			for task in request.form.getlist('selected_tasks[]'):
+			start_times = request.form.getlist('selected_tasks[][\'start_time\']')
+			for index, task in enumerate(request.form.getlist('selected_tasks[][\'task_id\']')):
 				if int(task) not in existing_tasks:
-					plan.plan_tasks.append(PlanTask(task_id = task))
+					plan.plan_tasks.append(PlanTask(task_id=task, start_time=int(start_times[index])))
 
 			db.session.commit()
 		except ValueError as e:

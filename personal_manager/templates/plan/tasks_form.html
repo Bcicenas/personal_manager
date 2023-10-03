@@ -9,10 +9,18 @@
 	</tr>
 	{% for task in plan.plan_tasks %}
 		<tr>
-			<td><input type="hidden" name="selected_tasks[]" value="{{ task.task_id }}" />
+			<td><input type="hidden" name="selected_tasks[]['task_id']" value="{{ task.task_id }}" />
 			<a href="{{ url_for('task.update', id=task.task_id )}}">{{ task.task.name }}</a></td>
-			<td>{{ task.start_time }}</td>
-			<td>{{ task.task.duration / 60 }}h</td>
+			<td>
+				<input type="hidden" name="selected_tasks[]['start_time']" value="{{ task.start_time }}" />
+				{% if task.start_time < 10 %}
+					0{{ task.start_time }}:00 h
+				{% else %}
+					{{ task.start_time }}:00 h
+				{% endif %}
+				
+			</td>
+			<td>{{ task.task.duration / 60 }} h</td>
 			<td class="text-right"><input class="btn btn-danger task-remove-btn" type="button" value="{{ _('Remove') }}"></td>
 		</tr>
 	{% endfor %}

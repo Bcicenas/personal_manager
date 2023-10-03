@@ -125,3 +125,8 @@ def delete(id):
 
 	
 	return redirect(url_for('task.list'))
+
+@bp.route('/get_task_duration/<int:id>', methods=('GET',))
+def get_task_duration(id):
+	task = get_task_id(id)
+	return str(task.duration)
