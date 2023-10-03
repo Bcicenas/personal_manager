@@ -2,7 +2,7 @@
 Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
- - Acitvity
+ - Add time to tasks in plans tasks
 # Work in Progress
  - Show Calendar with plans
 
@@ -67,3 +67,4 @@ Simple web application to manage your tasks, shoppings lists and more
  - Task Calendar in dashboard
  - Links in Plans Task List
  - Calendar visual update
+ - Plan Tasks bug fix
