@@ -28,15 +28,13 @@
       <option value="{{ task.id }}"> {{ task.name }}</option>
     {% endfor %}
   </select>
+  <select name="task_start_time" class="form-control input-group-append">
+    {% for i in range(24) %}
+      <option value="{{ i }}"> {{ "0%d" % (i) if i < 10 else i }}:00</option>
+    {% endfor %}
+  </select>    
   <div class="input-group-append">
       <input class="btn btn-success task-add-btn" type="button" value="{{ _('Add') }}">
   </div> 
 </div>
-<div class="form-group">
-  <label for="task_start_time">{{ _('Task Start Time') }}</label>
-  <select name="task_start_time" class="form-control tasks-dropdown">
-    {% for i in range(24) %}
-      <option value="{{ i }}"> {{ "0%d" % (i) if i < 10 else i }}:00</option>
-    {% endfor %}
-  </select>  
-</div>
+
