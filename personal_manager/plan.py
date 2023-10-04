@@ -45,8 +45,8 @@ def create():
 			plan.user_id = g.user.id
 
 			start_times = request.form.getlist('selected_tasks[][\'start_time\']')
-			for index, task in enumerate(request.form.getlist('selected_tasks[\'task_id\']')):
-				plan.plan_tasks.append(PlanTask(task_id=task['task_id'], start_time=int(start_times[index])))
+			for index, task in enumerate(request.form.getlist('selected_tasks[][\'task_id\']')):
+				plan.plan_tasks.append(PlanTask(task_id=task, start_time=int(start_times[index])))
 
 			db.session.add(plan)
 			db.session.commit()

@@ -181,7 +181,7 @@ class Plan(db.Model):
 	last_updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
 	plan_date = db.Column(db.DateTime(), default=datetime.utcnow)
 	user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-	plan_tasks = db.relationship("PlanTask", back_populates="plan", cascade="all, delete", lazy="dynamic")	
+	plan_tasks = db.relationship("PlanTask", back_populates="plan", cascade="all, delete", lazy="dynamic", order_by='PlanTask.start_time')	
 
 	@hybrid_property
 	def created_at_in_local_tz(self):
