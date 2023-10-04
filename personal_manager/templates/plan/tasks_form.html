@@ -21,7 +21,7 @@
 				
 			</td>
 			<td>{{ task.task.duration / 60 }} h</td>
-			<td class="text-right"><input class="btn btn-danger task-remove-btn" type="button" value="{{ _('Remove') }}"></td>
+			<td class="text-right"><input class="btn btn-danger task-remove-btn" id="task_remove{{ task.task_id }}"type="button" value="{{ _('Remove') }}"></td>
 		</tr>
 	{% endfor %}
 </table>
