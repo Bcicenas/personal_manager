@@ -42,3 +42,16 @@ html, body {
 .mt-task-table{
   margin-top: 2.5rem;
 }
+
+.calendar-day:hover{
+  background-color: #B5BFCA;
+  cursor: pointer;
+}
+.selected-day{
+  background-color: #8395A6;
+  color: #fff;
+}
+
+.display-none{
+  display: none;
+}
