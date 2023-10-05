@@ -6,9 +6,6 @@ $('input[name="selected_tasks[][\'task_id\']"]').each(function(index){
 	getTaskDuration(selected_task_val, $('input[name="selected_tasks[][\'start_time\']"]')[index].value, false);
 
 	$('#task_remove' + selected_task_val).click(function(){
-		console.log(selected_task_val)
-		console.log($('input[name="selected_tasks[][\'start_time\']"]'))
-		console.log(selected_tasks)
 		getTaskDuration(selected_task_val, $('input[name="selected_tasks[][\'start_time\']"]')[selected_tasks.indexOf(selected_task_val)].value, false, false);  
 		$(this).parent().parent().remove();
 		selected_tasks.splice(selected_tasks.indexOf(selected_task_val), 1);
