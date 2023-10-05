@@ -4,7 +4,7 @@ Simple web application to manage your tasks, shoppings lists and more
 # To do list
  - UI/UX improvements
 # Work in Progress
- - Add new plan button in calendar
+ - UI/UX improvements
 
 # Done Tasks
  - Basic FrontEnd
@@ -70,4 +70,5 @@ Simple web application to manage your tasks, shoppings lists and more
  - Plan Tasks bug fix
  - Add time to tasks in plans tasks
  - Task duration
- - Task duration validation 
+ - Task duration validation
+ - Add new plan button in calendar  

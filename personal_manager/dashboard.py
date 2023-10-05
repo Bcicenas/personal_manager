@@ -44,7 +44,7 @@ def index():
 	for plan in plans:
 		plan_data[str(plan[0].plan_date.day)].append('<a href="%s">%s<a>' % (url_for('plan.update', id=plan[0].id), plan[0].name))
 
-	this_month_calendar = CustomHTMLCal(day_data=plan_data, locale=parsed_locale()).formatmonth(year, month)
+	this_month_calendar = CustomHTMLCal(year, month, day_data=plan_data, locale=parsed_locale()).formatmonth(year, month)
 
 	daily_plans = db.session.execute(
 		db.select(Plan).filter(Plan.plan_date == session['calendar-date'], Plan.user_id==g.user.id)

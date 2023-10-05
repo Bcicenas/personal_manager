@@ -35,6 +35,9 @@ def list():
 @login_required
 def create():
 	plan = Plan()
+	if request.args.get('plan_date'):
+		plan.plan_date = datetime.strptime(request.args.get('plan_date'), '%Y-%m-%d')
+
 	form = PlanForm(request.form, obj=plan)
 	tasks = g.user.tasks
 	error = None
