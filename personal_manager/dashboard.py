@@ -60,4 +60,4 @@ def index():
 	# 	db.select(Task).filter_by(user_id=g.user.id).order_by(Task.created_at.desc()).limit(10)
 	# ).fetchall()
 
-	return render_template('dashboard/index.html', calendar=this_month_calendar, daily_plans=daily_plans, end_day=day_range[1])
+	return render_template('dashboard/index.html', calendar=this_month_calendar, daily_plans=daily_plans, end_day=day_range[1], plan_data=plan_data)

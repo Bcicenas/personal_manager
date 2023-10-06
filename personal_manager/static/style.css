@@ -55,3 +55,20 @@ html, body {
 .display-none{
   display: none;
 }
+
+@media only screen and (max-width: 576px) {
+  .container, .container-fluid {
+    padding: 0px;
+  }
+
+  .content-block{
+    padding: 10px;
+  }
+  .page-footer{
+    margin-top: 20px;
+  }
+}
+
+h1{
+  text-align: center;
+}

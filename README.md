@@ -3,6 +3,8 @@ Simple web application to manage your tasks, shoppings lists and more
 
 # To do list
  - UI/UX improvements
+ - Next month button
+ - Attach shopping list to task
 # Work in Progress
  - UI/UX improvements
 
@@ -71,4 +73,6 @@ Simple web application to manage your tasks, shoppings lists and more
  - Add time to tasks in plans tasks
  - Task duration
  - Task duration validation
- - Add new plan button in calendar  
+ - Add new plan button in calendar
+ - Footer mobile bug fix
+ - Calendar bug fixes  

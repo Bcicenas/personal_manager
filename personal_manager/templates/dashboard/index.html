@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container-fluid dashboard">
+  <div class="container dashboard">
     <div class="button-menu">
       <form action="{{ url_for('dashboard.index') }}" method="post" class="mt-2">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="input-group mb-3">
           <input class="form-control datepicker" id="dp" name="calendar-date" type="text" value="{{ session['calendar-date'].strftime('%Y-%m-%d') }}">
           <div class="input-group-append">
-            <button class="btn btn-success" type="submit">{{ _('Submit') }}</button>
+            <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </div>
         </div>
         <script src="{{ url_for('static', filename='datepicker.js') }}"></script> 
@@ -44,9 +44,11 @@
             </div>
             {% for i in range(end_day) %}
               <div class="card mt-2 display-none calendar-day-card" id="calendar_day{{ i + 1}}">
-                <div class="card-header">{{ session['calendar-date'].strftime('%Y-%m') + '-%d' % (i+1) }}</div>
+                <div class="card-header">{{ session['calendar-date'].replace(day=i+1).strftime('%Y-%m-%d') }}</div>
                 <div class="card-body">
-                  <a href="{{ url_for('plan.create', plan_date=session['calendar-date'].strftime('%Y-%m') + '-%d' % (i+1)) }}" class="btn btn-success" role="button">{{ _('Add New') }}</a>
+                  {{ '<br> '.join(plan_data['%d' %(i+1)]) | safe }} 
+                  <br>
+                  <a href="{{ url_for('plan.create', plan_date=session['calendar-date'].replace(day=i+1).strftime('%Y-%m-%d')) }}" class="btn btn-success mt-1" role="button">{{ _('Add New') }}</a>
                 </div>
               </div>
             {% endfor %}
@@ -126,7 +128,7 @@
           {% endfor %}          
         </div>
       </div> -->
-    </div>
+    <!-- </div> -->
 
   </div>
 {% endblock %}
