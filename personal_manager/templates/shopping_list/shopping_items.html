@@ -46,8 +46,8 @@
               <td class="text-right">
                 <form action="{{ url_for('shopping_list.delete_shopping_list_item', id=shopping_item.id) }}" method="post">
                   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                  <input class="btn btn-danger" type="submit" value="{{ _('Delete') }}" onclick="return confirm('{{ _('Are you sure?') }}');">
-                   <input type="hidden" id="shopping_list_id" name="shopping_list_id" value="{{ shopping_item.shopping_list.id }}">
+                  <button class="btn btn-danger" type="submit" value="{{ _('Delete') }}" onclick="return confirm('{{ ('Are you sure?') }}');"><i class="fa-solid fa-circle-minus fa-2xl"></i></button>
+                  <input type="hidden" id="shopping_list_id" name="shopping_list_id" value="{{ shopping_item.shopping_list.id }}">
                 </form>              
               </td>
             </tr>

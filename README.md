@@ -5,6 +5,7 @@ Simple web application to manage your tasks, shoppings lists and more
  - UI/UX improvements
  - Next month button
  - Attach shopping list to task
+ - reset button in dashboard search
 # Work in Progress
  - UI/UX improvements
 

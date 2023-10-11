@@ -34,7 +34,7 @@
               <td class="text-right">
                 <form action="{{ url_for('plan.delete', id=plan.id) }}" method="post">
                   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                  <input class="btn btn-danger" type="submit" value="{{ _('Delete') }}" onclick="return confirm('{{ ('Are you sure?') }}');">
+                  <button class="btn btn-danger" type="submit" value="{{ _('Delete') }}" onclick="return confirm('{{ ('Are you sure?') }}');"><i class="fa-solid fa-circle-minus fa-2xl"></i></button>
                 </form>
               </td>
             </tr>

@@ -13,6 +13,7 @@
           <input class="form-control datepicker" id="dp" name="calendar-date" type="text" value="{{ session['calendar-date'].strftime('%Y-%m-%d') }}">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="btn btn-outline-secondary" id="dashboard-reset" type="reset"><i class="fa-solid fa-remove"></i></button>
           </div>
         </div>
         <script src="{{ url_for('static', filename='datepicker.js') }}"></script> 
@@ -48,7 +49,8 @@
                 <div class="card-body">
                   {{ '<br> '.join(plan_data['%d' %(i+1)]) | safe }} 
                   <br>
-                  <a href="{{ url_for('plan.create', plan_date=session['calendar-date'].replace(day=i+1).strftime('%Y-%m-%d')) }}" class="btn btn-success mt-1" role="button">{{ _('Add New') }}</a>
+                  <br>
+                  <a href="{{ url_for('plan.create', plan_date=session['calendar-date'].replace(day=i+1).strftime('%Y-%m-%d')) }}" class="text-success mt-1" role="button"><i class="fa-solid fa-circle-plus fa-2xl"></i></a>
                 </div>
               </div>
             {% endfor %}
