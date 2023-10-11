@@ -25,6 +25,33 @@ def index():
 		if request.form.get('calendar-date') is not None:
 			session['calendar-date'] = datetime.strptime(request.form.get('calendar-date'), '%Y-%m-%d')
 
+
+
+	# if next or prev month btn is pressed
+	if request.args.get('month_select') is not None:
+		if request.args.get('month_select') == 'next':
+			if session['calendar-date'].month + 1 == 13:
+				month_to_replace = 1
+				year_to_replace = session['calendar-date'].year + 1
+			else:
+				month_to_replace = session['calendar-date'].month + 1
+				year_to_replace = session['calendar-date'].year
+
+			day_to_replace = calendar.monthrange(session['calendar-date'].year, month_to_replace)[1]
+
+			session['calendar-date'] = session['calendar-date'].replace(year=year_to_replace, month=month_to_replace, day=day_to_replace)
+		elif request.args.get('month_select') == 'prev':
+			if session['calendar-date'].month - 1 == 0:
+				month_to_replace = 12
+				year_to_replace = session['calendar-date'].year - 1
+			else:
+				month_to_replace = session['calendar-date'].month - 1
+				year_to_replace = session['calendar-date'].year
+
+			day_to_replace = calendar.monthrange(session['calendar-date'].year, month_to_replace)[1]
+
+			session['calendar-date'] = session['calendar-date'].replace(year=year_to_replace, month=month_to_replace, day=day_to_replace)
+	
 	year = session['calendar-date'].year
 	month = session['calendar-date'].month
 

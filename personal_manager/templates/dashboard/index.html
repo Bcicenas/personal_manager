@@ -38,7 +38,7 @@
     <div class="row">
       <div class="col-md-12 mt-4">
         <div class="card">
-          <div class="card-header">{{ _('Monthly plans') }} {{ session['calendar-date'].strftime('%Y-%m') }}</div>
+          <div class="card-header"><a href="{{ url_for('dashboard.index', month_select='prev') }}"><i class="fa-solid fa-arrow-left"></i></a> {{ _('Monthly plans') }} {{ session['calendar-date'].strftime('%Y-%m') }} <a href="{{ url_for('dashboard.index', month_select='next') }}"><i class="fa-solid fa-arrow-right"></i></a></div>
           <div class="card-body">
             <div class="table-responsive">
               {{ calendar | safe }}
